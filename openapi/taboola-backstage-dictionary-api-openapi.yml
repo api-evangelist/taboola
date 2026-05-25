@@ -1,0 +1,177 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Dictionary API
+  version: '1.0'
+  description: |-
+    Reference data endpoints used to populate campaign targeting dropdowns and validate field
+    values. Provides supported countries, regions, cities, postal codes, DMAs, browsers, operating
+    systems, platforms, languages, contextual segments, minimum CPC values, and other enumerations.
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference/dictionary
+servers:
+  - url: https://backstage.taboola.com/backstage/api/1.0
+security:
+  - bearerAuth: []
+tags:
+  - name: Dictionary
+paths:
+  /resources/countries:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Countries
+      operationId: getListOfCountries
+      responses:
+        '200':
+          description: List of supported countries.
+  /resources/countries/{country_code}/regions:
+    get:
+      tags: [Dictionary]
+      summary: Get Regions In A Country
+      operationId: getRegionsInCountry
+      parameters:
+        - $ref: '#/components/parameters/countryCode'
+      responses:
+        '200':
+          description: Regions.
+  /resources/countries/{country_code}/cities:
+    get:
+      tags: [Dictionary]
+      summary: Get Cities In A Country
+      operationId: getCitiesInCountry
+      parameters:
+        - $ref: '#/components/parameters/countryCode'
+      responses:
+        '200':
+          description: Cities.
+  /resources/countries/{country_code}/postal_codes:
+    get:
+      tags: [Dictionary]
+      summary: Get Postal Codes For A Country
+      operationId: getPostalCodes
+      parameters:
+        - $ref: '#/components/parameters/countryCode'
+      responses:
+        '200':
+          description: Postal codes.
+  /resources/countries/US/dmas:
+    get:
+      tags: [Dictionary]
+      summary: Get DMAs In The US
+      operationId: getDMAs
+      responses:
+        '200':
+          description: List of US DMAs.
+  /resources/browsers:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Browsers
+      operationId: getListOfBrowsers
+      responses:
+        '200':
+          description: Browsers.
+  /resources/operating_systems:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Operating Systems
+      operationId: getListOfOperatingSystems
+      responses:
+        '200':
+          description: Operating systems.
+  /resources/operating_systems/ios/versions:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of iOS Versions
+      operationId: getListOfIosVersions
+      responses:
+        '200':
+          description: iOS versions.
+  /resources/operating_systems/android/versions:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Android Versions
+      operationId: getListOfAndroidVersions
+      responses:
+        '200':
+          description: Android versions.
+  /resources/platforms:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Platforms
+      operationId: getListOfPlatforms
+      responses:
+        '200':
+          description: Platforms.
+  /resources/languages:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Languages
+      operationId: getListOfLanguages
+      responses:
+        '200':
+          description: Languages.
+  /resources/campaigns/enums:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Campaign Enums
+      operationId: getCampaignEnums
+      responses:
+        '200':
+          description: Campaign enums.
+  /resources/items/enums:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Item Enums
+      operationId: getItemEnums
+      responses:
+        '200':
+          description: Item enums.
+  /resources/min_cpc:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Minimum CPC Values
+      operationId: getMinimumCpcValues
+      responses:
+        '200':
+          description: Minimum CPC values by currency.
+  /{account_id}/dictionary/contextual_segments:
+    get:
+      tags: [Dictionary]
+      summary: Get Contextual Segments
+      operationId: getContextualSegments
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Contextual segments.
+  /{account_id}/dictionary/publishers:
+    get:
+      tags: [Dictionary]
+      summary: Get List Of Available Publishers
+      operationId: getAvailablePublishers
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Publishers list.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+    countryCode:
+      name: country_code
+      in: path
+      required: true
+      schema:
+        type: string
+        minLength: 2
+        maxLength: 2

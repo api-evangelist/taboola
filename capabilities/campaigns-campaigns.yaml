@@ -1,0 +1,189 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Taboola Backstage Campaigns
+  description: |-
+    Self-contained Naftiko capability for managing Taboola Realize advertising campaigns
+    via the Backstage API. Wraps list/get/create/update/delete/duplicate plus bulk and
+    reach-estimator operations.
+  tags:
+    - Taboola
+    - Advertising
+    - Campaigns
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TABOOLA_ACCESS_TOKEN: TABOOLA_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: campaigns
+      baseUri: https://backstage.taboola.com/backstage/api/1.0
+      description: Taboola Backstage Campaigns business capability.
+      resources:
+        - name: campaigns
+          path: /{account_id}/campaigns/
+          operations:
+            - name: getAllCampaigns
+              method: GET
+              description: Get all campaigns for the specified account.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: createCampaign
+              method: POST
+              description: Create a new campaign.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: campaign
+          path: /{account_id}/campaigns/{campaign_id}
+          operations:
+            - name: getCampaign
+              method: GET
+              description: Get a specific campaign.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+                - name: campaign_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: updateCampaign
+              method: POST
+              description: Update an existing campaign.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+                - name: campaign_id
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: deleteCampaign
+              method: DELETE
+              description: Delete a campaign (sets status to TERMINATED).
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+                - name: campaign_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: bearer
+        value: '{{env.TABOOLA_ACCESS_TOKEN}}'
+        placement: header
+  exposes:
+    - type: rest
+      namespace: campaigns-rest
+      port: 8080
+      description: REST adapter for Taboola Backstage Campaigns.
+      resources:
+        - path: /v1/{account_id}/campaigns
+          name: campaigns
+          operations:
+            - method: GET
+              name: getAllCampaigns
+              call: campaigns.getAllCampaigns
+              with:
+                account_id: rest.path.account_id
+              outputParameters:
+                - type: object
+                  mapping: $.
+            - method: POST
+              name: createCampaign
+              call: campaigns.createCampaign
+              with:
+                account_id: rest.path.account_id
+                body: rest.body
+              outputParameters:
+                - type: object
+                  mapping: $.
+    - type: mcp
+      namespace: campaigns-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Taboola Backstage Campaigns.
+      tools:
+        - name: taboola-list-campaigns
+          description: List all Taboola campaigns for an account.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: campaigns.getAllCampaigns
+          with:
+            account_id: tools.account_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: taboola-create-campaign
+          description: Create a new Taboola campaign.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: campaigns.createCampaign
+          with:
+            account_id: tools.account_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: taboola-get-campaign
+          description: Get a Taboola campaign by ID.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: campaign.getCampaign
+          with:
+            account_id: tools.account_id
+            campaign_id: tools.campaign_id
+          outputParameters:
+            - type: object
+              mapping: $.

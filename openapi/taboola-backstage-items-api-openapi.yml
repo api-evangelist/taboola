@@ -1,0 +1,237 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Campaign Items API
+  version: '1.0'
+  description: |-
+    Manage individual campaign creatives (items) and performance video items (motion ads) for Taboola
+    Realize campaigns. Supports CRUD operations on items belonging to a campaign and bulk operations
+    across multiple campaigns.
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference/campaign-items-overview
+servers:
+  - url: https://backstage.taboola.com/backstage/api/1.0
+security:
+  - bearerAuth: []
+tags:
+  - name: Campaign Items
+    description: Standard ad items (creatives) belonging to a campaign.
+  - name: Video Items
+    description: Performance video items (motion ads).
+  - name: Bulk Items
+    description: Bulk create, update, and delete items across campaigns.
+paths:
+  /{account_id}/campaigns/{campaign_id}/items/:
+    get:
+      tags: [Campaign Items]
+      summary: Get All Campaign Items
+      description: Get a list of items for the specified campaign.
+      operationId: getAllCampaignItems
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: List of campaign items.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+    post:
+      tags: [Campaign Items]
+      summary: Create A Campaign Item
+      description: Create a new item under the specified campaign.
+      operationId: createCampaignItem
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: Created item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+  /{account_id}/campaigns/{campaign_id}/items/{item_id}:
+    get:
+      tags: [Campaign Items]
+      summary: Get A Campaign Item
+      description: Get the specified campaign item.
+      operationId: getCampaignItem
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+        - $ref: '#/components/parameters/itemId'
+      responses:
+        '200':
+          description: Single item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+    post:
+      tags: [Campaign Items]
+      summary: Update A Campaign Item
+      description: Update an existing campaign item.
+      operationId: updateCampaignItem
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+        - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: Updated item.
+    delete:
+      tags: [Campaign Items]
+      summary: Delete A Campaign Item
+      description: Delete the specified item.
+      operationId: deleteCampaignItem
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+        - $ref: '#/components/parameters/itemId'
+      responses:
+        '200':
+          description: Deletion confirmation.
+  /{account_id}/campaigns/{campaign_id}/items/mass-create:
+    post:
+      tags: [Bulk Items]
+      summary: Mass Create Items For A Campaign
+      description: Create a batch of items for a given campaign in a single request.
+      operationId: massCreateItems
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: Mass create result.
+  /{account_id}/items/bulk:
+    post:
+      tags: [Bulk Items]
+      summary: Bulk Create Items Across Campaigns
+      description: Bulk create the same items across multiple campaigns.
+      operationId: bulkCreateItemsAcrossCampaigns
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Bulk create result.
+    put:
+      tags: [Bulk Items]
+      summary: Bulk Update Items Across Campaigns
+      description: Bulk update items across multiple campaigns.
+      operationId: bulkUpdateItemsAcrossCampaigns
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Bulk update result.
+    delete:
+      tags: [Bulk Items]
+      summary: Bulk Delete Items Across Campaigns
+      description: Bulk delete items across multiple campaigns.
+      operationId: bulkDeleteItemsAcrossCampaigns
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Bulk delete result.
+  /{account_id}/campaigns/{campaign_id}/video/items/:
+    get:
+      tags: [Video Items]
+      summary: Get All Performance Video Items
+      description: Get a list of performance video items (motion ads) for the campaign.
+      operationId: getAllVideoItems
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: List of video items.
+    post:
+      tags: [Video Items]
+      summary: Create A Performance Video Item
+      description: Create a performance video item (motion ad).
+      operationId: createVideoItem
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Created video item.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+    campaignId:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+    itemId:
+      name: item_id
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+        campaign_id:
+          type: string
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        cta:
+          type: string
+        thumbnail_url:
+          type: string
+        creative_focus:
+          type: string
+        status:
+          type: string
+          enum: [RUNNING, PAUSED, PENDING_APPROVAL, REJECTED, CRAWLING, TERMINATED, EXPIRED]
+        approval_state:
+          type: string
+        type:
+          type: string
+          enum: [PERFORMANCE_VIDEO, SPONSORED]

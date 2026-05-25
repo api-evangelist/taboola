@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/taboola/main/json-schema/taboola-conversion-rule-schema.json",
+  "title": "Taboola Conversion Rule",
+  "description": "Conversion rule used to track campaign outcomes via the Taboola pixel or S2S integration.",
+  "type": "object",
+  "required": ["display_name", "category", "type"],
+  "properties": {
+    "id": { "type": "string" },
+    "advertiser_id": { "type": "string" },
+    "display_name": { "type": "string" },
+    "description": { "type": "string" },
+    "category": {
+      "type": "string",
+      "enum": [
+        "MAKE_PURCHASE",
+        "LEAD",
+        "COMPLETE_REGISTRATION",
+        "ADD_TO_CART",
+        "START_TRIAL",
+        "ADD_PAYMENT_INFO",
+        "SUBSCRIBE",
+        "OTHER",
+        "PAGE_VIEW"
+      ]
+    },
+    "type": {
+      "type": "string",
+      "enum": ["EVENT_BASED", "URL_BASED"]
+    },
+    "event_name": { "type": "string" },
+    "condition": { "type": "object" },
+    "look_back_window": { "type": "integer", "minimum": 1 },
+    "view_through_look_back_window": { "type": "integer", "minimum": 1 },
+    "include_in_total_conversions": { "type": "boolean" },
+    "status": {
+      "type": "string",
+      "enum": ["ACTIVE", "ARCHIVED"]
+    },
+    "last_modified_at": { "type": "string", "format": "date-time" },
+    "last_modified_by": { "type": "string" }
+  }
+}

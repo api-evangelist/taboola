@@ -1,0 +1,47 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Taboola
+providerId: taboola
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Rate Limiting
+  - Quotas
+  - Advertising
+description: |-
+  Taboola does not publish a public rate-limit table for the Backstage API. Limits are managed
+  per OAuth client and enforced by the API gateway. Heavy-volume integrations (bulk operations,
+  high-frequency reporting) should coordinate with their Taboola account manager. The standard
+  pattern uses OAuth 2.0 client credentials with bearer-token authorization; tokens have a
+  limited TTL and must be refreshed via the token endpoint.
+sources:
+  - https://developers.taboola.com/backstage-api/reference/authentication-basics.md
+  - https://developers.taboola.com/backstage-api/reference/client-credentials-flow.md
+  - https://developers.taboola.com/backstage-api/reference/getting-an-access-token.md
+algorithm: token-bucket
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  unauthorized: 401
+  forbidden: 403
+limits:
+  - tier: Per OAuth Client (default)
+    rpm: unspecified
+    rph: unspecified
+    notes: |-
+      Default rate limits per OAuth client are not publicly published. Bulk endpoints
+      (bulk-update-campaigns, bulk-create-items-across-campaigns, bulk-delete-items-across-campaigns)
+      should be used in preference to high-frequency single-resource calls.
+  - tier: Reporting endpoints
+    rpm: unspecified
+    notes: |-
+      Reports (campaign-summary, top-campaign-content, realtime-ads) have separate cache TTLs
+      and stricter limits than write endpoints. Hourly aggregation is recommended over polling
+      every minute.
+recommendations:
+  - Cache OAuth access tokens for their full TTL rather than re-requesting per call.
+  - Use bulk endpoints rather than per-resource loops.
+  - Use `dimensions/day` summaries for trend analysis instead of repeatedly hitting realtime-ads.
+  - Coordinate elevated limits with your Taboola account manager.

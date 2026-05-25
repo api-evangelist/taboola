@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Taboola Backstage Accounts
+  description: |-
+    Self-contained Naftiko capability for discovering and inspecting advertiser accounts within
+    a Taboola network — used by agencies and platforms managing many advertisers.
+  tags:
+    - Taboola
+    - Accounts
+    - Network
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TABOOLA_ACCESS_TOKEN: TABOOLA_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: accounts
+      baseUri: https://backstage.taboola.com/backstage/api/1.0
+      description: Taboola accounts business capability.
+      resources:
+        - name: allowed
+          path: /users/current/allowed-accounts
+          operations:
+            - name: getAllowedAccounts
+              method: GET
+              description: List accounts allowed for the authenticated user.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: advertisers
+          path: /{network_id}/advertisers
+          operations:
+            - name: getAdvertisers
+              method: GET
+              description: List advertiser accounts in a network.
+              outputRawFormat: json
+              inputParameters:
+                - name: network_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: bearer
+        value: '{{env.TABOOLA_ACCESS_TOKEN}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: accounts-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Taboola accounts.
+      tools:
+        - name: taboola-list-allowed-accounts
+          description: List accounts your API user is allowed to manage.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: accounts.getAllowedAccounts
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: taboola-list-advertisers-in-network
+          description: List advertiser accounts in a Taboola network.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: accounts.getAdvertisers
+          with:
+            network_id: tools.network_id
+          outputParameters:
+            - type: object
+              mapping: $.

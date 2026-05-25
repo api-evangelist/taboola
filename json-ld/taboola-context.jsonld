@@ -1,0 +1,56 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "taboola": "https://api-evangelist.github.io/taboola/vocabulary#",
+    "Campaign": "taboola:Campaign",
+    "CampaignItem": "taboola:CampaignItem",
+    "ConversionRule": "taboola:ConversionRule",
+    "Audience": "taboola:Audience",
+    "Report": "taboola:Report",
+    "Account": "taboola:Account",
+    "Advertiser": {
+      "@id": "taboola:Advertiser",
+      "@type": "schema:Organization"
+    },
+    "Publisher": {
+      "@id": "taboola:Publisher",
+      "@type": "schema:Organization"
+    },
+    "id": "@id",
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": "schema:url",
+    "advertiser_id": "taboola:advertiserId",
+    "campaign_id": "taboola:campaignId",
+    "account_id": "taboola:accountId",
+    "cpc": "taboola:cpc",
+    "cpm": "taboola:cpm",
+    "spent": "schema:price",
+    "currency": "schema:priceCurrency",
+    "start_date": {
+      "@id": "schema:startDate",
+      "@type": "schema:Date"
+    },
+    "end_date": {
+      "@id": "schema:endDate",
+      "@type": "schema:Date"
+    },
+    "country_targeting": "taboola:countryTargeting",
+    "platform_targeting": "taboola:platformTargeting",
+    "publisher_targeting": "taboola:publisherTargeting",
+    "bid_strategy": "taboola:bidStrategy",
+    "marketing_objective": "taboola:marketingObjective",
+    "status": "schema:eventStatus",
+    "thumbnail_url": "schema:thumbnailUrl",
+    "title": "schema:headline",
+    "impressions": "taboola:impressions",
+    "clicks": "taboola:clicks",
+    "ctr": "taboola:ctr",
+    "conversions": "taboola:conversions",
+    "roas": "taboola:roas",
+    "look_back_window": "taboola:lookBackWindow",
+    "category": "schema:category",
+    "type": "@type"
+  }
+}

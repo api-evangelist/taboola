@@ -1,0 +1,112 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Taboola Backstage Conversions
+  description: |-
+    Self-contained Naftiko capability for managing Taboola conversion rules used to track
+    purchases, leads, page views, and other campaign outcomes.
+  tags:
+    - Taboola
+    - Conversions
+    - Measurement
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TABOOLA_ACCESS_TOKEN: TABOOLA_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: conversions
+      baseUri: https://backstage.taboola.com/backstage/api/1.0
+      description: Taboola conversion rules business capability.
+      resources:
+        - name: rules
+          path: /{account_id}/conversion_rules
+          operations:
+            - name: getAllConversionRules
+              method: GET
+              description: List all conversion rules.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+            - name: createConversionRule
+              method: POST
+              description: Create a new conversion rule.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: rule
+          path: /{account_id}/conversion_rules/{rule_id}
+          operations:
+            - name: getConversionRule
+              method: GET
+              description: Get a specific conversion rule.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+                - name: rule_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: bearer
+        value: '{{env.TABOOLA_ACCESS_TOKEN}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: conversions-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Taboola conversion rules.
+      tools:
+        - name: taboola-list-conversion-rules
+          description: List all Taboola conversion rules.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: conversions.getAllConversionRules
+          with:
+            account_id: tools.account_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: taboola-create-conversion-rule
+          description: Create a Taboola conversion rule.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: conversions.createConversionRule
+          with:
+            account_id: tools.account_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.

@@ -1,0 +1,178 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Reports API
+  version: '1.0'
+  description: |-
+    Reporting endpoints for Taboola Realize advertisers. Retrieve campaign performance,
+    top content, site/day breakdowns, and other aggregated metrics for analysis and
+    optimization. Reports support a range of dimensions and metrics with date filtering.
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+  - url: https://backstage.taboola.com/backstage/api/1.0
+security:
+  - bearerAuth: []
+tags:
+  - name: Reports
+paths:
+  /{account_id}/reports/campaign-summary/dimensions/{dimension}:
+    get:
+      tags: [Reports]
+      summary: Get Campaign Summary Report
+      description: |-
+        Get aggregated campaign performance by dimension (day, campaign, site, country, etc).
+      operationId: getCampaignSummaryReport
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: dimension
+          in: path
+          required: true
+          schema:
+            type: string
+            enum:
+              - day
+              - week
+              - month
+              - campaign_breakdown
+              - campaign_site_day_breakdown
+              - site_breakdown
+              - country_breakdown
+              - region_breakdown
+              - platform_breakdown
+              - os_family_breakdown
+              - browser_breakdown
+              - language_breakdown
+              - dma_breakdown
+              - city_breakdown
+              - ad_breakdown
+        - name: start_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: campaign
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Report rows with metrics.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timezone:
+                    type: string
+                  last_used_rawdata_update_time:
+                    type: string
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ReportRow'
+  /{account_id}/reports/top-campaign-content/dimensions/item_breakdown:
+    get:
+      tags: [Reports]
+      summary: Get Top Campaign Content Report
+      description: Get top performing creative items for the specified date range.
+      operationId: getTopCampaignContent
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: start_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+        - name: end_date
+          in: query
+          required: true
+          schema:
+            type: string
+            format: date
+      responses:
+        '200':
+          description: Top content report.
+  /{account_id}/reports/realtime-ads:
+    get:
+      tags: [Reports]
+      summary: Get Real-Time Ads Report
+      description: Near real-time performance snapshot for ads.
+      operationId: getRealTimeAdsReport
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Real-time metrics.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    ReportRow:
+      type: object
+      properties:
+        date:
+          type: string
+        campaign:
+          type: string
+        campaign_name:
+          type: string
+        site:
+          type: string
+        site_name:
+          type: string
+        country:
+          type: string
+        platform:
+          type: string
+        impressions:
+          type: integer
+        visible_impressions:
+          type: integer
+        clicks:
+          type: integer
+        ctr:
+          type: number
+          format: float
+        spent:
+          type: number
+          format: float
+        cpc:
+          type: number
+          format: float
+        cpm:
+          type: number
+          format: float
+        conversions:
+          type: integer
+        conversions_value:
+          type: number
+          format: float
+        cpa:
+          type: number
+          format: float
+        cpa_actions_num:
+          type: integer
+        roas:
+          type: number
+          format: float
+        currency:
+          type: string

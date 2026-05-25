@@ -1,0 +1,106 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Taboola Backstage Dictionary
+  description: |-
+    Self-contained Naftiko capability exposing Taboola reference data — countries, regions,
+    cities, postal codes, DMAs, browsers, operating systems, platforms, languages, publishers,
+    contextual segments, and campaign/item enumerations.
+  tags:
+    - Taboola
+    - Reference Data
+    - Targeting
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TABOOLA_ACCESS_TOKEN: TABOOLA_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: dictionary
+      baseUri: https://backstage.taboola.com/backstage/api/1.0
+      description: Taboola dictionary business capability.
+      resources:
+        - name: countries
+          path: /resources/countries
+          operations:
+            - name: getCountries
+              method: GET
+              description: List supported countries.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: browsers
+          path: /resources/browsers
+          operations:
+            - name: getBrowsers
+              method: GET
+              description: List supported browsers.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: operatingSystems
+          path: /resources/operating_systems
+          operations:
+            - name: getOperatingSystems
+              method: GET
+              description: List supported operating systems.
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: publishers
+          path: /{account_id}/dictionary/publishers
+          operations:
+            - name: getPublishers
+              method: GET
+              description: List available publishers for the account.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: bearer
+        value: '{{env.TABOOLA_ACCESS_TOKEN}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: dictionary-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Taboola dictionary.
+      tools:
+        - name: taboola-list-countries
+          description: List countries supported by Taboola.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: dictionary.getCountries
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: taboola-list-publishers
+          description: List publishers available for an account.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: dictionary.getPublishers
+          with:
+            account_id: tools.account_id
+          outputParameters:
+            - type: object
+              mapping: $.

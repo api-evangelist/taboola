@@ -1,0 +1,123 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Taboola
+providerId: taboola
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - Advertising
+  - Native
+description: |-
+  FOCUS-aligned FinOps definition for the Taboola Realize advertising platform. Advertising
+  spend is metered per click, per thousand impressions, or per conversion depending on the
+  campaign bid strategy. Conversion data (purchases, leads, page views) is sourced from
+  Taboola conversion rules. Reports are exposed via the Backstage Reports API which provides
+  the source of truth for cost reconciliation against advertiser invoices.
+sources:
+  - https://developers.taboola.com/backstage-api/reference
+  - https://www.taboola.com/
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Taboola
+serviceCategory: Marketing and Advertising
+billingModel:
+  pricingCategory: Usage-Based
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Tax
+    - Credit
+    - Adjustment
+  primaryUnit: click
+  secondaryUnits:
+    - impression
+    - conversion
+focusColumns:
+  ServiceName: Taboola Realize
+  ServiceCategory: Marketing and Advertising
+  ProviderName: Taboola
+  PublisherName: Taboola
+  InvoiceIssuerName: Taboola
+  PricingCategory: Usage-Based
+  PricingUnit: click
+  BillingCurrency: USD
+meters:
+  - name: clicks
+    unit: click
+    aggregation: sum
+    dimensions:
+      - account_id
+      - campaign_id
+      - item_id
+      - site
+      - country
+      - platform
+    sourceEndpoint: /{account_id}/reports/campaign-summary/dimensions/{dimension}
+  - name: impressions
+    unit: impression
+    aggregation: sum
+    dimensions:
+      - account_id
+      - campaign_id
+      - item_id
+      - site
+      - country
+      - platform
+    sourceEndpoint: /{account_id}/reports/campaign-summary/dimensions/{dimension}
+  - name: visible_impressions
+    unit: impression
+    aggregation: sum
+    description: Viewable impressions per IAB measurement.
+  - name: spent
+    unit: currency
+    aggregation: sum
+    dimensions:
+      - account_id
+      - campaign_id
+      - currency
+  - name: conversions
+    unit: conversion
+    aggregation: sum
+    dimensions:
+      - account_id
+      - campaign_id
+      - conversion_rule_id
+    sourceEndpoint: /{account_id}/conversion_rules/plus_data
+  - name: conversions_value
+    unit: currency
+    aggregation: sum
+  - name: cpa
+    unit: currency_per_conversion
+    aggregation: derived
+  - name: roas
+    unit: ratio
+    aggregation: derived
+reportingSurfaces:
+  - id: campaign-summary
+    description: Aggregated campaign spend and performance by dimension.
+    endpoint: /{account_id}/reports/campaign-summary/dimensions/{dimension}
+    dimensions:
+      - day
+      - week
+      - month
+      - campaign_breakdown
+      - site_breakdown
+      - country_breakdown
+      - platform_breakdown
+      - ad_breakdown
+  - id: top-campaign-content
+    description: Top performing creative items.
+    endpoint: /{account_id}/reports/top-campaign-content/dimensions/item_breakdown
+  - id: realtime-ads
+    description: Near real-time performance snapshot.
+    endpoint: /{account_id}/reports/realtime-ads

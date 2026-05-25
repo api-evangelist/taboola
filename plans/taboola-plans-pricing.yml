@@ -1,0 +1,92 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Taboola
+providerId: taboola
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - Advertising
+  - Native Advertising
+  - Discovery
+  - Performance Marketing
+description: |-
+  Taboola does not publish a self-service rate card for advertising spend. Campaigns are billed
+  CPC, CPM, or CPA per bid strategy, with Backstage API access granted to advertisers (typically
+  spending above a minimum monthly threshold) and partners. Minimum daily campaign budget is
+  generally $10/day with minimum CPC values per currency (queryable via the dictionary endpoint
+  `/resources/min_cpc`). API access itself is free for approved advertisers and partners.
+sources:
+  - https://www.taboola.com/
+  - https://developers.taboola.com/backstage-api/reference
+  - https://developers.taboola.com/backstage-api/reference/get-list-of-minimum-cpc-values.md
+plans:
+  - id: taboola-realize-advertiser
+    name: Realize Advertiser
+    type: usage-based
+    description: |-
+      Self-serve advertiser account on the Realize platform. Pay-per-click, pay-per-impression,
+      or pay-per-conversion based on campaign bid strategy. Backstage API access available on
+      request through your Taboola account manager. Minimum daily campaign budget typically $10.
+    entries:
+      - label: CPC bid
+        name: cpc
+        type: metered
+        metric: click
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'variable'
+        userMultiplied: false
+        description: Pay-per-click pricing; per-currency minimum CPC enforced.
+      - label: CPM bid
+        name: cpm
+        type: metered
+        metric: impression
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1000
+        price: 'variable'
+        userMultiplied: false
+      - label: Target CPA
+        name: cpa
+        type: metered
+        metric: conversion
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: 'variable'
+        userMultiplied: false
+    features:
+      - Self-serve campaign management via Realize UI
+      - Optional Backstage API access for programmatic management
+      - First-party, lookalike, marketplace, contextual, and combined audience targeting
+      - Country, region, city, postal-code, DMA, platform, OS, browser, and publisher targeting
+      - Conversion tracking via pixel or server-to-server
+      - Reporting endpoints (campaign-summary, top-content, real-time)
+  - id: taboola-managed-network
+    name: Managed / Network Account
+    type: custom
+    description: |-
+      Network and partner accounts for agencies, DSPs, and platforms managing many advertiser
+      accounts. Includes bulk operations across campaigns and items, plus network-wide
+      reporting. Pricing and minimums negotiated directly with Taboola.
+    entries:
+      - label: Custom pricing
+        name: custom
+        type: custom
+        metric: contract
+        limit: -1
+        timeFrame: contract
+        geo: global
+        price: 'contact-sales'
+        userMultiplied: false
+    features:
+      - Bulk create / update / delete items and campaigns across accounts
+      - Network-wide campaign list endpoint
+      - Multi-advertiser account discovery
+      - Dedicated account management

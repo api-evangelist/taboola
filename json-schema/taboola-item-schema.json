@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/taboola/main/json-schema/taboola-item-schema.json",
+  "title": "Taboola Campaign Item",
+  "description": "Creative item (ad) belonging to a Taboola Realize campaign.",
+  "type": "object",
+  "required": ["url"],
+  "properties": {
+    "id": { "type": "string" },
+    "campaign_id": { "type": "string" },
+    "url": { "type": "string", "format": "uri" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "cta": { "type": "string" },
+    "thumbnail_url": { "type": "string", "format": "uri" },
+    "creative_focus": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["RUNNING", "PAUSED", "PENDING_APPROVAL", "REJECTED", "CRAWLING", "TERMINATED", "EXPIRED"]
+    },
+    "approval_state": { "type": "string" },
+    "type": {
+      "type": "string",
+      "enum": ["PERFORMANCE_VIDEO", "SPONSORED"]
+    },
+    "verification_pixel": {
+      "type": "object",
+      "properties": {
+        "url": { "type": "string" }
+      }
+    }
+  }
+}

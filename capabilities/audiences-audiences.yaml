@@ -1,0 +1,124 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Taboola Backstage Audiences
+  description: |-
+    Self-contained Naftiko capability covering Taboola first-party audiences, custom audiences,
+    lookalike audiences, marketplace audience segments, and combined audiences for use in
+    Realize campaign targeting.
+  tags:
+    - Taboola
+    - Audiences
+    - Targeting
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+  - namespace: env
+    keys:
+      TABOOLA_ACCESS_TOKEN: TABOOLA_ACCESS_TOKEN
+capability:
+  consumes:
+    - type: http
+      namespace: audiences
+      baseUri: https://backstage.taboola.com/backstage/api/1.0
+      description: Taboola audiences business capability.
+      resources:
+        - name: firstParty
+          path: /{account_id}/audience_onboarding
+          operations:
+            - name: createFirstPartyAudience
+              method: POST
+              description: Create a first-party audience.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+                - name: body
+                  in: body
+                  type: object
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: lookalikes
+          path: /{account_id}/dictionary/lookalike_audiences
+          operations:
+            - name: getLookalikeAudiences
+              method: GET
+              description: List available lookalike audiences.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+        - name: marketplace
+          path: /{account_id}/dictionary/audience_segments
+          operations:
+            - name: getMarketplaceAudiences
+              method: GET
+              description: List marketplace (third-party) audience segments.
+              outputRawFormat: json
+              inputParameters:
+                - name: account_id
+                  in: path
+                  type: string
+                  required: true
+              outputParameters:
+                - name: result
+                  type: object
+                  value: $.
+      authentication:
+        type: bearer
+        value: '{{env.TABOOLA_ACCESS_TOKEN}}'
+        placement: header
+  exposes:
+    - type: mcp
+      namespace: audiences-mcp
+      port: 9090
+      transport: http
+      description: MCP adapter for Taboola audiences.
+      tools:
+        - name: taboola-create-first-party-audience
+          description: Create a Taboola first-party audience.
+          hints:
+            readOnly: false
+            destructive: false
+            idempotent: false
+          call: audiences.createFirstPartyAudience
+          with:
+            account_id: tools.account_id
+            body: tools.body
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: taboola-list-lookalike-audiences
+          description: List available Taboola lookalike audiences.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: audiences.getLookalikeAudiences
+          with:
+            account_id: tools.account_id
+          outputParameters:
+            - type: object
+              mapping: $.
+        - name: taboola-list-marketplace-audiences
+          description: List Taboola marketplace audience segments.
+          hints:
+            readOnly: true
+            destructive: false
+            idempotent: true
+          call: audiences.getMarketplaceAudiences
+          with:
+            account_id: tools.account_id
+          outputParameters:
+            - type: object
+              mapping: $.
