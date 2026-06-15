@@ -1,0 +1,243 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taboola Backstage Campaigns API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Campaigns",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              }
+            ]
+          },
+          "docs": "Get all campaigns for the specified account."
+        },
+        {
+          "info": {
+            "name": "Create A Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new campaign under the specified account."
+        },
+        {
+          "info": {
+            "name": "Get A Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path",
+                "description": "Campaign identifier."
+              }
+            ]
+          },
+          "docs": "Get a specific campaign by ID."
+        },
+        {
+          "info": {
+            "name": "Update A Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path",
+                "description": "Campaign identifier."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing campaign. Fields omitted or null will not be updated."
+        },
+        {
+          "info": {
+            "name": "Delete A Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path",
+                "description": "Campaign identifier."
+              }
+            ]
+          },
+          "docs": "Mark the campaign as TERMINATED. Subsequent references return 404."
+        },
+        {
+          "info": {
+            "name": "Duplicate A Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/duplicate",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path",
+                "description": "Campaign identifier."
+              }
+            ]
+          },
+          "docs": "Duplicate an existing campaign optionally overriding fields and target account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bulk Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Campaigns Across The Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/network",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              }
+            ]
+          },
+          "docs": "Convenience endpoint for fetching basic campaign details across the network."
+        },
+        {
+          "info": {
+            "name": "Bulk Update Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/bulk",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              }
+            ]
+          },
+          "docs": "Bulk update multiple campaigns in a single API call."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reach Estimator",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Estimate Campaign Reach",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/reach-estimator",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              }
+            ]
+          },
+          "docs": "Estimate total impressions for the supplied targeting."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

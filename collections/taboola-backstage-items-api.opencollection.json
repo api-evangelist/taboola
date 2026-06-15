@@ -1,0 +1,305 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taboola Backstage Campaign Items API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Campaign Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Campaign Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/items/",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a list of items for the specified campaign."
+        },
+        {
+          "info": {
+            "name": "Create A Campaign Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/items/",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new item under the specified campaign."
+        },
+        {
+          "info": {
+            "name": "Get A Campaign Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/items/:item_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get the specified campaign item."
+        },
+        {
+          "info": {
+            "name": "Update A Campaign Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/items/:item_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing campaign item."
+        },
+        {
+          "info": {
+            "name": "Delete A Campaign Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/items/:item_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "item_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete the specified item."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Bulk Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mass Create Items For A Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/items/mass-create",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a batch of items for a given campaign in a single request."
+        },
+        {
+          "info": {
+            "name": "Bulk Create Items Across Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/items/bulk",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Bulk create the same items across multiple campaigns."
+        },
+        {
+          "info": {
+            "name": "Bulk Update Items Across Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/items/bulk",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Bulk update items across multiple campaigns."
+        },
+        {
+          "info": {
+            "name": "Bulk Delete Items Across Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/items/bulk",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Bulk delete items across multiple campaigns."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Video Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Performance Video Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/video/items/",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a list of performance video items (motion ads) for the campaign."
+        },
+        {
+          "info": {
+            "name": "Create A Performance Video Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/video/items/",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a performance video item (motion ad)."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

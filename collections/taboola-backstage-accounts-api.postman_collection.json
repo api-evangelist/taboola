@@ -1,0 +1,305 @@
+{
+  "item": [
+    {
+      "id": "5bc56c35-5709-4a99-b7c6-eda04dedf846",
+      "name": "Accounts",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "360b570d-1e14-49ec-9e6f-751943a150a4",
+          "name": "Get Allowed Accounts",
+          "request": {
+            "name": "Get Allowed Accounts",
+            "description": {
+              "content": "Returns all accounts allowed for the authenticated user credentials.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "current",
+                "allowed-accounts"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ba9de55d-fdf6-490b-bf42-4f66a3132a42",
+              "name": "Allowed accounts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "current",
+                    "allowed-accounts"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"account_id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"ADVERTISER\",\n      \"currency\": \"string\",\n      \"time_zone_name\": \"string\",\n      \"partner_types\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": \"string\",\n      \"account_id\": \"string\",\n      \"name\": \"string\",\n      \"type\": \"PUBLISHER\",\n      \"currency\": \"string\",\n      \"time_zone_name\": \"string\",\n      \"partner_types\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a8cad370-67b5-4999-997d-5ce669da651d",
+          "name": "Get Advertiser Accounts In Network",
+          "request": {
+            "name": "Get Advertiser Accounts In Network",
+            "description": {
+              "content": "Returns advertiser accounts in the specified network.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":network_id",
+                "advertisers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "network_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b8660fb-86ed-4cf7-be8c-af1bb95b9450",
+              "name": "Advertiser accounts.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":network_id",
+                    "advertisers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "network_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f95539ef-fc82-4ef4-ad3a-ee8cc87180ff",
+          "name": "Get Account Details",
+          "request": {
+            "name": "Get Account Details",
+            "description": {
+              "content": "Retrieve details for the specified account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "account-details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e90a5d81-39ae-403d-b62a-21ea9b05d21c",
+              "name": "Account details.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "account-details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"account_id\": \"string\",\n  \"name\": \"string\",\n  \"type\": \"NETWORK\",\n  \"currency\": \"string\",\n  \"time_zone_name\": \"string\",\n  \"partner_types\": [\n    \"string\",\n    \"string\"\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://backstage.taboola.com/backstage/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "cc0a36af-651b-4f2b-a21c-33e3be790eba",
+    "name": "Taboola Backstage Accounts API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}

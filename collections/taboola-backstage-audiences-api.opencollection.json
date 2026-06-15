@@ -1,0 +1,318 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taboola Backstage Audiences API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "First Party Audiences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create A First Party Audience",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/audience_onboarding",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new first-party audience for the specified account."
+        },
+        {
+          "info": {
+            "name": "Add Or Remove Users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/audience_onboarding/:audience_id/users",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "audience_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add or remove users from a first party audience using hashed identifiers."
+        },
+        {
+          "info": {
+            "name": "Get My Audience",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/audience_onboarding/:audience_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "audience_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Fetch a specific first-party audience by ID."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Custom Audiences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Custom Audiences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/custom_audiences",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get all Custom Audiences for the specified account, including network-level audiences."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Combined Audiences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Combined Audiences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/combined_audiences",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get All Combined Audiences"
+        },
+        {
+          "info": {
+            "name": "Create A Combined Audience",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/combined_audiences",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create A Combined Audience"
+        },
+        {
+          "info": {
+            "name": "Get A Combined Audience",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/combined_audiences/:audience_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "audience_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get A Combined Audience"
+        },
+        {
+          "info": {
+            "name": "Update A Combined Audience",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/combined_audiences/:audience_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "audience_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update A Combined Audience"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Lookalike Audiences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Lookalike Audiences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/dictionary/lookalike_audiences",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a list of available lookalike audiences for the account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Marketplace Audiences",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Marketplace Audiences",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/dictionary/audience_segments",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a list of available Marketplace (third-party) Audiences for the account."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Audience Targeting",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get My Audience Targeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/targeting/my_audience",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get My Audience Targeting"
+        },
+        {
+          "info": {
+            "name": "Update My Audience Targeting",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/targeting/my_audience",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update My Audience Targeting"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

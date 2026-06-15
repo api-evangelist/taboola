@@ -1,0 +1,995 @@
+{
+  "item": [
+    {
+      "id": "384114eb-c49d-4b26-b55d-efb7e424b19e",
+      "name": "Campaigns",
+      "description": {
+        "content": "Create, retrieve, update, duplicate, and delete advertising campaigns.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "65b76b89-80fb-4b87-a631-7a19f0b24b5d",
+          "name": "Get All Campaigns",
+          "request": {
+            "name": "Get All Campaigns",
+            "description": {
+              "content": "Get all campaigns for the specified account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "687f6788-a60b-48c3-bdea-ffd9c2b1878d",
+              "name": "List of campaigns.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"advertiser_id\": \"string\",\n      \"name\": \"string\",\n      \"branding_text\": \"string\",\n      \"tracking_code\": \"string\",\n      \"cpc\": 2016.2317678579723,\n      \"spending_limit\": 3618.433008578876,\n      \"spending_limit_model\": \"DAILY\",\n      \"daily_cap\": 5824.058103410812,\n      \"daily_ad_delivery_model\": \"STABLE\",\n      \"start_date\": \"2000-06-19\",\n      \"end_date\": \"2011-06-06\",\n      \"is_active\": true,\n      \"status\": \"PENDING_APPROVAL\",\n      \"approval_state\": \"string\",\n      \"marketing_objective\": \"LEADS_GENERATION\",\n      \"bid_strategy\": \"FIXED\",\n      \"bid_type\": \"CPM\",\n      \"pricing_model\": \"string\",\n      \"cpa_goal\": 9109.844706365258,\n      \"country_targeting\": {\n        \"type\": \"EXCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"sub_country_targeting\": {\n        \"type\": \"ALL\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"platform_targeting\": {\n        \"type\": \"ALL\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"browser_targeting\": {\n        \"type\": \"ALL\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"os_targeting\": {\n        \"type\": \"ALL\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"publisher_targeting\": {\n        \"type\": \"EXCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"contextual_segments_targeting\": {\n        \"type\": \"EXCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"custom_audience_targeting\": {\n        \"type\": \"ALL\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"lookalike_audience_targeting\": {\n        \"type\": \"EXCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"audience_segments_multi_targeting\": {},\n      \"spent\": 9361.249168881046\n    },\n    {\n      \"id\": \"string\",\n      \"advertiser_id\": \"string\",\n      \"name\": \"string\",\n      \"branding_text\": \"string\",\n      \"tracking_code\": \"string\",\n      \"cpc\": 9539.509629536225,\n      \"spending_limit\": 226.13488408776527,\n      \"spending_limit_model\": \"ENTIRE\",\n      \"daily_cap\": 5118.539193607338,\n      \"daily_ad_delivery_model\": \"STABLE\",\n      \"start_date\": \"1980-02-01\",\n      \"end_date\": \"1968-07-31\",\n      \"is_active\": true,\n      \"status\": \"RUNNING\",\n      \"approval_state\": \"string\",\n      \"marketing_objective\": \"DRIVE_WEBSITE_TRAFFIC\",\n      \"bid_strategy\": \"SMART\",\n      \"bid_type\": \"CPC\",\n      \"pricing_model\": \"string\",\n      \"cpa_goal\": 5311.790440532897,\n      \"country_targeting\": {\n        \"type\": \"INCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"sub_country_targeting\": {\n        \"type\": \"INCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"platform_targeting\": {\n        \"type\": \"INCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"browser_targeting\": {\n        \"type\": \"INCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"os_targeting\": {\n        \"type\": \"INCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"publisher_targeting\": {\n        \"type\": \"EXCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"contextual_segments_targeting\": {\n        \"type\": \"ALL\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"custom_audience_targeting\": {\n        \"type\": \"EXCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"lookalike_audience_targeting\": {\n        \"type\": \"EXCLUDE\",\n        \"value\": [\n          \"string\",\n          \"string\"\n        ],\n        \"href\": \"string\"\n      },\n      \"audience_segments_multi_targeting\": {},\n      \"spent\": 5068.11817357161\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2b796669-7fa1-43a9-a19f-004ff61417e4",
+          "name": "Create A Campaign",
+          "request": {
+            "name": "Create A Campaign",
+            "description": {
+              "content": "Create a new campaign under the specified account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"advertiser_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"branding_text\": \"<string>\",\n  \"tracking_code\": \"<string>\",\n  \"cpc\": \"<float>\",\n  \"spending_limit\": \"<float>\",\n  \"spending_limit_model\": \"<string>\",\n  \"daily_cap\": \"<float>\",\n  \"daily_ad_delivery_model\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"is_active\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"approval_state\": \"<string>\",\n  \"marketing_objective\": \"<string>\",\n  \"bid_strategy\": \"<string>\",\n  \"bid_type\": \"<string>\",\n  \"pricing_model\": \"<string>\",\n  \"cpa_goal\": \"<float>\",\n  \"country_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"sub_country_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"platform_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"browser_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"os_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"publisher_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"contextual_segments_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"custom_audience_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"lookalike_audience_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"audience_segments_multi_targeting\": \"<object>\",\n  \"spent\": \"<float>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cadc346d-330e-42ed-861a-784b663cb722",
+              "name": "The created campaign.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"advertiser_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"branding_text\": \"<string>\",\n  \"tracking_code\": \"<string>\",\n  \"cpc\": \"<float>\",\n  \"spending_limit\": \"<float>\",\n  \"spending_limit_model\": \"<string>\",\n  \"daily_cap\": \"<float>\",\n  \"daily_ad_delivery_model\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"is_active\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"approval_state\": \"<string>\",\n  \"marketing_objective\": \"<string>\",\n  \"bid_strategy\": \"<string>\",\n  \"bid_type\": \"<string>\",\n  \"pricing_model\": \"<string>\",\n  \"cpa_goal\": \"<float>\",\n  \"country_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"sub_country_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"platform_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"browser_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"os_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"publisher_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"contextual_segments_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"custom_audience_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"lookalike_audience_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"audience_segments_multi_targeting\": \"<object>\",\n  \"spent\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"advertiser_id\": \"string\",\n  \"name\": \"string\",\n  \"branding_text\": \"string\",\n  \"tracking_code\": \"string\",\n  \"cpc\": 1354.5785568159918,\n  \"spending_limit\": 8852.237607441466,\n  \"spending_limit_model\": \"MONTHLY\",\n  \"daily_cap\": 7631.614596071463,\n  \"daily_ad_delivery_model\": \"ACCELERATED\",\n  \"start_date\": \"1948-04-08\",\n  \"end_date\": \"1999-10-01\",\n  \"is_active\": false,\n  \"status\": \"PAUSED\",\n  \"approval_state\": \"string\",\n  \"marketing_objective\": \"BRAND_AWARENESS\",\n  \"bid_strategy\": \"MAX_CONVERSIONS\",\n  \"bid_type\": \"VCPM\",\n  \"pricing_model\": \"string\",\n  \"cpa_goal\": 4486.706396853668,\n  \"country_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"sub_country_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"platform_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"browser_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"os_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"publisher_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"contextual_segments_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"custom_audience_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"lookalike_audience_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"audience_segments_multi_targeting\": {},\n  \"spent\": 8293.952399385627\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8f5c2d0a-059e-4fa2-b74d-058dca7dd515",
+          "name": "Get A Campaign",
+          "request": {
+            "name": "Get A Campaign",
+            "description": {
+              "content": "Get a specific campaign by ID.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                ":campaign_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "campaign_id",
+                  "description": "(Required) Campaign identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f43988a-af3a-4bf5-a41f-8cc67fc17c0a",
+              "name": "A single campaign.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    ":campaign_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "campaign_id",
+                      "description": "(Required) Campaign identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"advertiser_id\": \"string\",\n  \"name\": \"string\",\n  \"branding_text\": \"string\",\n  \"tracking_code\": \"string\",\n  \"cpc\": 1354.5785568159918,\n  \"spending_limit\": 8852.237607441466,\n  \"spending_limit_model\": \"MONTHLY\",\n  \"daily_cap\": 7631.614596071463,\n  \"daily_ad_delivery_model\": \"ACCELERATED\",\n  \"start_date\": \"1948-04-08\",\n  \"end_date\": \"1999-10-01\",\n  \"is_active\": false,\n  \"status\": \"PAUSED\",\n  \"approval_state\": \"string\",\n  \"marketing_objective\": \"BRAND_AWARENESS\",\n  \"bid_strategy\": \"MAX_CONVERSIONS\",\n  \"bid_type\": \"VCPM\",\n  \"pricing_model\": \"string\",\n  \"cpa_goal\": 4486.706396853668,\n  \"country_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"sub_country_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"platform_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"browser_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"os_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"publisher_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"contextual_segments_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"custom_audience_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"lookalike_audience_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"audience_segments_multi_targeting\": {},\n  \"spent\": 8293.952399385627\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee19208e-37f1-4c94-9ac9-81c6fa5e7ee2",
+          "name": "Update A Campaign",
+          "request": {
+            "name": "Update A Campaign",
+            "description": {
+              "content": "Update an existing campaign. Fields omitted or null will not be updated.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                ":campaign_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "campaign_id",
+                  "description": "(Required) Campaign identifier."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"advertiser_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"branding_text\": \"<string>\",\n  \"tracking_code\": \"<string>\",\n  \"cpc\": \"<float>\",\n  \"spending_limit\": \"<float>\",\n  \"spending_limit_model\": \"<string>\",\n  \"daily_cap\": \"<float>\",\n  \"daily_ad_delivery_model\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"is_active\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"approval_state\": \"<string>\",\n  \"marketing_objective\": \"<string>\",\n  \"bid_strategy\": \"<string>\",\n  \"bid_type\": \"<string>\",\n  \"pricing_model\": \"<string>\",\n  \"cpa_goal\": \"<float>\",\n  \"country_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"sub_country_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"platform_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"browser_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"os_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"publisher_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"contextual_segments_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"custom_audience_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"lookalike_audience_targeting\": {\n    \"type\": \"<string>\",\n    \"value\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"href\": \"<string>\"\n  },\n  \"audience_segments_multi_targeting\": \"<object>\",\n  \"spent\": \"<float>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d5090703-51a3-4889-b01e-523d89d9a2b5",
+              "name": "Updated campaign.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    ":campaign_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "campaign_id",
+                      "description": "(Required) Campaign identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"advertiser_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"branding_text\": \"<string>\",\n  \"tracking_code\": \"<string>\",\n  \"cpc\": \"<float>\",\n  \"spending_limit\": \"<float>\",\n  \"spending_limit_model\": \"<string>\",\n  \"daily_cap\": \"<float>\",\n  \"daily_ad_delivery_model\": \"<string>\",\n  \"start_date\": \"<date>\",\n  \"end_date\": \"<date>\",\n  \"is_active\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"approval_state\": \"<string>\",\n  \"marketing_objective\": \"<string>\",\n  \"bid_strategy\": \"<string>\",\n  \"bid_type\": \"<string>\",\n  \"pricing_model\": \"<string>\",\n  \"cpa_goal\": \"<float>\",\n  \"country_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"sub_country_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"platform_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"browser_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"os_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"publisher_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"contextual_segments_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"custom_audience_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"lookalike_audience_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"audience_segments_multi_targeting\": \"<object>\",\n  \"spent\": \"<float>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"advertiser_id\": \"string\",\n  \"name\": \"string\",\n  \"branding_text\": \"string\",\n  \"tracking_code\": \"string\",\n  \"cpc\": 1354.5785568159918,\n  \"spending_limit\": 8852.237607441466,\n  \"spending_limit_model\": \"MONTHLY\",\n  \"daily_cap\": 7631.614596071463,\n  \"daily_ad_delivery_model\": \"ACCELERATED\",\n  \"start_date\": \"1948-04-08\",\n  \"end_date\": \"1999-10-01\",\n  \"is_active\": false,\n  \"status\": \"PAUSED\",\n  \"approval_state\": \"string\",\n  \"marketing_objective\": \"BRAND_AWARENESS\",\n  \"bid_strategy\": \"MAX_CONVERSIONS\",\n  \"bid_type\": \"VCPM\",\n  \"pricing_model\": \"string\",\n  \"cpa_goal\": 4486.706396853668,\n  \"country_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"sub_country_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"platform_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"browser_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"os_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"publisher_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"contextual_segments_targeting\": {\n    \"type\": \"INCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"custom_audience_targeting\": {\n    \"type\": \"EXCLUDE\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"lookalike_audience_targeting\": {\n    \"type\": \"ALL\",\n    \"value\": [\n      \"string\",\n      \"string\"\n    ],\n    \"href\": \"string\"\n  },\n  \"audience_segments_multi_targeting\": {},\n  \"spent\": 8293.952399385627\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "43961d44-a5ce-49a0-9ceb-7b75ce338330",
+          "name": "Delete A Campaign",
+          "request": {
+            "name": "Delete A Campaign",
+            "description": {
+              "content": "Mark the campaign as TERMINATED. Subsequent references return 404.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                ":campaign_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "campaign_id",
+                  "description": "(Required) Campaign identifier."
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f345df41-e5f1-46f0-b547-ee9e489f566f",
+              "name": "Campaign object with status=TERMINATED.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    ":campaign_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "campaign_id",
+                      "description": "(Required) Campaign identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "18f1c703-c3a5-4ad9-b880-e37ddd26c1a9",
+          "name": "Duplicate A Campaign",
+          "request": {
+            "name": "Duplicate A Campaign",
+            "description": {
+              "content": "Duplicate an existing campaign optionally overriding fields and target account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                ":campaign_id",
+                "duplicate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "campaign_id",
+                  "description": "(Required) Campaign identifier."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "707ea926-2f37-4435-a3c9-af5991069c7e",
+              "name": "Newly created campaign.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    ":campaign_id",
+                    "duplicate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "campaign_id",
+                      "description": "(Required) Campaign identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "299397b6-5c28-4d5a-b54a-2aa542bcfe10",
+      "name": "Bulk Operations",
+      "description": {
+        "content": "Bulk update or create campaigns across accounts on the network.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "6a889a7d-9adc-44bf-83e0-eee9ca045a11",
+          "name": "Get All Campaigns Across The Network",
+          "request": {
+            "name": "Get All Campaigns Across The Network",
+            "description": {
+              "content": "Convenience endpoint for fetching basic campaign details across the network.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                "network"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de0d0bdc-91c9-4bf6-b3c3-5ce6d5c1c1ec",
+              "name": "Network-wide campaign list.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    "network"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5887e5a3-6e83-4cde-86d1-3424b85a2abf",
+          "name": "Bulk Update Campaigns",
+          "request": {
+            "name": "Bulk Update Campaigns",
+            "description": {
+              "content": "Bulk update multiple campaigns in a single API call.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                "bulk"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c8353973-9e5f-4c50-87ca-4a87636ce9e3",
+              "name": "Bulk update result.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    "bulk"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "a37290c0-b51a-4474-8750-2f768c833911",
+      "name": "Reach Estimator",
+      "description": {
+        "content": "Estimate reach for campaign targeting before launching.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d678464c-cba2-4c45-9963-17ab2c222dc5",
+          "name": "Estimate Campaign Reach",
+          "request": {
+            "name": "Estimate Campaign Reach",
+            "description": {
+              "content": "Estimate total impressions for the supplied targeting.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "campaigns",
+                "reach-estimator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) Taboola account identifier."
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "85a6e667-4384-47c5-8add-2b400ad4618e",
+              "name": "Estimated reach response.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "campaigns",
+                    "reach-estimator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) Taboola account identifier."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://backstage.taboola.com/backstage/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6dd10828-056f-46f4-acf7-46926774a12c",
+    "name": "Taboola Backstage Campaigns API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Programmatic interface for managing Taboola Realize advertising campaigns. The Backstage Campaigns\nsurface provides CRUD operations for campaigns at the account level, plus bulk and network-wide\nconvenience endpoints. Used by advertisers and ad operations platforms to integrate Taboola native\nand discovery campaign management.\n\nContact Support:\n Name: Taboola Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}

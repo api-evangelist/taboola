@@ -1,0 +1,155 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taboola Backstage Conversions API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Conversion Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Conversion Rules",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/conversion_rules",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns all conversion rules available to the specified account."
+        },
+        {
+          "info": {
+            "name": "Create A Conversion Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/conversion_rules",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a new conversion rule for the specified account."
+        },
+        {
+          "info": {
+            "name": "Get All Conversion Rules Plus Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/conversion_rules/plus_data",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get conversion rules including aggregated data per rule."
+        },
+        {
+          "info": {
+            "name": "Get A Conversion Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/conversion_rules/:rule_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rule_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get A Conversion Rule"
+        },
+        {
+          "info": {
+            "name": "Update A Conversion Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/conversion_rules/:rule_id",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rule_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update A Conversion Rule"
+        },
+        {
+          "info": {
+            "name": "Archive A Conversion Rule",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/conversion_rules/:rule_id/archive",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "rule_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Archive A Conversion Rule"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

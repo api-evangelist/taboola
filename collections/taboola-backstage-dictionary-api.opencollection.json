@@ -1,0 +1,235 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taboola Backstage Dictionary API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Dictionary",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get List Of Countries",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/countries"
+          },
+          "docs": "Get List Of Countries"
+        },
+        {
+          "info": {
+            "name": "Get Regions In A Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/countries/:country_code/regions",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Regions In A Country"
+        },
+        {
+          "info": {
+            "name": "Get Cities In A Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/countries/:country_code/cities",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Cities In A Country"
+        },
+        {
+          "info": {
+            "name": "Get Postal Codes For A Country",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/countries/:country_code/postal_codes",
+            "params": [
+              {
+                "name": "country_code",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Postal Codes For A Country"
+        },
+        {
+          "info": {
+            "name": "Get DMAs In The US",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/countries/US/dmas"
+          },
+          "docs": "Get DMAs In The US"
+        },
+        {
+          "info": {
+            "name": "Get List Of Browsers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/browsers"
+          },
+          "docs": "Get List Of Browsers"
+        },
+        {
+          "info": {
+            "name": "Get List Of Operating Systems",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/operating_systems"
+          },
+          "docs": "Get List Of Operating Systems"
+        },
+        {
+          "info": {
+            "name": "Get List Of iOS Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/operating_systems/ios/versions"
+          },
+          "docs": "Get List Of iOS Versions"
+        },
+        {
+          "info": {
+            "name": "Get List Of Android Versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/operating_systems/android/versions"
+          },
+          "docs": "Get List Of Android Versions"
+        },
+        {
+          "info": {
+            "name": "Get List Of Platforms",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/platforms"
+          },
+          "docs": "Get List Of Platforms"
+        },
+        {
+          "info": {
+            "name": "Get List Of Languages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/languages"
+          },
+          "docs": "Get List Of Languages"
+        },
+        {
+          "info": {
+            "name": "Get List Of Campaign Enums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/campaigns/enums"
+          },
+          "docs": "Get List Of Campaign Enums"
+        },
+        {
+          "info": {
+            "name": "Get List Of Item Enums",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/items/enums"
+          },
+          "docs": "Get List Of Item Enums"
+        },
+        {
+          "info": {
+            "name": "Get List Of Minimum CPC Values",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/resources/min_cpc"
+          },
+          "docs": "Get List Of Minimum CPC Values"
+        },
+        {
+          "info": {
+            "name": "Get Contextual Segments",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/dictionary/contextual_segments",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get Contextual Segments"
+        },
+        {
+          "info": {
+            "name": "Get List Of Available Publishers",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/dictionary/publishers",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get List Of Available Publishers"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

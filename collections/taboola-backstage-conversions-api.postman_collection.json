@@ -1,0 +1,666 @@
+{
+  "item": [
+    {
+      "id": "2020c14b-e6c9-4c26-9c74-43de4a460ae9",
+      "name": "Conversion Rules",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "78fb6765-de3b-40bd-9d19-18b9a83d7dcf",
+          "name": "Get All Conversion Rules",
+          "request": {
+            "name": "Get All Conversion Rules",
+            "description": {
+              "content": "Returns all conversion rules available to the specified account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "conversion_rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "33d3eef5-ee37-4686-bd96-4b071d2b9353",
+              "name": "List of conversion rules.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "conversion_rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": \"string\",\n      \"advertiser_id\": \"string\",\n      \"display_name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"LEAD\",\n      \"type\": \"EVENT_BASED\",\n      \"condition\": {},\n      \"event_name\": \"string\",\n      \"look_back_window\": 4658,\n      \"view_through_look_back_window\": 9480,\n      \"include_in_total_conversions\": true,\n      \"status\": \"ACTIVE\",\n      \"last_modified_at\": \"2003-12-18T18:58:36.377Z\",\n      \"last_modified_by\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"advertiser_id\": \"string\",\n      \"display_name\": \"string\",\n      \"description\": \"string\",\n      \"category\": \"ADD_PAYMENT_INFO\",\n      \"type\": \"URL_BASED\",\n      \"condition\": {},\n      \"event_name\": \"string\",\n      \"look_back_window\": 534,\n      \"view_through_look_back_window\": 5730,\n      \"include_in_total_conversions\": true,\n      \"status\": \"ARCHIVED\",\n      \"last_modified_at\": \"2020-07-01T15:43:50.261Z\",\n      \"last_modified_by\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0d62e8ea-5353-427f-8a55-ef1ef559b0d7",
+          "name": "Create A Conversion Rule",
+          "request": {
+            "name": "Create A Conversion Rule",
+            "description": {
+              "content": "Create a new conversion rule for the specified account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "conversion_rules"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"advertiser_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"type\": \"<string>\",\n  \"condition\": \"<object>\",\n  \"event_name\": \"<string>\",\n  \"look_back_window\": \"<integer>\",\n  \"view_through_look_back_window\": \"<integer>\",\n  \"include_in_total_conversions\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"last_modified_at\": \"<dateTime>\",\n  \"last_modified_by\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "997b75cb-f2ce-4f91-af7b-27c415afb15b",
+              "name": "Created conversion rule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "conversion_rules"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"advertiser_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"type\": \"<string>\",\n  \"condition\": \"<object>\",\n  \"event_name\": \"<string>\",\n  \"look_back_window\": \"<integer>\",\n  \"view_through_look_back_window\": \"<integer>\",\n  \"include_in_total_conversions\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"last_modified_at\": \"<dateTime>\",\n  \"last_modified_by\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d9150eac-45e5-4642-8373-9aa54274839d",
+          "name": "Get All Conversion Rules Plus Data",
+          "request": {
+            "name": "Get All Conversion Rules Plus Data",
+            "description": {
+              "content": "Get conversion rules including aggregated data per rule.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "conversion_rules",
+                "plus_data"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ff8df8aa-caf7-45ec-954f-8a407a4424dc",
+              "name": "List with data.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "conversion_rules",
+                    "plus_data"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "88972167-409d-48cc-8f4d-7ed02386673f",
+          "name": "Get A Conversion Rule",
+          "request": {
+            "name": "Get A Conversion Rule",
+            "description": {},
+            "url": {
+              "path": [
+                ":account_id",
+                "conversion_rules",
+                ":rule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rule_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3158879f-d42c-44ed-aa8b-6a121e9b7fb1",
+              "name": "Conversion rule.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "conversion_rules",
+                    ":rule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rule_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"advertiser_id\": \"string\",\n  \"display_name\": \"string\",\n  \"description\": \"string\",\n  \"category\": \"SUBSCRIBE\",\n  \"type\": \"EVENT_BASED\",\n  \"condition\": {},\n  \"event_name\": \"string\",\n  \"look_back_window\": 6024,\n  \"view_through_look_back_window\": 8079,\n  \"include_in_total_conversions\": false,\n  \"status\": \"ACTIVE\",\n  \"last_modified_at\": \"1999-01-14T22:57:38.081Z\",\n  \"last_modified_by\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1b7badc0-48f7-427b-b96c-20098dc04eea",
+          "name": "Update A Conversion Rule",
+          "request": {
+            "name": "Update A Conversion Rule",
+            "description": {},
+            "url": {
+              "path": [
+                ":account_id",
+                "conversion_rules",
+                ":rule_id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rule_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<string>\",\n  \"advertiser_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"type\": \"<string>\",\n  \"condition\": \"<object>\",\n  \"event_name\": \"<string>\",\n  \"look_back_window\": \"<integer>\",\n  \"view_through_look_back_window\": \"<integer>\",\n  \"include_in_total_conversions\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"last_modified_at\": \"<dateTime>\",\n  \"last_modified_by\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c79af5b3-702c-48a8-bfa0-c40de57f2be9",
+              "name": "Updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "conversion_rules",
+                    ":rule_id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rule_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<string>\",\n  \"advertiser_id\": \"<string>\",\n  \"display_name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"category\": \"<string>\",\n  \"type\": \"<string>\",\n  \"condition\": \"<object>\",\n  \"event_name\": \"<string>\",\n  \"look_back_window\": \"<integer>\",\n  \"view_through_look_back_window\": \"<integer>\",\n  \"include_in_total_conversions\": \"<boolean>\",\n  \"status\": \"<string>\",\n  \"last_modified_at\": \"<dateTime>\",\n  \"last_modified_by\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e6110acb-decc-4e49-8ba3-438286fc60b0",
+          "name": "Archive A Conversion Rule",
+          "request": {
+            "name": "Archive A Conversion Rule",
+            "description": {},
+            "url": {
+              "path": [
+                ":account_id",
+                "conversion_rules",
+                ":rule_id",
+                "archive"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "rule_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "96de14e8-42a4-44d6-9516-ee1490eeb90a",
+              "name": "Archived.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "conversion_rules",
+                    ":rule_id",
+                    "archive"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "rule_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://backstage.taboola.com/backstage/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3e60e492-2f05-4b15-9f3d-61cbc0377278",
+    "name": "Taboola Backstage Conversions API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Manage Taboola conversion rules and report conversion events. Supports creating, listing,\nupdating, and archiving conversion rules used to track campaign outcomes (purchases, leads,\npage views) and to optimize bid strategies.\n\nContact Support:\n Name: Taboola Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}
