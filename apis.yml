@@ -174,19 +174,19 @@ common:
     url: https://github.com/taboola
   - url: https://github.com/taboola/backstage-api-java-client
     name: Backstage API Java Client
-    type: SDK
+    type: SDKs
   - url: https://github.com/taboola/realize-mcp
     name: Realize MCP Server
-    type: Tool
+    type: Tools
   - url: https://github.com/taboola/taboola-spm-ios-sdk
     name: Taboola iOS SDK (SwiftPM)
-    type: SDK
+    type: SDKs
   - url: https://github.com/taboola/taboola-android
     name: Taboola Android SDK
-    type: SDK
+    type: SDKs
   - url: https://github.com/taboola/taboola-flutter-example
     name: Taboola Flutter Example
-    type: SDK
+    type: SDKs
   - url: https://github.com/taboola/ios-sdk-examples
     name: Taboola iOS SDK Examples
     type: CodeExamples
@@ -198,10 +198,10 @@ common:
     type: CodeExamples
   - url: https://github.com/taboola/ios-adx
     name: Taboola iOS AdX Adapter
-    type: SDK
+    type: SDKs
   - url: https://github.com/taboola/Prebid.js
     name: Prebid.js fork
-    type: Tool
+    type: Tools
   - url: https://www.taboola.com/legal-policies
     type: TermsOfService
   - url: https://www.taboola.com/policies/privacy-policy
@@ -226,7 +226,7 @@ common:
     type: YouTube
   - url: https://realize.taboola.com/
     name: Realize Platform Login
-    type: SignIn
+    type: Login
   - url: https://www.taboola.com/products/realize
     name: Realize Performance Platform
     type: Portal
