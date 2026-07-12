@@ -1,0 +1,22 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/taboola-backstage-accounts-api-openapi.yml, openapi/taboola-backstage-audiences-api-openapi.yml,
+  openapi/taboola-backstage-campaigns-api-openapi.yml, openapi/taboola-backstage-conversions-api-openapi.yml,
+  openapi/taboola-backstage-dictionary-api-openapi.yml, openapi/taboola-backstage-items-api-openapi.yml,
+  openapi/taboola-backstage-reports-api-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  sources:
+  - openapi/taboola-backstage-accounts-api-openapi.yml
+  - openapi/taboola-backstage-audiences-api-openapi.yml
+  - openapi/taboola-backstage-campaigns-api-openapi.yml
+  - openapi/taboola-backstage-conversions-api-openapi.yml
+  - openapi/taboola-backstage-dictionary-api-openapi.yml
+  - openapi/taboola-backstage-items-api-openapi.yml
+  - openapi/taboola-backstage-reports-api-openapi.yml
