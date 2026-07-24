@@ -1,0 +1,84 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts Bulk Items API
+  version: '1.0'
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+- url: https://backstage.taboola.com/backstage/api/1.0
+security:
+- bearerAuth: []
+tags:
+- name: Bulk Items
+  description: Bulk create, update, and delete items across campaigns.
+paths:
+  /{account_id}/campaigns/{campaign_id}/items/mass-create:
+    post:
+      tags:
+      - Bulk Items
+      summary: Mass Create Items For A Campaign
+      description: Create a batch of items for a given campaign in a single request.
+      operationId: massCreateItems
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: Mass create result.
+  /{account_id}/items/bulk:
+    post:
+      tags:
+      - Bulk Items
+      summary: Bulk Create Items Across Campaigns
+      description: Bulk create the same items across multiple campaigns.
+      operationId: bulkCreateItemsAcrossCampaigns
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Bulk create result.
+    put:
+      tags:
+      - Bulk Items
+      summary: Bulk Update Items Across Campaigns
+      description: Bulk update items across multiple campaigns.
+      operationId: bulkUpdateItemsAcrossCampaigns
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Bulk update result.
+    delete:
+      tags:
+      - Bulk Items
+      summary: Bulk Delete Items Across Campaigns
+      description: Bulk delete items across multiple campaigns.
+      operationId: bulkDeleteItemsAcrossCampaigns
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Bulk delete result.
+components:
+  parameters:
+    campaignId:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

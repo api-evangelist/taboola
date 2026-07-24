@@ -1,0 +1,59 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts Audience Targeting API
+  version: '1.0'
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+- url: https://backstage.taboola.com/backstage/api/1.0
+security:
+- bearerAuth: []
+tags:
+- name: Audience Targeting
+paths:
+  /{account_id}/campaigns/{campaign_id}/targeting/my_audience:
+    get:
+      tags:
+      - Audience Targeting
+      summary: Get My Audience Targeting
+      operationId: getMyAudienceTargeting
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: Targeting.
+    post:
+      tags:
+      - Audience Targeting
+      summary: Update My Audience Targeting
+      operationId: updateMyAudienceTargeting
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: Updated.
+components:
+  parameters:
+    campaignId:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

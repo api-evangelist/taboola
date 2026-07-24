@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts Video Items API
+  version: '1.0'
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+- url: https://backstage.taboola.com/backstage/api/1.0
+security:
+- bearerAuth: []
+tags:
+- name: Video Items
+  description: Performance video items (motion ads).
+paths:
+  /{account_id}/campaigns/{campaign_id}/video/items/:
+    get:
+      tags:
+      - Video Items
+      summary: Get All Performance Video Items
+      description: Get a list of performance video items (motion ads) for the campaign.
+      operationId: getAllVideoItems
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: List of video items.
+    post:
+      tags:
+      - Video Items
+      summary: Create A Performance Video Item
+      description: Create a performance video item (motion ad).
+      operationId: createVideoItem
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '200':
+          description: Created video item.
+components:
+  parameters:
+    campaignId:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

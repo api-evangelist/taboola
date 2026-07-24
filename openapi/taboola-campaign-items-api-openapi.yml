@@ -1,0 +1,174 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts Campaign Items API
+  version: '1.0'
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+- url: https://backstage.taboola.com/backstage/api/1.0
+security:
+- bearerAuth: []
+tags:
+- name: Campaign Items
+  description: Standard ad items (creatives) belonging to a campaign.
+paths:
+  /{account_id}/campaigns/{campaign_id}/items/:
+    get:
+      tags:
+      - Campaign Items
+      summary: Get All Campaign Items
+      description: Get a list of items for the specified campaign.
+      operationId: getAllCampaignItems
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: List of campaign items.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Item'
+    post:
+      tags:
+      - Campaign Items
+      summary: Create A Campaign Item
+      description: Create a new item under the specified campaign.
+      operationId: createCampaignItem
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: Created item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+  /{account_id}/campaigns/{campaign_id}/items/{item_id}:
+    get:
+      tags:
+      - Campaign Items
+      summary: Get A Campaign Item
+      description: Get the specified campaign item.
+      operationId: getCampaignItem
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      - $ref: '#/components/parameters/itemId'
+      responses:
+        '200':
+          description: Single item.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Item'
+    post:
+      tags:
+      - Campaign Items
+      summary: Update A Campaign Item
+      description: Update an existing campaign item.
+      operationId: updateCampaignItem
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      - $ref: '#/components/parameters/itemId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Item'
+      responses:
+        '200':
+          description: Updated item.
+    delete:
+      tags:
+      - Campaign Items
+      summary: Delete A Campaign Item
+      description: Delete the specified item.
+      operationId: deleteCampaignItem
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/campaignId'
+      - $ref: '#/components/parameters/itemId'
+      responses:
+        '200':
+          description: Deletion confirmation.
+components:
+  parameters:
+    itemId:
+      name: item_id
+      in: path
+      required: true
+      schema:
+        type: string
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+    campaignId:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    Item:
+      type: object
+      properties:
+        id:
+          type: string
+        campaign_id:
+          type: string
+        url:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        cta:
+          type: string
+        thumbnail_url:
+          type: string
+        creative_focus:
+          type: string
+        status:
+          type: string
+          enum:
+          - RUNNING
+          - PAUSED
+          - PENDING_APPROVAL
+          - REJECTED
+          - CRAWLING
+          - TERMINATED
+          - EXPIRED
+        approval_state:
+          type: string
+        type:
+          type: string
+          enum:
+          - PERFORMANCE_VIDEO
+          - SPONSORED
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,67 +1,66 @@
 openapi: 3.1.0
 info:
-  title: Taboola Backstage Reports API
+  title: Taboola Backstage Accounts Reports API
   version: '1.0'
-  description: |-
-    Reporting endpoints for Taboola Realize advertisers. Retrieve campaign performance,
-    top content, site/day breakdowns, and other aggregated metrics for analysis and
-    optimization. Reports support a range of dimensions and metrics with date filtering.
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
   contact:
     name: Taboola Developer Relations
     url: https://developers.taboola.com/backstage-api/reference
 servers:
-  - url: https://backstage.taboola.com/backstage/api/1.0
+- url: https://backstage.taboola.com/backstage/api/1.0
 security:
-  - bearerAuth: []
+- bearerAuth: []
 tags:
-  - name: Reports
+- name: Reports
 paths:
   /{account_id}/reports/campaign-summary/dimensions/{dimension}:
     get:
-      tags: [Reports]
+      tags:
+      - Reports
       summary: Get Campaign Summary Report
-      description: |-
-        Get aggregated campaign performance by dimension (day, campaign, site, country, etc).
+      description: Get aggregated campaign performance by dimension (day, campaign, site, country, etc).
       operationId: getCampaignSummaryReport
       parameters:
-        - $ref: '#/components/parameters/accountId'
-        - name: dimension
-          in: path
-          required: true
-          schema:
-            type: string
-            enum:
-              - day
-              - week
-              - month
-              - campaign_breakdown
-              - campaign_site_day_breakdown
-              - site_breakdown
-              - country_breakdown
-              - region_breakdown
-              - platform_breakdown
-              - os_family_breakdown
-              - browser_breakdown
-              - language_breakdown
-              - dma_breakdown
-              - city_breakdown
-              - ad_breakdown
-        - name: start_date
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
-        - name: end_date
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
-        - name: campaign
-          in: query
-          schema:
-            type: string
+      - $ref: '#/components/parameters/accountId'
+      - name: dimension
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - day
+          - week
+          - month
+          - campaign_breakdown
+          - campaign_site_day_breakdown
+          - site_breakdown
+          - country_breakdown
+          - region_breakdown
+          - platform_breakdown
+          - os_family_breakdown
+          - browser_breakdown
+          - language_breakdown
+          - dma_breakdown
+          - city_breakdown
+          - ad_breakdown
+      - name: start_date
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: campaign
+        in: query
+        schema:
+          type: string
       responses:
         '200':
           description: Report rows with metrics.
@@ -80,51 +79,41 @@ paths:
                       $ref: '#/components/schemas/ReportRow'
   /{account_id}/reports/top-campaign-content/dimensions/item_breakdown:
     get:
-      tags: [Reports]
+      tags:
+      - Reports
       summary: Get Top Campaign Content Report
       description: Get top performing creative items for the specified date range.
       operationId: getTopCampaignContent
       parameters:
-        - $ref: '#/components/parameters/accountId'
-        - name: start_date
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
-        - name: end_date
-          in: query
-          required: true
-          schema:
-            type: string
-            format: date
+      - $ref: '#/components/parameters/accountId'
+      - name: start_date
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
+      - name: end_date
+        in: query
+        required: true
+        schema:
+          type: string
+          format: date
       responses:
         '200':
           description: Top content report.
   /{account_id}/reports/realtime-ads:
     get:
-      tags: [Reports]
+      tags:
+      - Reports
       summary: Get Real-Time Ads Report
       description: Near real-time performance snapshot for ads.
       operationId: getRealTimeAdsReport
       parameters:
-        - $ref: '#/components/parameters/accountId'
+      - $ref: '#/components/parameters/accountId'
       responses:
         '200':
           description: Real-time metrics.
 components:
-  securitySchemes:
-    bearerAuth:
-      type: http
-      scheme: bearer
-      bearerFormat: JWT
-  parameters:
-    accountId:
-      name: account_id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     ReportRow:
       type: object
@@ -176,3 +165,15 @@ components:
           format: float
         currency:
           type: string
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

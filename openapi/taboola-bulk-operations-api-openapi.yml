@@ -1,0 +1,56 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts Bulk Operations API
+  version: '1.0'
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+- url: https://backstage.taboola.com/backstage/api/1.0
+security:
+- bearerAuth: []
+tags:
+- name: Bulk Operations
+  description: Bulk update or create campaigns across accounts on the network.
+paths:
+  /{account_id}/campaigns/network:
+    get:
+      tags:
+      - Bulk Operations
+      summary: Get All Campaigns Across The Network
+      description: Convenience endpoint for fetching basic campaign details across the network.
+      operationId: getAllCampaignsAcrossNetwork
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Network-wide campaign list.
+  /{account_id}/campaigns/bulk:
+    post:
+      tags:
+      - Bulk Operations
+      summary: Bulk Update Campaigns
+      description: Bulk update multiple campaigns in a single API call.
+      operationId: bulkUpdateCampaigns
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Bulk update result.
+components:
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Taboola account identifier.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

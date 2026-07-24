@@ -1,0 +1,82 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts Combined Audiences API
+  version: '1.0'
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+- url: https://backstage.taboola.com/backstage/api/1.0
+security:
+- bearerAuth: []
+tags:
+- name: Combined Audiences
+paths:
+  /{account_id}/combined_audiences:
+    get:
+      tags:
+      - Combined Audiences
+      summary: Get All Combined Audiences
+      operationId: getAllCombinedAudiences
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: List.
+    post:
+      tags:
+      - Combined Audiences
+      summary: Create A Combined Audience
+      operationId: createCombinedAudience
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Created.
+  /{account_id}/combined_audiences/{audience_id}:
+    get:
+      tags:
+      - Combined Audiences
+      summary: Get A Combined Audience
+      operationId: getCombinedAudience
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - name: audience_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Audience.
+    post:
+      tags:
+      - Combined Audiences
+      summary: Update A Combined Audience
+      operationId: updateCombinedAudience
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      - name: audience_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Updated.
+components:
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

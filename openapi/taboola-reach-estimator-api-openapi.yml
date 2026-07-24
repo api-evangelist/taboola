@@ -1,0 +1,44 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts Reach Estimator API
+  version: '1.0'
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+- url: https://backstage.taboola.com/backstage/api/1.0
+security:
+- bearerAuth: []
+tags:
+- name: Reach Estimator
+  description: Estimate reach for campaign targeting before launching.
+paths:
+  /{account_id}/campaigns/reach-estimator:
+    post:
+      tags:
+      - Reach Estimator
+      summary: Estimate Campaign Reach
+      description: Estimate total impressions for the supplied targeting.
+      operationId: estimateCampaignReach
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Estimated reach response.
+components:
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Taboola account identifier.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

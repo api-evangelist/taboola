@@ -1,0 +1,42 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts Custom Audiences API
+  version: '1.0'
+  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+
+    agencies managing multiple advertiser accounts under a Taboola network account.'
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+- url: https://backstage.taboola.com/backstage/api/1.0
+security:
+- bearerAuth: []
+tags:
+- name: Custom Audiences
+paths:
+  /{account_id}/custom_audiences:
+    get:
+      tags:
+      - Custom Audiences
+      summary: Get All Custom Audiences
+      description: Get all Custom Audiences for the specified account, including network-level audiences.
+      operationId: getAllCustomAudiences
+      parameters:
+      - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: List of custom audiences.
+components:
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
