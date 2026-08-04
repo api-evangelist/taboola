@@ -1,0 +1,286 @@
+{
+  "info": {
+    "_postman_id": "cab2a66d-f9d9-424d-9a75-e1dc292bc3d3",
+    "name": "Taboola Backstage Accounts Video Items API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:53.000Z",
+    "updatedAt": "2026-07-28T03:07:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-cab2a66d-f9d9-424d-9a75-e1dc292bc3d3"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "campaigns",
+          "item": [
+            {
+              "name": "{campaign_id}",
+              "item": [
+                {
+                  "name": "video",
+                  "item": [
+                    {
+                      "name": "items",
+                      "item": [
+                        {
+                          "name": "Get All Performance Video Items",
+                          "id": "84d28b6f-2903-4396-91e8-2a5eccc6fe1d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/video/items/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "video",
+                                "items",
+                                ""
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c8a32f31-41f4-4f72-b5cf-e83ad7bf87e5",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "012a293b-478d-45cd-825f-cb23c382ff97",
+                                  "key": "campaign_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get a list of performance video items (motion ads) for the campaign."
+                          },
+                          "response": [
+                            {
+                              "id": "23d9f2f1-eed6-4e1a-bf4e-368200a2b322",
+                              "name": "List of video items.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/video/items/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "campaigns",
+                                    ":campaign_id",
+                                    "video",
+                                    "items",
+                                    ""
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "campaign_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:54.000Z",
+                              "updatedAt": "2026-07-28T03:07:54.000Z",
+                              "uid": "35240-23d9f2f1-eed6-4e1a-bf4e-368200a2b322"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:54.000Z",
+                          "updatedAt": "2026-07-28T03:07:54.000Z",
+                          "uid": "35240-84d28b6f-2903-4396-91e8-2a5eccc6fe1d"
+                        },
+                        {
+                          "name": "Create A Performance Video Item",
+                          "id": "e244c2a0-8cf6-4837-bbf5-f3e3e6f431b3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/video/items/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "video",
+                                "items",
+                                ""
+                              ],
+                              "variable": [
+                                {
+                                  "id": "90919290-127a-44fc-a8de-c6d9d23dea17",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "bb5083af-f1b3-4cd5-b2a2-cb029a2ce4dd",
+                                  "key": "campaign_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create a performance video item (motion ad)."
+                          },
+                          "response": [
+                            {
+                              "id": "754b2c88-212b-42a2-8bf3-79593664760a",
+                              "name": "Created video item.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/video/items/",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "campaigns",
+                                    ":campaign_id",
+                                    "video",
+                                    "items",
+                                    ""
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "campaign_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:54.000Z",
+                              "updatedAt": "2026-07-28T03:07:54.000Z",
+                              "uid": "35240-754b2c88-212b-42a2-8bf3-79593664760a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:54.000Z",
+                          "updatedAt": "2026-07-28T03:07:54.000Z",
+                          "uid": "35240-e244c2a0-8cf6-4837-bbf5-f3e3e6f431b3"
+                        }
+                      ],
+                      "id": "a64f2e10-76b8-4162-9a3a-a5ee186fcb54",
+                      "createdAt": "2026-07-28T03:07:54.000Z",
+                      "updatedAt": "2026-07-28T03:07:54.000Z",
+                      "uid": "35240-a64f2e10-76b8-4162-9a3a-a5ee186fcb54"
+                    }
+                  ],
+                  "id": "b1ca03bc-ffac-4355-b66e-f056e6b653d9",
+                  "createdAt": "2026-07-28T03:07:54.000Z",
+                  "updatedAt": "2026-07-28T03:07:54.000Z",
+                  "uid": "35240-b1ca03bc-ffac-4355-b66e-f056e6b653d9"
+                }
+              ],
+              "id": "b092b4c2-a98b-463f-b1b5-46d7bef2fb68",
+              "createdAt": "2026-07-28T03:07:54.000Z",
+              "updatedAt": "2026-07-28T03:07:54.000Z",
+              "uid": "35240-b092b4c2-a98b-463f-b1b5-46d7bef2fb68"
+            }
+          ],
+          "id": "d640e33c-214c-471e-9425-47aa7673fc06",
+          "createdAt": "2026-07-28T03:07:54.000Z",
+          "updatedAt": "2026-07-28T03:07:54.000Z",
+          "uid": "35240-d640e33c-214c-471e-9425-47aa7673fc06"
+        }
+      ],
+      "id": "d014b9c5-11aa-4cd6-b43f-09952cd333e7",
+      "createdAt": "2026-07-28T03:07:54.000Z",
+      "updatedAt": "2026-07-28T03:07:54.000Z",
+      "uid": "35240-d014b9c5-11aa-4cd6-b43f-09952cd333e7"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

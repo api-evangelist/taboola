@@ -1,0 +1,1312 @@
+{
+  "info": {
+    "_postman_id": "8f381ffd-2a89-4ec6-a305-3c9a7187a2a3",
+    "name": "Taboola Backstage Accounts Dictionary API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:46.000Z",
+    "updatedAt": "2026-07-28T03:07:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8f381ffd-2a89-4ec6-a305-3c9a7187a2a3"
+  },
+  "item": [
+    {
+      "name": "resources",
+      "item": [
+        {
+          "name": "countries",
+          "item": [
+            {
+              "name": "{country_code}",
+              "item": [
+                {
+                  "name": "regions",
+                  "item": [
+                    {
+                      "name": "Get Regions In A Country",
+                      "id": "403ef506-774c-410d-a7f1-925f85c3d6c6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/resources/countries/:country_code/regions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "resources",
+                            "countries",
+                            ":country_code",
+                            "regions"
+                          ],
+                          "variable": [
+                            {
+                              "id": "48a3def2-45ed-437e-bb18-d3f8adb32fc1",
+                              "key": "country_code",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "30f2e650-4182-420a-83ac-64710d75bbe2",
+                          "name": "Regions.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/resources/countries/:country_code/regions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "resources",
+                                "countries",
+                                ":country_code",
+                                "regions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:46.000Z",
+                          "updatedAt": "2026-07-28T03:07:46.000Z",
+                          "uid": "35240-30f2e650-4182-420a-83ac-64710d75bbe2"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-403ef506-774c-410d-a7f1-925f85c3d6c6"
+                    }
+                  ],
+                  "id": "3cf29894-a060-4cd0-ba05-bbbd3dc62201",
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-3cf29894-a060-4cd0-ba05-bbbd3dc62201"
+                },
+                {
+                  "name": "cities",
+                  "item": [
+                    {
+                      "name": "Get Cities In A Country",
+                      "id": "21c51cd9-a592-43bb-891d-8d079ff376e6",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/resources/countries/:country_code/cities",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "resources",
+                            "countries",
+                            ":country_code",
+                            "cities"
+                          ],
+                          "variable": [
+                            {
+                              "id": "afb2b7c4-597a-4429-a37c-3fd71480c834",
+                              "key": "country_code",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1844b557-63fa-4159-a33e-5fec7f91e23a",
+                          "name": "Cities.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/resources/countries/:country_code/cities",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "resources",
+                                "countries",
+                                ":country_code",
+                                "cities"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:46.000Z",
+                          "updatedAt": "2026-07-28T03:07:46.000Z",
+                          "uid": "35240-1844b557-63fa-4159-a33e-5fec7f91e23a"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-21c51cd9-a592-43bb-891d-8d079ff376e6"
+                    }
+                  ],
+                  "id": "9783ed63-f79c-4583-8ec3-4342e4400f29",
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-9783ed63-f79c-4583-8ec3-4342e4400f29"
+                },
+                {
+                  "name": "postal_codes",
+                  "item": [
+                    {
+                      "name": "Get Postal Codes For A Country",
+                      "id": "aea268af-ef88-42f6-8261-b3533415f70f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/resources/countries/:country_code/postal_codes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "resources",
+                            "countries",
+                            ":country_code",
+                            "postal_codes"
+                          ],
+                          "variable": [
+                            {
+                              "id": "83d138c3-2e3a-4ece-b782-eef4ada5235a",
+                              "key": "country_code",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6e4a92c8-60d9-4923-a53a-5342242e0702",
+                          "name": "Postal codes.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/resources/countries/:country_code/postal_codes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "resources",
+                                "countries",
+                                ":country_code",
+                                "postal_codes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "country_code"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:46.000Z",
+                          "updatedAt": "2026-07-28T03:07:46.000Z",
+                          "uid": "35240-6e4a92c8-60d9-4923-a53a-5342242e0702"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-aea268af-ef88-42f6-8261-b3533415f70f"
+                    }
+                  ],
+                  "id": "fb48ad0d-b34c-404d-a70a-c5ea77f70592",
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-fb48ad0d-b34c-404d-a70a-c5ea77f70592"
+                }
+              ],
+              "id": "d97bf0f8-d660-4083-acbb-659a7579be9d",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-d97bf0f8-d660-4083-acbb-659a7579be9d"
+            },
+            {
+              "name": "US",
+              "item": [
+                {
+                  "name": "dmas",
+                  "item": [
+                    {
+                      "name": "Get DMAs In The US",
+                      "id": "9fa5cef0-f192-4a59-8612-cf00f8abd311",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/resources/countries/US/dmas",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "resources",
+                            "countries",
+                            "US",
+                            "dmas"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "137259eb-2982-40b2-ac45-6d345ac33c57",
+                          "name": "List of US DMAs.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/resources/countries/US/dmas",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "resources",
+                                "countries",
+                                "US",
+                                "dmas"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:46.000Z",
+                          "updatedAt": "2026-07-28T03:07:46.000Z",
+                          "uid": "35240-137259eb-2982-40b2-ac45-6d345ac33c57"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-9fa5cef0-f192-4a59-8612-cf00f8abd311"
+                    }
+                  ],
+                  "id": "a2bb9155-fd75-4d89-8489-9d074c7a5bd7",
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-a2bb9155-fd75-4d89-8489-9d074c7a5bd7"
+                }
+              ],
+              "id": "9157f0e7-4830-4121-b316-3c6f4521a195",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-9157f0e7-4830-4121-b316-3c6f4521a195"
+            },
+            {
+              "name": "Get List Of Countries",
+              "id": "da34909d-1a4d-43d7-b397-708019aad0bb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/resources/countries",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resources",
+                    "countries"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "e4b5ba9e-1080-4bbe-aafb-5eac6398e5be",
+                  "name": "List of supported countries.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resources/countries",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resources",
+                        "countries"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-e4b5ba9e-1080-4bbe-aafb-5eac6398e5be"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-da34909d-1a4d-43d7-b397-708019aad0bb"
+            }
+          ],
+          "id": "db48dded-6372-4df9-a747-7894ba76b8a1",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-db48dded-6372-4df9-a747-7894ba76b8a1"
+        },
+        {
+          "name": "browsers",
+          "item": [
+            {
+              "name": "Get List Of Browsers",
+              "id": "88904612-57fa-4772-bd3d-0b7d68dd77a0",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/resources/browsers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resources",
+                    "browsers"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5f368545-1d15-4284-bec3-ed649e5d9a09",
+                  "name": "Browsers.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resources/browsers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resources",
+                        "browsers"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-5f368545-1d15-4284-bec3-ed649e5d9a09"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-88904612-57fa-4772-bd3d-0b7d68dd77a0"
+            }
+          ],
+          "id": "9e5ca760-ea4b-4c17-9cbf-c3ed0b6ab87d",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-9e5ca760-ea4b-4c17-9cbf-c3ed0b6ab87d"
+        },
+        {
+          "name": "operating_systems",
+          "item": [
+            {
+              "name": "ios",
+              "item": [
+                {
+                  "name": "versions",
+                  "item": [
+                    {
+                      "name": "Get List Of iOS Versions",
+                      "id": "4eb798cd-9720-4acf-9bc5-a5f27140f0c1",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/resources/operating_systems/ios/versions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "resources",
+                            "operating_systems",
+                            "ios",
+                            "versions"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e1d13235-efba-4402-a281-21717d73f786",
+                          "name": "iOS versions.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/resources/operating_systems/ios/versions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "resources",
+                                "operating_systems",
+                                "ios",
+                                "versions"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:46.000Z",
+                          "updatedAt": "2026-07-28T03:07:46.000Z",
+                          "uid": "35240-e1d13235-efba-4402-a281-21717d73f786"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-4eb798cd-9720-4acf-9bc5-a5f27140f0c1"
+                    }
+                  ],
+                  "id": "50216fc5-7e25-471a-8f8c-176b6a3bc156",
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-50216fc5-7e25-471a-8f8c-176b6a3bc156"
+                }
+              ],
+              "id": "a94eb733-2154-40f1-891f-b6ca8d47f97b",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-a94eb733-2154-40f1-891f-b6ca8d47f97b"
+            },
+            {
+              "name": "android",
+              "item": [
+                {
+                  "name": "versions",
+                  "item": [
+                    {
+                      "name": "Get List Of Android Versions",
+                      "id": "5512681e-26a5-42e7-bb7e-a970b7fa86a9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/resources/operating_systems/android/versions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "resources",
+                            "operating_systems",
+                            "android",
+                            "versions"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "7384a1a2-2507-4d8f-a41d-36a57b549b86",
+                          "name": "Android versions.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/resources/operating_systems/android/versions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "resources",
+                                "operating_systems",
+                                "android",
+                                "versions"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:46.000Z",
+                          "updatedAt": "2026-07-28T03:07:46.000Z",
+                          "uid": "35240-7384a1a2-2507-4d8f-a41d-36a57b549b86"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-5512681e-26a5-42e7-bb7e-a970b7fa86a9"
+                    }
+                  ],
+                  "id": "978d09e6-dc47-440c-b1d3-5190566bca6a",
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-978d09e6-dc47-440c-b1d3-5190566bca6a"
+                }
+              ],
+              "id": "4b26a9c5-b4d2-45f0-b7b9-245a491fd369",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-4b26a9c5-b4d2-45f0-b7b9-245a491fd369"
+            },
+            {
+              "name": "Get List Of Operating Systems",
+              "id": "50e6ea26-a768-4b3d-86a1-39f92fddd5ad",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/resources/operating_systems",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resources",
+                    "operating_systems"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "74ea244b-b2c3-44b2-ab6f-b9ae79b48476",
+                  "name": "Operating systems.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resources/operating_systems",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resources",
+                        "operating_systems"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-74ea244b-b2c3-44b2-ab6f-b9ae79b48476"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-50e6ea26-a768-4b3d-86a1-39f92fddd5ad"
+            }
+          ],
+          "id": "d38ea635-5432-414e-9856-2d6499607e53",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-d38ea635-5432-414e-9856-2d6499607e53"
+        },
+        {
+          "name": "platforms",
+          "item": [
+            {
+              "name": "Get List Of Platforms",
+              "id": "2da83768-3c2d-451b-9c0e-60bbe30595b9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/resources/platforms",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resources",
+                    "platforms"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "22aad6fb-5dc8-4148-b796-9eab72cc8fdb",
+                  "name": "Platforms.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resources/platforms",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resources",
+                        "platforms"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-22aad6fb-5dc8-4148-b796-9eab72cc8fdb"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-2da83768-3c2d-451b-9c0e-60bbe30595b9"
+            }
+          ],
+          "id": "2684719a-466e-4fef-b800-8a4965a6da0f",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-2684719a-466e-4fef-b800-8a4965a6da0f"
+        },
+        {
+          "name": "languages",
+          "item": [
+            {
+              "name": "Get List Of Languages",
+              "id": "2c5e32e2-73b7-4906-a3cc-e90a8bfdbbdc",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/resources/languages",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resources",
+                    "languages"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "5ae7d137-e4ef-461c-b81b-5a6f085ab747",
+                  "name": "Languages.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resources/languages",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resources",
+                        "languages"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-5ae7d137-e4ef-461c-b81b-5a6f085ab747"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-2c5e32e2-73b7-4906-a3cc-e90a8bfdbbdc"
+            }
+          ],
+          "id": "f541fcfe-8a18-40fa-86fb-28155639cdd8",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-f541fcfe-8a18-40fa-86fb-28155639cdd8"
+        },
+        {
+          "name": "campaigns",
+          "item": [
+            {
+              "name": "enums",
+              "item": [
+                {
+                  "name": "Get List Of Campaign Enums",
+                  "id": "96f8bf05-df19-46e7-856d-05cf12d90ea8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/resources/campaigns/enums",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resources",
+                        "campaigns",
+                        "enums"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "480e04cd-0a9b-44c6-8649-7ed51666f9dd",
+                      "name": "Campaign enums.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/resources/campaigns/enums",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "resources",
+                            "campaigns",
+                            "enums"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-480e04cd-0a9b-44c6-8649-7ed51666f9dd"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-96f8bf05-df19-46e7-856d-05cf12d90ea8"
+                }
+              ],
+              "id": "c421b050-6286-4014-a2de-288b4ef0cdf0",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-c421b050-6286-4014-a2de-288b4ef0cdf0"
+            }
+          ],
+          "id": "be656837-b2ae-47fa-a10e-8bb144f7efc9",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-be656837-b2ae-47fa-a10e-8bb144f7efc9"
+        },
+        {
+          "name": "items",
+          "item": [
+            {
+              "name": "enums",
+              "item": [
+                {
+                  "name": "Get List Of Item Enums",
+                  "id": "882625f2-a5aa-430f-9d94-a6ea35789a86",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/resources/items/enums",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resources",
+                        "items",
+                        "enums"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "8eb79d1b-c82c-40a7-b9d7-bbdf419fe5f9",
+                      "name": "Item enums.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/resources/items/enums",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "resources",
+                            "items",
+                            "enums"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-8eb79d1b-c82c-40a7-b9d7-bbdf419fe5f9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-882625f2-a5aa-430f-9d94-a6ea35789a86"
+                }
+              ],
+              "id": "0c9a666f-5623-4467-9cf3-06760fd784b4",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-0c9a666f-5623-4467-9cf3-06760fd784b4"
+            }
+          ],
+          "id": "35b0c831-ce16-49dd-a6bb-c3716ad28c62",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-35b0c831-ce16-49dd-a6bb-c3716ad28c62"
+        },
+        {
+          "name": "min_cpc",
+          "item": [
+            {
+              "name": "Get List Of Minimum CPC Values",
+              "id": "e6901826-18d5-4018-abd7-029695eb8bd3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/resources/min_cpc",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "resources",
+                    "min_cpc"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "8f913dc8-f6d5-49d4-a00b-4cbe4caa4daa",
+                  "name": "Minimum CPC values by currency.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/resources/min_cpc",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "resources",
+                        "min_cpc"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-8f913dc8-f6d5-49d4-a00b-4cbe4caa4daa"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-e6901826-18d5-4018-abd7-029695eb8bd3"
+            }
+          ],
+          "id": "f9219f78-3f90-4033-b991-d5b4bd961f46",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-f9219f78-3f90-4033-b991-d5b4bd961f46"
+        }
+      ],
+      "id": "242f7e1f-4ce2-4713-b014-6769cd41fd4f",
+      "createdAt": "2026-07-28T03:07:46.000Z",
+      "updatedAt": "2026-07-28T03:07:46.000Z",
+      "uid": "35240-242f7e1f-4ce2-4713-b014-6769cd41fd4f"
+    },
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "dictionary",
+          "item": [
+            {
+              "name": "contextual_segments",
+              "item": [
+                {
+                  "name": "Get Contextual Segments",
+                  "id": "f5e765f4-ba34-4e58-9c25-002c1bc44832",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/dictionary/contextual_segments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "dictionary",
+                        "contextual_segments"
+                      ],
+                      "variable": [
+                        {
+                          "id": "af52a1b4-c710-4f63-8dc2-4f6edcf88a44",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b3e23e42-ddad-4360-a3ef-5d56377c0782",
+                      "name": "Contextual segments.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/dictionary/contextual_segments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "dictionary",
+                            "contextual_segments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-b3e23e42-ddad-4360-a3ef-5d56377c0782"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-f5e765f4-ba34-4e58-9c25-002c1bc44832"
+                }
+              ],
+              "id": "8847fb8d-b263-40d1-a51a-f08964cd7d71",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-8847fb8d-b263-40d1-a51a-f08964cd7d71"
+            },
+            {
+              "name": "publishers",
+              "item": [
+                {
+                  "name": "Get List Of Available Publishers",
+                  "id": "1a3b0224-a1e7-409f-acad-4e7a954eef04",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/dictionary/publishers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "dictionary",
+                        "publishers"
+                      ],
+                      "variable": [
+                        {
+                          "id": "94328a8f-98d7-4d25-b425-c9618d86a566",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "52905f6c-2ed3-4220-8d4d-2dc3ed8fd973",
+                      "name": "Publishers list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/dictionary/publishers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "dictionary",
+                            "publishers"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:46.000Z",
+                      "updatedAt": "2026-07-28T03:07:46.000Z",
+                      "uid": "35240-52905f6c-2ed3-4220-8d4d-2dc3ed8fd973"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:46.000Z",
+                  "updatedAt": "2026-07-28T03:07:46.000Z",
+                  "uid": "35240-1a3b0224-a1e7-409f-acad-4e7a954eef04"
+                }
+              ],
+              "id": "94257e00-d7ea-45e7-93c7-37cc0fa99c03",
+              "createdAt": "2026-07-28T03:07:46.000Z",
+              "updatedAt": "2026-07-28T03:07:46.000Z",
+              "uid": "35240-94257e00-d7ea-45e7-93c7-37cc0fa99c03"
+            }
+          ],
+          "id": "253abbf8-a140-4fec-8e37-2b4694f6a438",
+          "createdAt": "2026-07-28T03:07:46.000Z",
+          "updatedAt": "2026-07-28T03:07:46.000Z",
+          "uid": "35240-253abbf8-a140-4fec-8e37-2b4694f6a438"
+        }
+      ],
+      "id": "ac235650-9286-42de-be2c-48072935f340",
+      "createdAt": "2026-07-28T03:07:46.000Z",
+      "updatedAt": "2026-07-28T03:07:46.000Z",
+      "uid": "35240-ac235650-9286-42de-be2c-48072935f340"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

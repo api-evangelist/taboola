@@ -1,0 +1,168 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Conversions API
+  version: '1.0'
+  description: |-
+    Manage Taboola conversion rules and report conversion events. Supports creating, listing,
+    updating, and archiving conversion rules used to track campaign outcomes (purchases, leads,
+    page views) and to optimize bid strategies.
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/conversion-tracking
+servers:
+  - url: https://backstage.taboola.com/backstage/api/1.0
+security:
+  - bearerAuth: []
+tags:
+  - name: Conversion Rules
+paths:
+  /{account_id}/conversion_rules:
+    get:
+      tags: [Conversion Rules]
+      summary: Get All Conversion Rules
+      description: Returns all conversion rules available to the specified account.
+      operationId: getAllConversionRules
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: List of conversion rules.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ConversionRule'
+    post:
+      tags: [Conversion Rules]
+      summary: Create A Conversion Rule
+      description: Create a new conversion rule for the specified account.
+      operationId: createConversionRule
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversionRule'
+      responses:
+        '200':
+          description: Created conversion rule.
+  /{account_id}/conversion_rules/plus_data:
+    get:
+      tags: [Conversion Rules]
+      summary: Get All Conversion Rules Plus Data
+      description: Get conversion rules including aggregated data per rule.
+      operationId: getAllConversionRulesPlusData
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: List with data.
+  /{account_id}/conversion_rules/{rule_id}:
+    get:
+      tags: [Conversion Rules]
+      summary: Get A Conversion Rule
+      operationId: getConversionRule
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: rule_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Conversion rule.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConversionRule'
+    post:
+      tags: [Conversion Rules]
+      summary: Update A Conversion Rule
+      operationId: updateConversionRule
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: rule_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConversionRule'
+      responses:
+        '200':
+          description: Updated.
+  /{account_id}/conversion_rules/{rule_id}/archive:
+    post:
+      tags: [Conversion Rules]
+      summary: Archive A Conversion Rule
+      operationId: archiveConversionRule
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: rule_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Archived.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    ConversionRule:
+      type: object
+      properties:
+        id:
+          type: string
+        advertiser_id:
+          type: string
+        display_name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+          enum: [MAKE_PURCHASE, LEAD, COMPLETE_REGISTRATION, ADD_TO_CART, START_TRIAL, ADD_PAYMENT_INFO, SUBSCRIBE, OTHER, PAGE_VIEW]
+        type:
+          type: string
+          enum: [EVENT_BASED, URL_BASED]
+        condition:
+          type: object
+        event_name:
+          type: string
+        look_back_window:
+          type: integer
+        view_through_look_back_window:
+          type: integer
+        include_in_total_conversions:
+          type: boolean
+        status:
+          type: string
+          enum: [ACTIVE, ARCHIVED]
+        last_modified_at:
+          type: string
+          format: date-time
+        last_modified_by:
+          type: string

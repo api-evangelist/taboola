@@ -1,0 +1,232 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Audiences API
+  version: '1.0'
+  description: |-
+    Manage first-party audiences, custom audiences, lookalike audiences, marketplace (third-party)
+    audience segments, combined audiences, and contextual segments. Apply audience targeting to
+    Taboola Realize campaigns.
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference/audience-targeting
+servers:
+  - url: https://backstage.taboola.com/backstage/api/1.0
+security:
+  - bearerAuth: []
+tags:
+  - name: First Party Audiences
+  - name: Custom Audiences
+  - name: Lookalike Audiences
+  - name: Marketplace Audiences
+  - name: Combined Audiences
+  - name: Audience Targeting
+paths:
+  /{account_id}/audience_onboarding:
+    post:
+      tags: [First Party Audiences]
+      summary: Create A First Party Audience
+      description: Create a new first-party audience for the specified account.
+      operationId: createFirstPartyAudience
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FirstPartyAudience'
+      responses:
+        '200':
+          description: Created audience.
+  /{account_id}/audience_onboarding/{audience_id}/users:
+    post:
+      tags: [First Party Audiences]
+      summary: Add Or Remove Users
+      description: Add or remove users from a first party audience using hashed identifiers.
+      operationId: addRemoveAudienceUsers
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: audience_id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                operation:
+                  type: string
+                  enum: [ADD, REMOVE]
+                users:
+                  type: array
+                  items:
+                    $ref: '#/components/schemas/UserId'
+      responses:
+        '200':
+          description: Result.
+  /{account_id}/audience_onboarding/{audience_id}:
+    get:
+      tags: [First Party Audiences]
+      summary: Get My Audience
+      description: Fetch a specific first-party audience by ID.
+      operationId: getMyAudience
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: audience_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Audience.
+  /{account_id}/custom_audiences:
+    get:
+      tags: [Custom Audiences]
+      summary: Get All Custom Audiences
+      description: Get all Custom Audiences for the specified account, including network-level audiences.
+      operationId: getAllCustomAudiences
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: List of custom audiences.
+  /{account_id}/combined_audiences:
+    get:
+      tags: [Combined Audiences]
+      summary: Get All Combined Audiences
+      operationId: getAllCombinedAudiences
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: List.
+    post:
+      tags: [Combined Audiences]
+      summary: Create A Combined Audience
+      operationId: createCombinedAudience
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Created.
+  /{account_id}/combined_audiences/{audience_id}:
+    get:
+      tags: [Combined Audiences]
+      summary: Get A Combined Audience
+      operationId: getCombinedAudience
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: audience_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Audience.
+    post:
+      tags: [Combined Audiences]
+      summary: Update A Combined Audience
+      operationId: updateCombinedAudience
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - name: audience_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Updated.
+  /{account_id}/dictionary/lookalike_audiences:
+    get:
+      tags: [Lookalike Audiences]
+      summary: Get Lookalike Audiences
+      description: Get a list of available lookalike audiences for the account.
+      operationId: getLookalikeAudiences
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Lookalike audiences.
+  /{account_id}/dictionary/audience_segments:
+    get:
+      tags: [Marketplace Audiences]
+      summary: Get Marketplace Audiences
+      description: Get a list of available Marketplace (third-party) Audiences for the account.
+      operationId: getMarketplaceAudiences
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Marketplace audiences.
+  /{account_id}/campaigns/{campaign_id}/targeting/my_audience:
+    get:
+      tags: [Audience Targeting]
+      summary: Get My Audience Targeting
+      operationId: getMyAudienceTargeting
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: Targeting.
+    post:
+      tags: [Audience Targeting]
+      summary: Update My Audience Targeting
+      operationId: updateMyAudienceTargeting
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: Updated.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+    campaignId:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+  schemas:
+    FirstPartyAudience:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+          enum: [CRM, PIXEL_BASED]
+        country:
+          type: string
+        ttl:
+          type: integer
+          description: Time-to-live in days.
+    UserId:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [EMAIL, DEVICE_ID, IDFA, AAID, MAID]
+        value:
+          type: string
+          description: Hashed identifier (SHA-256 recommended).

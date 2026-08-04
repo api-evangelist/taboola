@@ -1,0 +1,122 @@
+{
+  "info": {
+    "_postman_id": "03f5d092-98bd-415d-bd56-21595c608de2",
+    "name": "Taboola Backstage Accounts Custom Audiences API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:40.000Z",
+    "updatedAt": "2026-07-28T03:07:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-03f5d092-98bd-415d-bd56-21595c608de2"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "custom_audiences",
+          "item": [
+            {
+              "name": "Get All Custom Audiences",
+              "id": "4c083103-ddbe-48f2-91cd-8d6e10270afe",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/:account_id/custom_audiences",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":account_id",
+                    "custom_audiences"
+                  ],
+                  "variable": [
+                    {
+                      "id": "4d66f14c-02d2-4565-a6a5-5960ba8c88f7",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Get all Custom Audiences for the specified account, including network-level audiences."
+              },
+              "response": [
+                {
+                  "id": "2fdce6fe-a4a5-4210-bfe0-570ab38fb954",
+                  "name": "List of custom audiences.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/custom_audiences",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "custom_audiences"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:40.000Z",
+                  "updatedAt": "2026-07-28T03:07:40.000Z",
+                  "uid": "35240-2fdce6fe-a4a5-4210-bfe0-570ab38fb954"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:40.000Z",
+              "updatedAt": "2026-07-28T03:07:40.000Z",
+              "uid": "35240-4c083103-ddbe-48f2-91cd-8d6e10270afe"
+            }
+          ],
+          "id": "02a92d37-6649-4cb9-a054-f36521dc6019",
+          "createdAt": "2026-07-28T03:07:40.000Z",
+          "updatedAt": "2026-07-28T03:07:40.000Z",
+          "uid": "35240-02a92d37-6649-4cb9-a054-f36521dc6019"
+        }
+      ],
+      "id": "85e16866-49aa-4466-ad80-397f4d592c51",
+      "createdAt": "2026-07-28T03:07:40.000Z",
+      "updatedAt": "2026-07-28T03:07:40.000Z",
+      "uid": "35240-85e16866-49aa-4466-ad80-397f4d592c51"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

@@ -1,0 +1,370 @@
+{
+  "info": {
+    "_postman_id": "e8f52100-3917-40d2-8623-9e6918519550",
+    "name": "Taboola Backstage Accounts First Party Audiences API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:47.000Z",
+    "updatedAt": "2026-07-28T03:07:47.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e8f52100-3917-40d2-8623-9e6918519550"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "audience_onboarding",
+          "item": [
+            {
+              "name": "{audience_id}",
+              "item": [
+                {
+                  "name": "users",
+                  "item": [
+                    {
+                      "name": "Add Or Remove Users",
+                      "id": "07481641-d030-49c3-b9d4-f2eff1cdf6b5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"operation\": \"REMOVE\",\n  \"users\": [\n    {\n      \"type\": \"MAID\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"EMAIL\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/audience_onboarding/:audience_id/users",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "audience_onboarding",
+                            ":audience_id",
+                            "users"
+                          ],
+                          "variable": [
+                            {
+                              "id": "f3e2abd5-aad6-4127-bb11-7ec72c86b660",
+                              "key": "account_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "a8b33e68-2e3c-4877-9466-6a253ac35e0c",
+                              "key": "audience_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Add or remove users from a first party audience using hashed identifiers."
+                      },
+                      "response": [
+                        {
+                          "id": "1e14b2a3-4663-4bcb-9c8e-25d0ed9f10ef",
+                          "name": "Result.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"operation\": \"REMOVE\",\n  \"users\": [\n    {\n      \"type\": \"MAID\",\n      \"value\": \"<string>\"\n    },\n    {\n      \"type\": \"EMAIL\",\n      \"value\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/audience_onboarding/:audience_id/users",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "audience_onboarding",
+                                ":audience_id",
+                                "users"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "audience_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T03:07:47.000Z",
+                          "updatedAt": "2026-07-28T03:07:47.000Z",
+                          "uid": "35240-1e14b2a3-4663-4bcb-9c8e-25d0ed9f10ef"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:47.000Z",
+                      "updatedAt": "2026-07-28T03:07:47.000Z",
+                      "uid": "35240-07481641-d030-49c3-b9d4-f2eff1cdf6b5"
+                    }
+                  ],
+                  "id": "a7983b4e-ad0a-4432-a113-af46205191f4",
+                  "createdAt": "2026-07-28T03:07:47.000Z",
+                  "updatedAt": "2026-07-28T03:07:47.000Z",
+                  "uid": "35240-a7983b4e-ad0a-4432-a113-af46205191f4"
+                },
+                {
+                  "name": "Get My Audience",
+                  "id": "9f6eb2e7-6633-4b02-8a45-13038288d073",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/audience_onboarding/:audience_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "audience_onboarding",
+                        ":audience_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "6e6a9849-96fb-43dd-8bd0-773dde52b569",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "52866684-e985-4db8-963d-6a7590267767",
+                          "key": "audience_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Fetch a specific first-party audience by ID."
+                  },
+                  "response": [
+                    {
+                      "id": "5ea3f5a1-a5f5-4073-afc5-64b0487c1ff8",
+                      "name": "Audience.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/audience_onboarding/:audience_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "audience_onboarding",
+                            ":audience_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            },
+                            {
+                              "key": "audience_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:47.000Z",
+                      "updatedAt": "2026-07-28T03:07:47.000Z",
+                      "uid": "35240-5ea3f5a1-a5f5-4073-afc5-64b0487c1ff8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:47.000Z",
+                  "updatedAt": "2026-07-28T03:07:47.000Z",
+                  "uid": "35240-9f6eb2e7-6633-4b02-8a45-13038288d073"
+                }
+              ],
+              "id": "da4b36dc-16c5-4756-9e72-e5ca77c266af",
+              "createdAt": "2026-07-28T03:07:47.000Z",
+              "updatedAt": "2026-07-28T03:07:47.000Z",
+              "uid": "35240-da4b36dc-16c5-4756-9e72-e5ca77c266af"
+            },
+            {
+              "name": "Create A First Party Audience",
+              "id": "d4aeb96b-6be3-4296-8160-9ea3ff63b8dd",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"PIXEL_BASED\",\n  \"country\": \"<string>\",\n  \"ttl\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/:account_id/audience_onboarding",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":account_id",
+                    "audience_onboarding"
+                  ],
+                  "variable": [
+                    {
+                      "id": "500b6677-97b0-412e-8a0b-a20bc2920fbd",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Create a new first-party audience for the specified account."
+              },
+              "response": [
+                {
+                  "id": "4ea987de-91e4-46ee-80c4-a4192cc003f3",
+                  "name": "Created audience.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"type\": \"PIXEL_BASED\",\n  \"country\": \"<string>\",\n  \"ttl\": \"<integer>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/audience_onboarding",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "audience_onboarding"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:47.000Z",
+                  "updatedAt": "2026-07-28T03:07:47.000Z",
+                  "uid": "35240-4ea987de-91e4-46ee-80c4-a4192cc003f3"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:47.000Z",
+              "updatedAt": "2026-07-28T03:07:47.000Z",
+              "uid": "35240-d4aeb96b-6be3-4296-8160-9ea3ff63b8dd"
+            }
+          ],
+          "id": "46cce063-183a-431d-a705-696b7f02a229",
+          "createdAt": "2026-07-28T03:07:47.000Z",
+          "updatedAt": "2026-07-28T03:07:47.000Z",
+          "uid": "35240-46cce063-183a-431d-a705-696b7f02a229"
+        }
+      ],
+      "id": "ebea749e-5275-49e9-9d76-2cd2f629c26b",
+      "createdAt": "2026-07-28T03:07:47.000Z",
+      "updatedAt": "2026-07-28T03:07:47.000Z",
+      "uid": "35240-ebea749e-5275-49e9-9d76-2cd2f629c26b"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

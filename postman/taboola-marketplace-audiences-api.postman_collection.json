@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "77b6a916-a631-45ee-b7b4-89f69b06b0eb",
+    "name": "Taboola Backstage Accounts Marketplace Audiences API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:48.000Z",
+    "updatedAt": "2026-07-28T03:07:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-77b6a916-a631-45ee-b7b4-89f69b06b0eb"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "dictionary",
+          "item": [
+            {
+              "name": "audience_segments",
+              "item": [
+                {
+                  "name": "Get Marketplace Audiences",
+                  "id": "09c2c6bb-9ae6-485c-8f12-2e5c143a9399",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/dictionary/audience_segments",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "dictionary",
+                        "audience_segments"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5e88f79b-af23-4d80-aff1-d14a1292440b",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get a list of available Marketplace (third-party) Audiences for the account."
+                  },
+                  "response": [
+                    {
+                      "id": "5c53b2a0-0988-4613-a6c0-860d2fc92b96",
+                      "name": "Marketplace audiences.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/dictionary/audience_segments",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "dictionary",
+                            "audience_segments"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:49.000Z",
+                      "updatedAt": "2026-07-28T03:07:49.000Z",
+                      "uid": "35240-5c53b2a0-0988-4613-a6c0-860d2fc92b96"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:49.000Z",
+                  "updatedAt": "2026-07-28T03:07:49.000Z",
+                  "uid": "35240-09c2c6bb-9ae6-485c-8f12-2e5c143a9399"
+                }
+              ],
+              "id": "12973331-9842-4799-b2aa-a4bd85bcac76",
+              "createdAt": "2026-07-28T03:07:49.000Z",
+              "updatedAt": "2026-07-28T03:07:49.000Z",
+              "uid": "35240-12973331-9842-4799-b2aa-a4bd85bcac76"
+            }
+          ],
+          "id": "dfaff885-9893-467e-8e4e-e8e618b5de57",
+          "createdAt": "2026-07-28T03:07:49.000Z",
+          "updatedAt": "2026-07-28T03:07:49.000Z",
+          "uid": "35240-dfaff885-9893-467e-8e4e-e8e618b5de57"
+        }
+      ],
+      "id": "c86491a2-9b98-4a97-bdb1-fde22d8e7a38",
+      "createdAt": "2026-07-28T03:07:49.000Z",
+      "updatedAt": "2026-07-28T03:07:49.000Z",
+      "uid": "35240-c86491a2-9b98-4a97-bdb1-fde22d8e7a38"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

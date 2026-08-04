@@ -1,0 +1,410 @@
+{
+  "info": {
+    "_postman_id": "6c4b0ead-382d-4306-bc15-ae8c86aad22e",
+    "name": "Taboola Backstage Accounts Bulk Items API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:34.000Z",
+    "updatedAt": "2026-07-28T03:07:34.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6c4b0ead-382d-4306-bc15-ae8c86aad22e"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "campaigns",
+          "item": [
+            {
+              "name": "{campaign_id}",
+              "item": [
+                {
+                  "name": "items",
+                  "item": [
+                    {
+                      "name": "mass-create",
+                      "item": [
+                        {
+                          "name": "Mass Create Items For A Campaign",
+                          "id": "bd545849-eb2f-4aa4-8c59-c34664b0481a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/mass-create",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "items",
+                                "mass-create"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "fd9b0751-b78b-4aa6-8682-7169818c170d",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "18ea574f-c50b-4958-b5e5-0e244e5b6e85",
+                                  "key": "campaign_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create a batch of items for a given campaign in a single request."
+                          },
+                          "response": [
+                            {
+                              "id": "0ffd26e0-6df9-463e-bfb6-d9d1825307a0",
+                              "name": "Mass create result.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/mass-create",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "campaigns",
+                                    ":campaign_id",
+                                    "items",
+                                    "mass-create"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "campaign_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:35.000Z",
+                              "updatedAt": "2026-07-28T03:07:35.000Z",
+                              "uid": "35240-0ffd26e0-6df9-463e-bfb6-d9d1825307a0"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:35.000Z",
+                          "updatedAt": "2026-07-28T03:07:35.000Z",
+                          "uid": "35240-bd545849-eb2f-4aa4-8c59-c34664b0481a"
+                        }
+                      ],
+                      "id": "91c22a09-20a0-46dc-9cb1-50868292b696",
+                      "createdAt": "2026-07-28T03:07:35.000Z",
+                      "updatedAt": "2026-07-28T03:07:35.000Z",
+                      "uid": "35240-91c22a09-20a0-46dc-9cb1-50868292b696"
+                    }
+                  ],
+                  "id": "78f80037-3e82-4401-b612-638bd61a5ee4",
+                  "createdAt": "2026-07-28T03:07:35.000Z",
+                  "updatedAt": "2026-07-28T03:07:35.000Z",
+                  "uid": "35240-78f80037-3e82-4401-b612-638bd61a5ee4"
+                }
+              ],
+              "id": "b98fa0db-cab7-4e08-aee3-e889926ec82e",
+              "createdAt": "2026-07-28T03:07:35.000Z",
+              "updatedAt": "2026-07-28T03:07:35.000Z",
+              "uid": "35240-b98fa0db-cab7-4e08-aee3-e889926ec82e"
+            }
+          ],
+          "id": "3fb7ff5a-ce19-4fbf-b879-b95f16ce6a57",
+          "createdAt": "2026-07-28T03:07:35.000Z",
+          "updatedAt": "2026-07-28T03:07:35.000Z",
+          "uid": "35240-3fb7ff5a-ce19-4fbf-b879-b95f16ce6a57"
+        },
+        {
+          "name": "items",
+          "item": [
+            {
+              "name": "bulk",
+              "item": [
+                {
+                  "name": "Bulk Create Items Across Campaigns",
+                  "id": "0fc19fbf-6966-4f5d-983d-ea4800cc66a2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/items/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "items",
+                        "bulk"
+                      ],
+                      "variable": [
+                        {
+                          "id": "9920d88c-8c3b-4312-8f1f-cb989fbec355",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Bulk create the same items across multiple campaigns."
+                  },
+                  "response": [
+                    {
+                      "id": "a2e0b6c4-61ab-4e39-b4d6-87dd63e10029",
+                      "name": "Bulk create result.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/items/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "items",
+                            "bulk"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:35.000Z",
+                      "updatedAt": "2026-07-28T03:07:35.000Z",
+                      "uid": "35240-a2e0b6c4-61ab-4e39-b4d6-87dd63e10029"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:35.000Z",
+                  "updatedAt": "2026-07-28T03:07:35.000Z",
+                  "uid": "35240-0fc19fbf-6966-4f5d-983d-ea4800cc66a2"
+                },
+                {
+                  "name": "Bulk Update Items Across Campaigns",
+                  "id": "28d94364-4670-487d-bd3c-cec3290d2601",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/items/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "items",
+                        "bulk"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e586c9e6-4d56-465f-9dad-e292de374db9",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Bulk update items across multiple campaigns."
+                  },
+                  "response": [
+                    {
+                      "id": "ea2de655-5f2f-417e-a75b-6a0f307437e6",
+                      "name": "Bulk update result.",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/items/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "items",
+                            "bulk"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:35.000Z",
+                      "updatedAt": "2026-07-28T03:07:35.000Z",
+                      "uid": "35240-ea2de655-5f2f-417e-a75b-6a0f307437e6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:35.000Z",
+                  "updatedAt": "2026-07-28T03:07:35.000Z",
+                  "uid": "35240-28d94364-4670-487d-bd3c-cec3290d2601"
+                },
+                {
+                  "name": "Bulk Delete Items Across Campaigns",
+                  "id": "86def23b-ba7c-48f7-9b6d-4471537be548",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/items/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "items",
+                        "bulk"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c947d557-dc18-4e36-a75f-a228688cdca9",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Bulk delete items across multiple campaigns."
+                  },
+                  "response": [
+                    {
+                      "id": "fcfbc0a1-a289-4231-a227-df0c0e06017f",
+                      "name": "Bulk delete result.",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/items/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "items",
+                            "bulk"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:35.000Z",
+                      "updatedAt": "2026-07-28T03:07:35.000Z",
+                      "uid": "35240-fcfbc0a1-a289-4231-a227-df0c0e06017f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:35.000Z",
+                  "updatedAt": "2026-07-28T03:07:35.000Z",
+                  "uid": "35240-86def23b-ba7c-48f7-9b6d-4471537be548"
+                }
+              ],
+              "id": "44b074af-38dd-4023-97b6-50a112f69982",
+              "createdAt": "2026-07-28T03:07:35.000Z",
+              "updatedAt": "2026-07-28T03:07:35.000Z",
+              "uid": "35240-44b074af-38dd-4023-97b6-50a112f69982"
+            }
+          ],
+          "id": "2c2edadb-1efe-4813-979a-857fc0162f48",
+          "createdAt": "2026-07-28T03:07:35.000Z",
+          "updatedAt": "2026-07-28T03:07:35.000Z",
+          "uid": "35240-2c2edadb-1efe-4813-979a-857fc0162f48"
+        }
+      ],
+      "id": "30feb8d4-6a61-4e61-b0fe-614752e5ab1e",
+      "createdAt": "2026-07-28T03:07:35.000Z",
+      "updatedAt": "2026-07-28T03:07:35.000Z",
+      "uid": "35240-30feb8d4-6a61-4e61-b0fe-614752e5ab1e"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

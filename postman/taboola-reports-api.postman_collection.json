@@ -1,0 +1,426 @@
+{
+  "info": {
+    "_postman_id": "d613fe0b-6d16-4e80-84a0-e47f0755d897",
+    "name": "Taboola Backstage Accounts Reports API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:50.000Z",
+    "updatedAt": "2026-07-28T03:07:50.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d613fe0b-6d16-4e80-84a0-e47f0755d897"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "reports",
+          "item": [
+            {
+              "name": "campaign-summary",
+              "item": [
+                {
+                  "name": "dimensions",
+                  "item": [
+                    {
+                      "name": "{dimension}",
+                      "item": [
+                        {
+                          "name": "Get Campaign Summary Report",
+                          "id": "e945a018-3c20-4c4f-bcf1-b87cae82fd69",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/reports/campaign-summary/dimensions/:dimension?start_date=<date>&end_date=<date>&campaign=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "reports",
+                                "campaign-summary",
+                                "dimensions",
+                                ":dimension"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "start_date",
+                                  "value": "<date>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "end_date",
+                                  "value": "<date>"
+                                },
+                                {
+                                  "key": "campaign",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "319f9bf8-60e0-4e18-a21d-715f76b17846",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "7035f64c-96ba-4278-9176-b7285c8c0517",
+                                  "key": "dimension",
+                                  "value": "language_breakdown",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get aggregated campaign performance by dimension (day, campaign, site, country, etc)."
+                          },
+                          "response": [
+                            {
+                              "id": "033606b6-f1c3-461d-8fa9-c7d98c23a81a",
+                              "name": "Report rows with metrics.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/reports/campaign-summary/dimensions/:dimension?start_date=<date>&end_date=<date>&campaign=<string>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "reports",
+                                    "campaign-summary",
+                                    "dimensions",
+                                    ":dimension"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "start_date",
+                                      "value": "<date>"
+                                    },
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "end_date",
+                                      "value": "<date>"
+                                    },
+                                    {
+                                      "key": "campaign",
+                                      "value": "<string>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "dimension"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"timezone\": \"<string>\",\n  \"last_used_rawdata_update_time\": \"<string>\",\n  \"results\": [\n    {\n      \"date\": \"<string>\",\n      \"campaign\": \"<string>\",\n      \"campaign_name\": \"<string>\",\n      \"site\": \"<string>\",\n      \"site_name\": \"<string>\",\n      \"country\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"impressions\": \"<integer>\",\n      \"visible_impressions\": \"<integer>\",\n      \"clicks\": \"<integer>\",\n      \"ctr\": \"<float>\",\n      \"spent\": \"<float>\",\n      \"cpc\": \"<float>\",\n      \"cpm\": \"<float>\",\n      \"conversions\": \"<integer>\",\n      \"conversions_value\": \"<float>\",\n      \"cpa\": \"<float>\",\n      \"cpa_actions_num\": \"<integer>\",\n      \"roas\": \"<float>\",\n      \"currency\": \"<string>\"\n    },\n    {\n      \"date\": \"<string>\",\n      \"campaign\": \"<string>\",\n      \"campaign_name\": \"<string>\",\n      \"site\": \"<string>\",\n      \"site_name\": \"<string>\",\n      \"country\": \"<string>\",\n      \"platform\": \"<string>\",\n      \"impressions\": \"<integer>\",\n      \"visible_impressions\": \"<integer>\",\n      \"clicks\": \"<integer>\",\n      \"ctr\": \"<float>\",\n      \"spent\": \"<float>\",\n      \"cpc\": \"<float>\",\n      \"cpm\": \"<float>\",\n      \"conversions\": \"<integer>\",\n      \"conversions_value\": \"<float>\",\n      \"cpa\": \"<float>\",\n      \"cpa_actions_num\": \"<integer>\",\n      \"roas\": \"<float>\",\n      \"currency\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T03:07:51.000Z",
+                              "updatedAt": "2026-07-28T03:07:51.000Z",
+                              "uid": "35240-033606b6-f1c3-461d-8fa9-c7d98c23a81a"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:51.000Z",
+                          "updatedAt": "2026-07-28T03:07:51.000Z",
+                          "uid": "35240-e945a018-3c20-4c4f-bcf1-b87cae82fd69"
+                        }
+                      ],
+                      "id": "91ffefac-6fe9-4475-a04c-8d7168150239",
+                      "createdAt": "2026-07-28T03:07:51.000Z",
+                      "updatedAt": "2026-07-28T03:07:51.000Z",
+                      "uid": "35240-91ffefac-6fe9-4475-a04c-8d7168150239"
+                    }
+                  ],
+                  "id": "59a61bba-37fa-48e5-a098-1cfdc72777e1",
+                  "createdAt": "2026-07-28T03:07:51.000Z",
+                  "updatedAt": "2026-07-28T03:07:51.000Z",
+                  "uid": "35240-59a61bba-37fa-48e5-a098-1cfdc72777e1"
+                }
+              ],
+              "id": "c85014c3-3e84-4d6f-a472-732a11bc46b3",
+              "createdAt": "2026-07-28T03:07:51.000Z",
+              "updatedAt": "2026-07-28T03:07:51.000Z",
+              "uid": "35240-c85014c3-3e84-4d6f-a472-732a11bc46b3"
+            },
+            {
+              "name": "top-campaign-content",
+              "item": [
+                {
+                  "name": "dimensions",
+                  "item": [
+                    {
+                      "name": "item_breakdown",
+                      "item": [
+                        {
+                          "name": "Get Top Campaign Content Report",
+                          "id": "fa6200c5-2065-4871-bea3-1237d3580c11",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/reports/top-campaign-content/dimensions/item_breakdown?start_date=<date>&end_date=<date>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "reports",
+                                "top-campaign-content",
+                                "dimensions",
+                                "item_breakdown"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "start_date",
+                                  "value": "<date>"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "end_date",
+                                  "value": "<date>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4f458dc8-b3a5-4f6f-862d-52335ec97852",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get top performing creative items for the specified date range."
+                          },
+                          "response": [
+                            {
+                              "id": "c11a82d4-c3ed-4831-b2cc-32612e916219",
+                              "name": "Top content report.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/reports/top-campaign-content/dimensions/item_breakdown?start_date=<date>&end_date=<date>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "reports",
+                                    "top-campaign-content",
+                                    "dimensions",
+                                    "item_breakdown"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "start_date",
+                                      "value": "<date>"
+                                    },
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "end_date",
+                                      "value": "<date>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:51.000Z",
+                              "updatedAt": "2026-07-28T03:07:51.000Z",
+                              "uid": "35240-c11a82d4-c3ed-4831-b2cc-32612e916219"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:51.000Z",
+                          "updatedAt": "2026-07-28T03:07:51.000Z",
+                          "uid": "35240-fa6200c5-2065-4871-bea3-1237d3580c11"
+                        }
+                      ],
+                      "id": "14214d36-af0e-4935-b084-19424bc2264b",
+                      "createdAt": "2026-07-28T03:07:51.000Z",
+                      "updatedAt": "2026-07-28T03:07:51.000Z",
+                      "uid": "35240-14214d36-af0e-4935-b084-19424bc2264b"
+                    }
+                  ],
+                  "id": "aed01114-ea16-4ec1-a06d-8da411554d3b",
+                  "createdAt": "2026-07-28T03:07:51.000Z",
+                  "updatedAt": "2026-07-28T03:07:51.000Z",
+                  "uid": "35240-aed01114-ea16-4ec1-a06d-8da411554d3b"
+                }
+              ],
+              "id": "ed30e85b-6325-40e0-9fef-0c08bd389482",
+              "createdAt": "2026-07-28T03:07:51.000Z",
+              "updatedAt": "2026-07-28T03:07:51.000Z",
+              "uid": "35240-ed30e85b-6325-40e0-9fef-0c08bd389482"
+            },
+            {
+              "name": "realtime-ads",
+              "item": [
+                {
+                  "name": "Get Real-Time Ads Report",
+                  "id": "81e3aeda-8991-4787-afa0-0ed7047bece5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/reports/realtime-ads",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "reports",
+                        "realtime-ads"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7475e30d-bc67-49bd-b8df-760bf785e00e",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Near real-time performance snapshot for ads."
+                  },
+                  "response": [
+                    {
+                      "id": "c2152670-4f1c-420d-8213-1b87af1edfb3",
+                      "name": "Real-time metrics.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/reports/realtime-ads",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "reports",
+                            "realtime-ads"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:51.000Z",
+                      "updatedAt": "2026-07-28T03:07:51.000Z",
+                      "uid": "35240-c2152670-4f1c-420d-8213-1b87af1edfb3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:51.000Z",
+                  "updatedAt": "2026-07-28T03:07:51.000Z",
+                  "uid": "35240-81e3aeda-8991-4787-afa0-0ed7047bece5"
+                }
+              ],
+              "id": "909e2047-43cf-4505-b107-019f09088ca9",
+              "createdAt": "2026-07-28T03:07:51.000Z",
+              "updatedAt": "2026-07-28T03:07:51.000Z",
+              "uid": "35240-909e2047-43cf-4505-b107-019f09088ca9"
+            }
+          ],
+          "id": "ea9051ee-f6a4-46bf-9fc6-2cdd8293ce14",
+          "createdAt": "2026-07-28T03:07:51.000Z",
+          "updatedAt": "2026-07-28T03:07:51.000Z",
+          "uid": "35240-ea9051ee-f6a4-46bf-9fc6-2cdd8293ce14"
+        }
+      ],
+      "id": "34afb334-17fa-4495-9f93-2c7e3532b02d",
+      "createdAt": "2026-07-28T03:07:51.000Z",
+      "updatedAt": "2026-07-28T03:07:51.000Z",
+      "uid": "35240-34afb334-17fa-4495-9f93-2c7e3532b02d"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

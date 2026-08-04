@@ -1,0 +1,278 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Campaigns API
+  version: '1.0'
+  description: |-
+    Programmatic interface for managing Taboola Realize advertising campaigns. The Backstage Campaigns
+    surface provides CRUD operations for campaigns at the account level, plus bulk and network-wide
+    convenience endpoints. Used by advertisers and ad operations platforms to integrate Taboola native
+    and discovery campaign management.
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+  license:
+    name: Proprietary
+    url: https://www.taboola.com/legal-policies
+servers:
+  - url: https://backstage.taboola.com/backstage/api/1.0
+    description: Production
+security:
+  - bearerAuth: []
+tags:
+  - name: Campaigns
+    description: Create, retrieve, update, duplicate, and delete advertising campaigns.
+  - name: Bulk Operations
+    description: Bulk update or create campaigns across accounts on the network.
+  - name: Reach Estimator
+    description: Estimate reach for campaign targeting before launching.
+paths:
+  /{account_id}/campaigns/:
+    get:
+      tags: [Campaigns]
+      summary: Get All Campaigns
+      description: Get all campaigns for the specified account.
+      operationId: getAllCampaigns
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: List of campaigns.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Campaign'
+    post:
+      tags: [Campaigns]
+      summary: Create A Campaign
+      description: Create a new campaign under the specified account.
+      operationId: createCampaign
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+      responses:
+        '200':
+          description: The created campaign.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+  /{account_id}/campaigns/{campaign_id}:
+    get:
+      tags: [Campaigns]
+      summary: Get A Campaign
+      description: Get a specific campaign by ID.
+      operationId: getCampaign
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: A single campaign.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+    post:
+      tags: [Campaigns]
+      summary: Update A Campaign
+      description: Update an existing campaign. Fields omitted or null will not be updated.
+      operationId: updateCampaign
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Campaign'
+      responses:
+        '200':
+          description: Updated campaign.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Campaign'
+    delete:
+      tags: [Campaigns]
+      summary: Delete A Campaign
+      description: Mark the campaign as TERMINATED. Subsequent references return 404.
+      operationId: deleteCampaign
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: Campaign object with status=TERMINATED.
+  /{account_id}/campaigns/{campaign_id}/duplicate:
+    post:
+      tags: [Campaigns]
+      summary: Duplicate A Campaign
+      description: Duplicate an existing campaign optionally overriding fields and target account.
+      operationId: duplicateCampaign
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+        - $ref: '#/components/parameters/campaignId'
+      responses:
+        '200':
+          description: Newly created campaign.
+  /{account_id}/campaigns/network:
+    get:
+      tags: [Bulk Operations]
+      summary: Get All Campaigns Across The Network
+      description: Convenience endpoint for fetching basic campaign details across the network.
+      operationId: getAllCampaignsAcrossNetwork
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Network-wide campaign list.
+  /{account_id}/campaigns/bulk:
+    post:
+      tags: [Bulk Operations]
+      summary: Bulk Update Campaigns
+      description: Bulk update multiple campaigns in a single API call.
+      operationId: bulkUpdateCampaigns
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Bulk update result.
+  /{account_id}/campaigns/reach-estimator:
+    post:
+      tags: [Reach Estimator]
+      summary: Estimate Campaign Reach
+      description: Estimate total impressions for the supplied targeting.
+      operationId: estimateCampaignReach
+      parameters:
+        - $ref: '#/components/parameters/accountId'
+      responses:
+        '200':
+          description: Estimated reach response.
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |-
+        OAuth 2.0 client credentials access token. Obtain via POST to
+        https://backstage.taboola.com/backstage/oauth/token with `grant_type=client_credentials`,
+        `client_id`, and `client_secret`.
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Taboola account identifier.
+    campaignId:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Campaign identifier.
+  schemas:
+    Campaign:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique campaign identifier.
+        advertiser_id:
+          type: string
+        name:
+          type: string
+        branding_text:
+          type: string
+        tracking_code:
+          type: string
+        cpc:
+          type: number
+          format: float
+        spending_limit:
+          type: number
+          format: float
+        spending_limit_model:
+          type: string
+          enum: [ENTIRE, DAILY, MONTHLY]
+        daily_cap:
+          type: number
+          format: float
+        daily_ad_delivery_model:
+          type: string
+          enum: [STABLE, ACCELERATED]
+        start_date:
+          type: string
+          format: date
+        end_date:
+          type: string
+          format: date
+        is_active:
+          type: boolean
+        status:
+          type: string
+          enum: [RUNNING, PAUSED, PENDING_APPROVAL, REJECTED, TERMINATED, EXPIRED, FROZEN]
+        approval_state:
+          type: string
+        marketing_objective:
+          type: string
+          enum: [ONLINE_PURCHASES, LEADS_GENERATION, DRIVE_WEBSITE_TRAFFIC, BRAND_AWARENESS, MOBILE_APP_INSTALL]
+        bid_strategy:
+          type: string
+          enum: [FIXED, SMART, MAX_CONVERSIONS, TARGET_CPA]
+        bid_type:
+          type: string
+          enum: [CPC, CPM, VCPM]
+        pricing_model:
+          type: string
+        cpa_goal:
+          type: number
+          format: float
+        country_targeting:
+          $ref: '#/components/schemas/Targeting'
+        sub_country_targeting:
+          $ref: '#/components/schemas/Targeting'
+        platform_targeting:
+          $ref: '#/components/schemas/Targeting'
+        browser_targeting:
+          $ref: '#/components/schemas/Targeting'
+        os_targeting:
+          $ref: '#/components/schemas/Targeting'
+        publisher_targeting:
+          $ref: '#/components/schemas/Targeting'
+        contextual_segments_targeting:
+          $ref: '#/components/schemas/Targeting'
+        custom_audience_targeting:
+          $ref: '#/components/schemas/Targeting'
+        lookalike_audience_targeting:
+          $ref: '#/components/schemas/Targeting'
+        audience_segments_multi_targeting:
+          type: object
+        spent:
+          type: number
+          format: float
+    Targeting:
+      type: object
+      properties:
+        type:
+          type: string
+          enum: [INCLUDE, EXCLUDE, ALL]
+        value:
+          type: array
+          items:
+            type: string
+        href:
+          type: string

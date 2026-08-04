@@ -1,0 +1,332 @@
+{
+  "info": {
+    "_postman_id": "e6c9aaaf-1682-465a-b086-15a806547670",
+    "name": "Taboola Backstage Accounts API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:32.000Z",
+    "updatedAt": "2026-07-28T03:07:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e6c9aaaf-1682-465a-b086-15a806547670"
+  },
+  "item": [
+    {
+      "name": "users",
+      "item": [
+        {
+          "name": "current",
+          "item": [
+            {
+              "name": "allowed-accounts",
+              "item": [
+                {
+                  "name": "Get Allowed Accounts",
+                  "id": "9dd9b63a-9ea7-413c-bd7c-c21d6fe5abd2",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/users/current/allowed-accounts",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "users",
+                        "current",
+                        "allowed-accounts"
+                      ]
+                    },
+                    "description": "Returns all accounts allowed for the authenticated user credentials."
+                  },
+                  "response": [
+                    {
+                      "id": "bd415b86-2fac-4521-a5a1-d7cafdb3e9b7",
+                      "name": "Allowed accounts.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/users/current/allowed-accounts",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "users",
+                            "current",
+                            "allowed-accounts"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"NETWORK\",\n      \"currency\": \"<string>\",\n      \"time_zone_name\": \"<string>\",\n      \"partner_types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"account_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"type\": \"PUBLISHER\",\n      \"currency\": \"<string>\",\n      \"time_zone_name\": \"<string>\",\n      \"partner_types\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:07:33.000Z",
+                      "updatedAt": "2026-07-28T03:07:33.000Z",
+                      "uid": "35240-bd415b86-2fac-4521-a5a1-d7cafdb3e9b7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:33.000Z",
+                  "updatedAt": "2026-07-28T03:07:33.000Z",
+                  "uid": "35240-9dd9b63a-9ea7-413c-bd7c-c21d6fe5abd2"
+                }
+              ],
+              "id": "a08848ae-85c0-4651-84b8-860976822a45",
+              "createdAt": "2026-07-28T03:07:33.000Z",
+              "updatedAt": "2026-07-28T03:07:33.000Z",
+              "uid": "35240-a08848ae-85c0-4651-84b8-860976822a45"
+            }
+          ],
+          "id": "62e1cb80-4e9c-47b2-a194-f77e0a63fc10",
+          "createdAt": "2026-07-28T03:07:33.000Z",
+          "updatedAt": "2026-07-28T03:07:33.000Z",
+          "uid": "35240-62e1cb80-4e9c-47b2-a194-f77e0a63fc10"
+        }
+      ],
+      "id": "996dfa11-5b47-4292-9c9d-84974eab4bf7",
+      "createdAt": "2026-07-28T03:07:33.000Z",
+      "updatedAt": "2026-07-28T03:07:33.000Z",
+      "uid": "35240-996dfa11-5b47-4292-9c9d-84974eab4bf7"
+    },
+    {
+      "name": "{network_id}",
+      "item": [
+        {
+          "name": "advertisers",
+          "item": [
+            {
+              "name": "Get Advertiser Accounts In Network",
+              "id": "9486deb7-b2ee-4864-8956-e8d48d853c23",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/:network_id/advertisers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":network_id",
+                    "advertisers"
+                  ],
+                  "variable": [
+                    {
+                      "id": "e59b286b-ef54-4250-a886-2ff72da17ce6",
+                      "key": "network_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Returns advertiser accounts in the specified network."
+              },
+              "response": [
+                {
+                  "id": "031eafbf-4a3f-461a-a413-4fecfffcb7c9",
+                  "name": "Advertiser accounts.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:network_id/advertisers",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":network_id",
+                        "advertisers"
+                      ],
+                      "variable": [
+                        {
+                          "key": "network_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:33.000Z",
+                  "updatedAt": "2026-07-28T03:07:33.000Z",
+                  "uid": "35240-031eafbf-4a3f-461a-a413-4fecfffcb7c9"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:33.000Z",
+              "updatedAt": "2026-07-28T03:07:33.000Z",
+              "uid": "35240-9486deb7-b2ee-4864-8956-e8d48d853c23"
+            }
+          ],
+          "id": "d1d612e6-6ade-4a44-9a90-c17b0b268fd0",
+          "createdAt": "2026-07-28T03:07:33.000Z",
+          "updatedAt": "2026-07-28T03:07:33.000Z",
+          "uid": "35240-d1d612e6-6ade-4a44-9a90-c17b0b268fd0"
+        }
+      ],
+      "id": "cbce5d0d-be75-415d-911f-8f2fd5349093",
+      "createdAt": "2026-07-28T03:07:33.000Z",
+      "updatedAt": "2026-07-28T03:07:33.000Z",
+      "uid": "35240-cbce5d0d-be75-415d-911f-8f2fd5349093"
+    },
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "account-details",
+          "item": [
+            {
+              "name": "Get Account Details",
+              "id": "e5aac1ae-ac47-44f4-9b0e-77cd07049b5f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/:account_id/account-details",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":account_id",
+                    "account-details"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d2781424-c43a-4a1a-b9a0-c2f48aa63818",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Retrieve details for the specified account."
+              },
+              "response": [
+                {
+                  "id": "852d92b4-ff3e-41a0-bd08-16b72df8ac38",
+                  "name": "Account details.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/account-details",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "account-details"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"id\": \"<string>\",\n  \"account_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"type\": \"ADVERTISER\",\n  \"currency\": \"<string>\",\n  \"time_zone_name\": \"<string>\",\n  \"partner_types\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "createdAt": "2026-07-28T03:07:33.000Z",
+                  "updatedAt": "2026-07-28T03:07:33.000Z",
+                  "uid": "35240-852d92b4-ff3e-41a0-bd08-16b72df8ac38"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:33.000Z",
+              "updatedAt": "2026-07-28T03:07:33.000Z",
+              "uid": "35240-e5aac1ae-ac47-44f4-9b0e-77cd07049b5f"
+            }
+          ],
+          "id": "e0536116-552c-4e45-8b8d-63040e8df8e8",
+          "createdAt": "2026-07-28T03:07:33.000Z",
+          "updatedAt": "2026-07-28T03:07:33.000Z",
+          "uid": "35240-e0536116-552c-4e45-8b8d-63040e8df8e8"
+        }
+      ],
+      "id": "c21a3ffc-f140-4838-b11a-1018b9d60a15",
+      "createdAt": "2026-07-28T03:07:33.000Z",
+      "updatedAt": "2026-07-28T03:07:33.000Z",
+      "uid": "35240-c21a3ffc-f140-4838-b11a-1018b9d60a15"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

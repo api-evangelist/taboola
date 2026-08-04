@@ -1,0 +1,371 @@
+{
+  "info": {
+    "_postman_id": "d94ee8ee-e861-49af-9a4b-17440bbc7e51",
+    "name": "Taboola Backstage Accounts Combined Audiences API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:38.000Z",
+    "updatedAt": "2026-07-28T03:07:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d94ee8ee-e861-49af-9a4b-17440bbc7e51"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "combined_audiences",
+          "item": [
+            {
+              "name": "{audience_id}",
+              "item": [
+                {
+                  "name": "Get A Combined Audience",
+                  "id": "5ac90c69-a060-405e-b7b5-5993354fbd09",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/combined_audiences/:audience_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "combined_audiences",
+                        ":audience_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c551f0c8-191e-4c38-8c6b-e4dd9e6b1300",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "6f5160ac-6001-44c4-8944-824278dc6144",
+                          "key": "audience_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "5e577d38-c8eb-4b92-a283-36bb846f1da5",
+                      "name": "Audience.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/combined_audiences/:audience_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "combined_audiences",
+                            ":audience_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            },
+                            {
+                              "key": "audience_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:38.000Z",
+                      "updatedAt": "2026-07-28T03:07:38.000Z",
+                      "uid": "35240-5e577d38-c8eb-4b92-a283-36bb846f1da5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:38.000Z",
+                  "updatedAt": "2026-07-28T03:07:38.000Z",
+                  "uid": "35240-5ac90c69-a060-405e-b7b5-5993354fbd09"
+                },
+                {
+                  "name": "Update A Combined Audience",
+                  "id": "769575f0-804b-4e58-8666-c59d5028ee7f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/combined_audiences/:audience_id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "combined_audiences",
+                        ":audience_id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "24e0faf7-e767-4be5-8b8a-71ff552ab231",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "1b7452db-1b80-4c96-9e74-4f00deeab552",
+                          "key": "audience_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "3b67ad24-da75-42e7-ae66-728748a7f3c3",
+                      "name": "Updated.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/combined_audiences/:audience_id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "combined_audiences",
+                            ":audience_id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            },
+                            {
+                              "key": "audience_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:38.000Z",
+                      "updatedAt": "2026-07-28T03:07:38.000Z",
+                      "uid": "35240-3b67ad24-da75-42e7-ae66-728748a7f3c3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:38.000Z",
+                  "updatedAt": "2026-07-28T03:07:38.000Z",
+                  "uid": "35240-769575f0-804b-4e58-8666-c59d5028ee7f"
+                }
+              ],
+              "id": "b9822751-bfb8-4d10-ba82-8f2f6e33a690",
+              "createdAt": "2026-07-28T03:07:38.000Z",
+              "updatedAt": "2026-07-28T03:07:38.000Z",
+              "uid": "35240-b9822751-bfb8-4d10-ba82-8f2f6e33a690"
+            },
+            {
+              "name": "Get All Combined Audiences",
+              "id": "f158cf72-1cfd-439a-b541-3f93c7aebf9c",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/:account_id/combined_audiences",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":account_id",
+                    "combined_audiences"
+                  ],
+                  "variable": [
+                    {
+                      "id": "c304875d-2c06-4f33-94f1-7b49d542ad2a",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "3aea98af-7a50-47a1-a395-9cb070e7457e",
+                  "name": "List.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/combined_audiences",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "combined_audiences"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:38.000Z",
+                  "updatedAt": "2026-07-28T03:07:38.000Z",
+                  "uid": "35240-3aea98af-7a50-47a1-a395-9cb070e7457e"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:38.000Z",
+              "updatedAt": "2026-07-28T03:07:38.000Z",
+              "uid": "35240-f158cf72-1cfd-439a-b541-3f93c7aebf9c"
+            },
+            {
+              "name": "Create A Combined Audience",
+              "id": "f5baa623-1fd1-4d51-933c-967345b9bb4b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/:account_id/combined_audiences",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ":account_id",
+                    "combined_audiences"
+                  ],
+                  "variable": [
+                    {
+                      "id": "bd5b46a4-0d63-4eb9-ba2e-6e36f1c4fbd1",
+                      "key": "account_id",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "6c8e4687-4243-423e-9afc-b8b6b2c0daf5",
+                  "name": "Created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/combined_audiences",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "combined_audiences"
+                      ],
+                      "variable": [
+                        {
+                          "key": "account_id"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:07:38.000Z",
+                  "updatedAt": "2026-07-28T03:07:38.000Z",
+                  "uid": "35240-6c8e4687-4243-423e-9afc-b8b6b2c0daf5"
+                }
+              ],
+              "createdAt": "2026-07-28T03:07:38.000Z",
+              "updatedAt": "2026-07-28T03:07:38.000Z",
+              "uid": "35240-f5baa623-1fd1-4d51-933c-967345b9bb4b"
+            }
+          ],
+          "id": "5a2c703c-923b-4371-b1f3-6c4163ae2371",
+          "createdAt": "2026-07-28T03:07:38.000Z",
+          "updatedAt": "2026-07-28T03:07:38.000Z",
+          "uid": "35240-5a2c703c-923b-4371-b1f3-6c4163ae2371"
+        }
+      ],
+      "id": "b6e60756-72b1-4095-b81a-ed7341ef3ccd",
+      "createdAt": "2026-07-28T03:07:38.000Z",
+      "updatedAt": "2026-07-28T03:07:38.000Z",
+      "uid": "35240-b6e60756-72b1-4095-b81a-ed7341ef3ccd"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

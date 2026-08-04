@@ -1,0 +1,251 @@
+{
+  "info": {
+    "_postman_id": "ce650544-36b6-4f50-8bd4-303edac5209f",
+    "name": "Taboola Backstage Accounts Audience Targeting API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:33.000Z",
+    "updatedAt": "2026-07-28T03:07:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ce650544-36b6-4f50-8bd4-303edac5209f"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "campaigns",
+          "item": [
+            {
+              "name": "{campaign_id}",
+              "item": [
+                {
+                  "name": "targeting",
+                  "item": [
+                    {
+                      "name": "my_audience",
+                      "item": [
+                        {
+                          "name": "Get My Audience Targeting",
+                          "id": "9039c010-ae3c-400f-be37-4f175d37adfe",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/targeting/my_audience",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "targeting",
+                                "my_audience"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e91181ac-f0ce-406e-9890-2d128a254cc0",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "1359b2fe-efa3-44c6-aa5e-794d18bcfb3e",
+                                  "key": "campaign_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "42eaaf96-6d27-45ae-bb4f-fc615370c98b",
+                              "name": "Targeting.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/targeting/my_audience",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "campaigns",
+                                    ":campaign_id",
+                                    "targeting",
+                                    "my_audience"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "campaign_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:34.000Z",
+                              "updatedAt": "2026-07-28T03:07:34.000Z",
+                              "uid": "35240-42eaaf96-6d27-45ae-bb4f-fc615370c98b"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:34.000Z",
+                          "updatedAt": "2026-07-28T03:07:34.000Z",
+                          "uid": "35240-9039c010-ae3c-400f-be37-4f175d37adfe"
+                        },
+                        {
+                          "name": "Update My Audience Targeting",
+                          "id": "fd92617b-e624-4d13-b4b9-28566716ae60",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/targeting/my_audience",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "targeting",
+                                "my_audience"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "a78d211d-062f-4f4f-81d5-170d2a315eb9",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "6cb343fd-daa0-4114-940f-6ead52fcfad2",
+                                  "key": "campaign_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4700bc10-41ef-49f4-bdf8-d2172cf72efc",
+                              "name": "Updated.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/targeting/my_audience",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "campaigns",
+                                    ":campaign_id",
+                                    "targeting",
+                                    "my_audience"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "campaign_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:34.000Z",
+                              "updatedAt": "2026-07-28T03:07:34.000Z",
+                              "uid": "35240-4700bc10-41ef-49f4-bdf8-d2172cf72efc"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:34.000Z",
+                          "updatedAt": "2026-07-28T03:07:34.000Z",
+                          "uid": "35240-fd92617b-e624-4d13-b4b9-28566716ae60"
+                        }
+                      ],
+                      "id": "b1001974-d402-4b7b-bd65-48bc3a5c8c12",
+                      "createdAt": "2026-07-28T03:07:34.000Z",
+                      "updatedAt": "2026-07-28T03:07:34.000Z",
+                      "uid": "35240-b1001974-d402-4b7b-bd65-48bc3a5c8c12"
+                    }
+                  ],
+                  "id": "81e89dab-ef94-48c6-aec9-6f7e0a376609",
+                  "createdAt": "2026-07-28T03:07:34.000Z",
+                  "updatedAt": "2026-07-28T03:07:34.000Z",
+                  "uid": "35240-81e89dab-ef94-48c6-aec9-6f7e0a376609"
+                }
+              ],
+              "id": "c6823421-b09d-4939-89c4-1c62ec74b661",
+              "createdAt": "2026-07-28T03:07:34.000Z",
+              "updatedAt": "2026-07-28T03:07:34.000Z",
+              "uid": "35240-c6823421-b09d-4939-89c4-1c62ec74b661"
+            }
+          ],
+          "id": "f573b094-261f-469f-9a38-4b3470cf6378",
+          "createdAt": "2026-07-28T03:07:34.000Z",
+          "updatedAt": "2026-07-28T03:07:34.000Z",
+          "uid": "35240-f573b094-261f-469f-9a38-4b3470cf6378"
+        }
+      ],
+      "id": "f95e3a0e-6930-46a7-a058-8ee3c965cc5a",
+      "createdAt": "2026-07-28T03:07:34.000Z",
+      "updatedAt": "2026-07-28T03:07:34.000Z",
+      "uid": "35240-f95e3a0e-6930-46a7-a058-8ee3c965cc5a"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

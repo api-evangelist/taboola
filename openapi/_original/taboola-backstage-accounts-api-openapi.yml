@@ -1,0 +1,96 @@
+openapi: 3.1.0
+info:
+  title: Taboola Backstage Accounts API
+  version: '1.0'
+  description: |-
+    Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+    agencies managing multiple advertiser accounts under a Taboola network account.
+  contact:
+    name: Taboola Developer Relations
+    url: https://developers.taboola.com/backstage-api/reference
+servers:
+  - url: https://backstage.taboola.com/backstage/api/1.0
+security:
+  - bearerAuth: []
+tags:
+  - name: Accounts
+paths:
+  /users/current/allowed-accounts:
+    get:
+      tags: [Accounts]
+      summary: Get Allowed Accounts
+      description: Returns all accounts allowed for the authenticated user credentials.
+      operationId: getAllowedAccounts
+      responses:
+        '200':
+          description: Allowed accounts.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  results:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Account'
+  /{network_id}/advertisers:
+    get:
+      tags: [Accounts]
+      summary: Get Advertiser Accounts In Network
+      description: Returns advertiser accounts in the specified network.
+      operationId: getAdvertiserAccountsInNetwork
+      parameters:
+        - name: network_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Advertiser accounts.
+  /{account_id}/account-details:
+    get:
+      tags: [Accounts]
+      summary: Get Account Details
+      description: Retrieve details for the specified account.
+      operationId: getAccountDetails
+      parameters:
+        - name: account_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Account details.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Account:
+      type: object
+      properties:
+        id:
+          type: string
+        account_id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum: [ADVERTISER, NETWORK, PUBLISHER]
+        currency:
+          type: string
+        time_zone_name:
+          type: string
+        partner_types:
+          type: array
+          items:
+            type: string

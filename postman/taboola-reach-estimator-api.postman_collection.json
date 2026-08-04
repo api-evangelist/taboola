@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "937b0c46-0227-47cb-b697-0450fdb95629",
+    "name": "Taboola Backstage Accounts Reach Estimator API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:49.000Z",
+    "updatedAt": "2026-07-28T03:07:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-937b0c46-0227-47cb-b697-0450fdb95629"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "campaigns",
+          "item": [
+            {
+              "name": "reach-estimator",
+              "item": [
+                {
+                  "name": "Estimate Campaign Reach",
+                  "id": "0bc48a1e-e07e-415e-b0a7-6cc1b4c7285b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/campaigns/reach-estimator",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "campaigns",
+                        "reach-estimator"
+                      ],
+                      "variable": [
+                        {
+                          "id": "956f5f7e-cbdb-4397-a499-f39f91a72dba",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) Taboola account identifier."
+                        }
+                      ]
+                    },
+                    "description": "Estimate total impressions for the supplied targeting."
+                  },
+                  "response": [
+                    {
+                      "id": "bbd8ee98-3257-435f-b87a-c2726915c972",
+                      "name": "Estimated reach response.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/campaigns/reach-estimator",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "campaigns",
+                            "reach-estimator"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:50.000Z",
+                      "updatedAt": "2026-07-28T03:07:50.000Z",
+                      "uid": "35240-bbd8ee98-3257-435f-b87a-c2726915c972"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:50.000Z",
+                  "updatedAt": "2026-07-28T03:07:50.000Z",
+                  "uid": "35240-0bc48a1e-e07e-415e-b0a7-6cc1b4c7285b"
+                }
+              ],
+              "id": "6aca7b3d-5afa-4b4d-8633-e2ca920d8550",
+              "createdAt": "2026-07-28T03:07:50.000Z",
+              "updatedAt": "2026-07-28T03:07:50.000Z",
+              "uid": "35240-6aca7b3d-5afa-4b4d-8633-e2ca920d8550"
+            }
+          ],
+          "id": "eb77b3ef-e007-46b7-90ff-b033f38c147e",
+          "createdAt": "2026-07-28T03:07:50.000Z",
+          "updatedAt": "2026-07-28T03:07:50.000Z",
+          "uid": "35240-eb77b3ef-e007-46b7-90ff-b033f38c147e"
+        }
+      ],
+      "id": "5e6803a1-0a41-4698-92fc-2e2bb7227578",
+      "createdAt": "2026-07-28T03:07:50.000Z",
+      "updatedAt": "2026-07-28T03:07:50.000Z",
+      "uid": "35240-5e6803a1-0a41-4698-92fc-2e2bb7227578"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

@@ -1,0 +1,133 @@
+{
+  "info": {
+    "_postman_id": "7c83cf69-b619-495c-9e26-f66d03c1550f",
+    "name": "Taboola Backstage Accounts Lookalike Audiences API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:47.000Z",
+    "updatedAt": "2026-07-28T03:07:48.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-7c83cf69-b619-495c-9e26-f66d03c1550f"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "dictionary",
+          "item": [
+            {
+              "name": "lookalike_audiences",
+              "item": [
+                {
+                  "name": "Get Lookalike Audiences",
+                  "id": "1db541dc-ef97-4cf1-83cd-37ff05b7d021",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/dictionary/lookalike_audiences",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "dictionary",
+                        "lookalike_audiences"
+                      ],
+                      "variable": [
+                        {
+                          "id": "c8804e7e-1664-44e9-8a5b-f5d015672e62",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get a list of available lookalike audiences for the account."
+                  },
+                  "response": [
+                    {
+                      "id": "dcf06234-da2e-46d2-9b31-b0128fd0ed33",
+                      "name": "Lookalike audiences.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/dictionary/lookalike_audiences",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "dictionary",
+                            "lookalike_audiences"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:48.000Z",
+                      "updatedAt": "2026-07-28T03:07:48.000Z",
+                      "uid": "35240-dcf06234-da2e-46d2-9b31-b0128fd0ed33"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:48.000Z",
+                  "updatedAt": "2026-07-28T03:07:48.000Z",
+                  "uid": "35240-1db541dc-ef97-4cf1-83cd-37ff05b7d021"
+                }
+              ],
+              "id": "ee244735-aabf-473d-b35e-5e9dbcdd813a",
+              "createdAt": "2026-07-28T03:07:48.000Z",
+              "updatedAt": "2026-07-28T03:07:48.000Z",
+              "uid": "35240-ee244735-aabf-473d-b35e-5e9dbcdd813a"
+            }
+          ],
+          "id": "282560e1-b0bd-47fd-9b8f-4e468c7dd7bc",
+          "createdAt": "2026-07-28T03:07:48.000Z",
+          "updatedAt": "2026-07-28T03:07:48.000Z",
+          "uid": "35240-282560e1-b0bd-47fd-9b8f-4e468c7dd7bc"
+        }
+      ],
+      "id": "c61a689f-83bf-4c94-8011-cef21cbfb644",
+      "createdAt": "2026-07-28T03:07:48.000Z",
+      "updatedAt": "2026-07-28T03:07:48.000Z",
+      "uid": "35240-c61a689f-83bf-4c94-8011-cef21cbfb644"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

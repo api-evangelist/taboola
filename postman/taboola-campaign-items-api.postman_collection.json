@@ -1,0 +1,646 @@
+{
+  "info": {
+    "_postman_id": "85b35e6c-66fd-4e59-b532-f0115cc4ec43",
+    "name": "Taboola Backstage Accounts Campaign Items API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:36.000Z",
+    "updatedAt": "2026-07-28T03:07:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-85b35e6c-66fd-4e59-b532-f0115cc4ec43"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "campaigns",
+          "item": [
+            {
+              "name": "{campaign_id}",
+              "item": [
+                {
+                  "name": "items",
+                  "item": [
+                    {
+                      "name": "{item_id}",
+                      "item": [
+                        {
+                          "name": "Get A Campaign Item",
+                          "id": "cc985ce7-d918-461f-966c-92ae13ab1008",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/:item_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "items",
+                                ":item_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "777964e3-e31b-4355-906d-8a68533df681",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "2a5bda66-852b-4341-b6bc-435f27af8f1c",
+                                  "key": "campaign_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "b59f7e18-ed23-4c72-af68-faea6ad063f3",
+                                  "key": "item_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get the specified campaign item."
+                          },
+                          "response": [
+                            {
+                              "id": "fb20576b-bde1-4334-8bf2-4d71b694c8d5",
+                              "name": "Single item.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/:item_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "campaigns",
+                                    ":campaign_id",
+                                    "items",
+                                    ":item_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "campaign_id"
+                                    },
+                                    {
+                                      "key": "item_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"campaign_id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"cta\": \"<string>\",\n  \"thumbnail_url\": \"<string>\",\n  \"creative_focus\": \"<string>\",\n  \"status\": \"TERMINATED\",\n  \"approval_state\": \"<string>\",\n  \"type\": \"PERFORMANCE_VIDEO\"\n}",
+                              "createdAt": "2026-07-28T03:07:37.000Z",
+                              "updatedAt": "2026-07-28T03:07:37.000Z",
+                              "uid": "35240-fb20576b-bde1-4334-8bf2-4d71b694c8d5"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:36.000Z",
+                          "updatedAt": "2026-07-28T03:07:36.000Z",
+                          "uid": "35240-cc985ce7-d918-461f-966c-92ae13ab1008"
+                        },
+                        {
+                          "name": "Update A Campaign Item",
+                          "id": "0ec6e5d8-6091-40dc-b701-4ebe093bf124",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"campaign_id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"cta\": \"<string>\",\n  \"thumbnail_url\": \"<string>\",\n  \"creative_focus\": \"<string>\",\n  \"status\": \"TERMINATED\",\n  \"approval_state\": \"<string>\",\n  \"type\": \"PERFORMANCE_VIDEO\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/:item_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "items",
+                                ":item_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "064d7ec9-179d-4c0f-b0d6-ccb991bb1d26",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "43a55780-0a77-4738-828c-1dfbd65a4148",
+                                  "key": "campaign_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "7d9647a0-4083-42dc-a33d-e0d4acaff7ee",
+                                  "key": "item_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Update an existing campaign item."
+                          },
+                          "response": [
+                            {
+                              "id": "4eda2a5f-8eef-42b9-8962-c0b8f017fcea",
+                              "name": "Updated item.",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"id\": \"<string>\",\n  \"campaign_id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"cta\": \"<string>\",\n  \"thumbnail_url\": \"<string>\",\n  \"creative_focus\": \"<string>\",\n  \"status\": \"TERMINATED\",\n  \"approval_state\": \"<string>\",\n  \"type\": \"PERFORMANCE_VIDEO\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/:item_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "campaigns",
+                                    ":campaign_id",
+                                    "items",
+                                    ":item_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "campaign_id"
+                                    },
+                                    {
+                                      "key": "item_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:37.000Z",
+                              "updatedAt": "2026-07-28T03:07:37.000Z",
+                              "uid": "35240-4eda2a5f-8eef-42b9-8962-c0b8f017fcea"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:36.000Z",
+                          "updatedAt": "2026-07-28T03:07:36.000Z",
+                          "uid": "35240-0ec6e5d8-6091-40dc-b701-4ebe093bf124"
+                        },
+                        {
+                          "name": "Delete A Campaign Item",
+                          "id": "a0548112-6bf3-4d92-8c5d-8188b9669eb5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/:item_id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "items",
+                                ":item_id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0540c2b0-267a-401c-87c8-ca55229d7eda",
+                                  "key": "account_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "e5795940-462c-414c-966f-f6600e831d4d",
+                                  "key": "campaign_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "608d89b0-9924-40e2-be96-f6813d4bced8",
+                                  "key": "item_id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Delete the specified item."
+                          },
+                          "response": [
+                            {
+                              "id": "a796c6ba-f3dd-4ecf-bfb6-21e674302c07",
+                              "name": "Deletion confirmation.",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/:item_id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    ":account_id",
+                                    "campaigns",
+                                    ":campaign_id",
+                                    "items",
+                                    ":item_id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "account_id"
+                                    },
+                                    {
+                                      "key": "campaign_id"
+                                    },
+                                    {
+                                      "key": "item_id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-07-28T03:07:37.000Z",
+                              "updatedAt": "2026-07-28T03:07:37.000Z",
+                              "uid": "35240-a796c6ba-f3dd-4ecf-bfb6-21e674302c07"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T03:07:36.000Z",
+                          "updatedAt": "2026-07-28T03:07:36.000Z",
+                          "uid": "35240-a0548112-6bf3-4d92-8c5d-8188b9669eb5"
+                        }
+                      ],
+                      "id": "2318c708-5db1-49fe-83fc-05da0cdddb79",
+                      "createdAt": "2026-07-28T03:07:36.000Z",
+                      "updatedAt": "2026-07-28T03:07:36.000Z",
+                      "uid": "35240-2318c708-5db1-49fe-83fc-05da0cdddb79"
+                    },
+                    {
+                      "name": "Get All Campaign Items",
+                      "id": "d8199014-c563-49dc-af05-8c4eeab528cd",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "campaigns",
+                            ":campaign_id",
+                            "items",
+                            ""
+                          ],
+                          "variable": [
+                            {
+                              "id": "84b3cf88-54c5-4177-90ea-4cc11f36c8fc",
+                              "key": "account_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "8d9cbd9a-b757-4e41-b9ab-0bfb2a45a326",
+                              "key": "campaign_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Get a list of items for the specified campaign."
+                      },
+                      "response": [
+                        {
+                          "id": "abc4492a-c66e-4b48-a84b-f5b495b1af3c",
+                          "name": "List of campaign items.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "items",
+                                ""
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "campaign_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"results\": [\n    {\n      \"id\": \"<string>\",\n      \"campaign_id\": \"<string>\",\n      \"url\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"cta\": \"<string>\",\n      \"thumbnail_url\": \"<string>\",\n      \"creative_focus\": \"<string>\",\n      \"status\": \"CRAWLING\",\n      \"approval_state\": \"<string>\",\n      \"type\": \"SPONSORED\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"campaign_id\": \"<string>\",\n      \"url\": \"<string>\",\n      \"title\": \"<string>\",\n      \"description\": \"<string>\",\n      \"cta\": \"<string>\",\n      \"thumbnail_url\": \"<string>\",\n      \"creative_focus\": \"<string>\",\n      \"status\": \"EXPIRED\",\n      \"approval_state\": \"<string>\",\n      \"type\": \"PERFORMANCE_VIDEO\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T03:07:37.000Z",
+                          "updatedAt": "2026-07-28T03:07:37.000Z",
+                          "uid": "35240-abc4492a-c66e-4b48-a84b-f5b495b1af3c"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:36.000Z",
+                      "updatedAt": "2026-07-28T03:07:36.000Z",
+                      "uid": "35240-d8199014-c563-49dc-af05-8c4eeab528cd"
+                    },
+                    {
+                      "name": "Create A Campaign Item",
+                      "id": "b58d8b42-cb28-409d-9e62-6b896011342d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": \"<string>\",\n  \"campaign_id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"cta\": \"<string>\",\n  \"thumbnail_url\": \"<string>\",\n  \"creative_focus\": \"<string>\",\n  \"status\": \"TERMINATED\",\n  \"approval_state\": \"<string>\",\n  \"type\": \"PERFORMANCE_VIDEO\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "campaigns",
+                            ":campaign_id",
+                            "items",
+                            ""
+                          ],
+                          "variable": [
+                            {
+                              "id": "4afbd861-1190-4ed9-a081-64e7a962c0a0",
+                              "key": "account_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "6dbf0694-d30c-44e5-bc57-3856c6968122",
+                              "key": "campaign_id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Create a new item under the specified campaign."
+                      },
+                      "response": [
+                        {
+                          "id": "eec3ffff-d25e-4442-9c49-67088d8d9fdf",
+                          "name": "Created item.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": \"<string>\",\n  \"campaign_id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"cta\": \"<string>\",\n  \"thumbnail_url\": \"<string>\",\n  \"creative_focus\": \"<string>\",\n  \"status\": \"TERMINATED\",\n  \"approval_state\": \"<string>\",\n  \"type\": \"PERFORMANCE_VIDEO\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/:account_id/campaigns/:campaign_id/items/",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                ":account_id",
+                                "campaigns",
+                                ":campaign_id",
+                                "items",
+                                ""
+                              ],
+                              "variable": [
+                                {
+                                  "key": "account_id"
+                                },
+                                {
+                                  "key": "campaign_id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"campaign_id\": \"<string>\",\n  \"url\": \"<string>\",\n  \"title\": \"<string>\",\n  \"description\": \"<string>\",\n  \"cta\": \"<string>\",\n  \"thumbnail_url\": \"<string>\",\n  \"creative_focus\": \"<string>\",\n  \"status\": \"TERMINATED\",\n  \"approval_state\": \"<string>\",\n  \"type\": \"PERFORMANCE_VIDEO\"\n}",
+                          "createdAt": "2026-07-28T03:07:37.000Z",
+                          "updatedAt": "2026-07-28T03:07:37.000Z",
+                          "uid": "35240-eec3ffff-d25e-4442-9c49-67088d8d9fdf"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T03:07:36.000Z",
+                      "updatedAt": "2026-07-28T03:07:36.000Z",
+                      "uid": "35240-b58d8b42-cb28-409d-9e62-6b896011342d"
+                    }
+                  ],
+                  "id": "ba454820-4fd0-436d-af6d-b65303b45250",
+                  "createdAt": "2026-07-28T03:07:36.000Z",
+                  "updatedAt": "2026-07-28T03:07:36.000Z",
+                  "uid": "35240-ba454820-4fd0-436d-af6d-b65303b45250"
+                }
+              ],
+              "id": "6ca5e91b-0730-41ba-a5d5-2d463f423d6c",
+              "createdAt": "2026-07-28T03:07:36.000Z",
+              "updatedAt": "2026-07-28T03:07:36.000Z",
+              "uid": "35240-6ca5e91b-0730-41ba-a5d5-2d463f423d6c"
+            }
+          ],
+          "id": "f2faf0e9-cbbc-4661-a4b1-fffb6bc22013",
+          "createdAt": "2026-07-28T03:07:36.000Z",
+          "updatedAt": "2026-07-28T03:07:36.000Z",
+          "uid": "35240-f2faf0e9-cbbc-4661-a4b1-fffb6bc22013"
+        }
+      ],
+      "id": "227572c6-6f0c-4926-b763-f8a0f1a5d6fe",
+      "createdAt": "2026-07-28T03:07:36.000Z",
+      "updatedAt": "2026-07-28T03:07:36.000Z",
+      "uid": "35240-227572c6-6f0c-4926-b763-f8a0f1a5d6fe"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}

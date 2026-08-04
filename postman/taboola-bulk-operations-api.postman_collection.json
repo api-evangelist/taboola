@@ -1,0 +1,218 @@
+{
+  "info": {
+    "_postman_id": "866c5ba4-a782-456f-9d2c-952eb58b36e9",
+    "name": "Taboola Backstage Accounts Bulk Operations API",
+    "description": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:07:35.000Z",
+    "updatedAt": "2026-07-28T03:07:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-866c5ba4-a782-456f-9d2c-952eb58b36e9"
+  },
+  "item": [
+    {
+      "name": "{account_id}",
+      "item": [
+        {
+          "name": "campaigns",
+          "item": [
+            {
+              "name": "network",
+              "item": [
+                {
+                  "name": "Get All Campaigns Across The Network",
+                  "id": "1bae79c9-bac9-4946-9ded-dbb4ba782e7d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/campaigns/network",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "campaigns",
+                        "network"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e57df381-1362-4324-b23f-576a2b36dda2",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) Taboola account identifier."
+                        }
+                      ]
+                    },
+                    "description": "Convenience endpoint for fetching basic campaign details across the network."
+                  },
+                  "response": [
+                    {
+                      "id": "6eaae746-7537-4f1e-b008-3cc6ca75acb7",
+                      "name": "Network-wide campaign list.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/campaigns/network",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "campaigns",
+                            "network"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:36.000Z",
+                      "updatedAt": "2026-07-28T03:07:36.000Z",
+                      "uid": "35240-6eaae746-7537-4f1e-b008-3cc6ca75acb7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:36.000Z",
+                  "updatedAt": "2026-07-28T03:07:36.000Z",
+                  "uid": "35240-1bae79c9-bac9-4946-9ded-dbb4ba782e7d"
+                }
+              ],
+              "id": "bcd1b47f-5b3a-4629-9439-b2641a3f0714",
+              "createdAt": "2026-07-28T03:07:36.000Z",
+              "updatedAt": "2026-07-28T03:07:36.000Z",
+              "uid": "35240-bcd1b47f-5b3a-4629-9439-b2641a3f0714"
+            },
+            {
+              "name": "bulk",
+              "item": [
+                {
+                  "name": "Bulk Update Campaigns",
+                  "id": "a065946f-6d1f-46b0-bd40-0a241543ef3a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseUrl}}/:account_id/campaigns/bulk",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        ":account_id",
+                        "campaigns",
+                        "bulk"
+                      ],
+                      "variable": [
+                        {
+                          "id": "522a9b5a-f974-448c-a340-0728515caa61",
+                          "key": "account_id",
+                          "value": "<string>",
+                          "description": "(Required) Taboola account identifier."
+                        }
+                      ]
+                    },
+                    "description": "Bulk update multiple campaigns in a single API call."
+                  },
+                  "response": [
+                    {
+                      "id": "08cd119f-676e-4a9c-b2a4-0781402f687a",
+                      "name": "Bulk update result.",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/:account_id/campaigns/bulk",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            ":account_id",
+                            "campaigns",
+                            "bulk"
+                          ],
+                          "variable": [
+                            {
+                              "key": "account_id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:07:36.000Z",
+                      "updatedAt": "2026-07-28T03:07:36.000Z",
+                      "uid": "35240-08cd119f-676e-4a9c-b2a4-0781402f687a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:07:36.000Z",
+                  "updatedAt": "2026-07-28T03:07:36.000Z",
+                  "uid": "35240-a065946f-6d1f-46b0-bd40-0a241543ef3a"
+                }
+              ],
+              "id": "9b80ee77-48b7-44a7-84d4-8c499be294dd",
+              "createdAt": "2026-07-28T03:07:36.000Z",
+              "updatedAt": "2026-07-28T03:07:36.000Z",
+              "uid": "35240-9b80ee77-48b7-44a7-84d4-8c499be294dd"
+            }
+          ],
+          "id": "b1e5331e-44dd-42f7-ac4d-da4b89189576",
+          "createdAt": "2026-07-28T03:07:36.000Z",
+          "updatedAt": "2026-07-28T03:07:36.000Z",
+          "uid": "35240-b1e5331e-44dd-42f7-ac4d-da4b89189576"
+        }
+      ],
+      "id": "7948f369-0e32-4827-a082-a7c8a79db981",
+      "createdAt": "2026-07-28T03:07:36.000Z",
+      "updatedAt": "2026-07-28T03:07:36.000Z",
+      "uid": "35240-7948f369-0e32-4827-a082-a7c8a79db981"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://backstage.taboola.com/backstage/api/1.0"
+    }
+  ]
+}
