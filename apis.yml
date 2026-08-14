@@ -5,6 +5,7 @@ apis:
   name: Taboola Accounts API
   description: The Accounts API from Taboola — 3 operation(s) for accounts.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Accounts
   properties:
@@ -38,10 +39,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-accounts-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-accounts-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-audience-targeting-api
   name: Taboola Audience Targeting API
   description: The Audience Targeting API from Taboola — 1 operation(s) for audience targeting.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Audience Targeting
   properties:
@@ -75,10 +85,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-audience-targeting-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-audience-targeting-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-bulk-items-api
   name: Taboola Bulk Items API
   description: Bulk create, update, and delete items across campaigns.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Bulk Items
   properties:
@@ -112,10 +131,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-bulk-items-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-bulk-items-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-bulk-operations-api
   name: Taboola Bulk Operations API
   description: Bulk update or create campaigns across accounts on the network.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Bulk Operations
   properties:
@@ -149,10 +177,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-bulk-operations-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-bulk-operations-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-campaign-items-api
   name: Taboola Campaign Items API
   description: Standard ad items (creatives) belonging to a campaign.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Campaign Items
   properties:
@@ -186,10 +223,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-campaign-items-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-campaign-items-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-campaigns-api
   name: Taboola Campaigns API
   description: Create, retrieve, update, duplicate, and delete advertising campaigns.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Campaigns
   properties:
@@ -223,10 +269,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-campaigns-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-campaigns-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-combined-audiences-api
   name: Taboola Combined Audiences API
   description: The Combined Audiences API from Taboola — 2 operation(s) for combined audiences.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Combined Audiences
   properties:
@@ -260,10 +315,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-combined-audiences-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-combined-audiences-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-conversion-rules-api
   name: Taboola Conversion Rules API
   description: The Conversion Rules API from Taboola — 4 operation(s) for conversion rules.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Conversion Rules
   properties:
@@ -297,10 +361,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-conversion-rules-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-conversion-rules-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-custom-audiences-api
   name: Taboola Custom Audiences API
   description: The Custom Audiences API from Taboola — 1 operation(s) for custom audiences.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Custom Audiences
   properties:
@@ -334,10 +407,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-custom-audiences-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-custom-audiences-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-dictionary-api
   name: Taboola Dictionary API
   description: The Dictionary API from Taboola — 16 operation(s) for dictionary.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Dictionary
   properties:
@@ -371,10 +453,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-dictionary-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-dictionary-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-first-party-audiences-api
   name: Taboola First Party Audiences API
   description: The First Party Audiences API from Taboola — 3 operation(s) for first party audiences.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - First Party Audiences
   properties:
@@ -408,10 +499,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-first-party-audiences-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-first-party-audiences-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-lookalike-audiences-api
   name: Taboola Lookalike Audiences API
   description: The Lookalike Audiences API from Taboola — 1 operation(s) for lookalike audiences.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Lookalike Audiences
   properties:
@@ -445,10 +545,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-lookalike-audiences-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-lookalike-audiences-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-marketplace-audiences-api
   name: Taboola Marketplace Audiences API
   description: The Marketplace Audiences API from Taboola — 1 operation(s) for marketplace audiences.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Marketplace Audiences
   properties:
@@ -482,10 +591,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-marketplace-audiences-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-marketplace-audiences-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-reach-estimator-api
   name: Taboola Reach Estimator API
   description: Estimate reach for campaign targeting before launching.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Reach Estimator
   properties:
@@ -519,10 +637,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-reach-estimator-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-reach-estimator-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-reports-api
   name: Taboola Reports API
   description: The Reports API from Taboola — 3 operation(s) for reports.
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Reports
   properties:
@@ -556,10 +683,19 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-reports-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-reports-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 - aid: taboola:taboola-video-items-api
   name: Taboola Video Items API
   description: Performance video items (motion ads).
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
+  baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
   - Video Items
   properties:
@@ -593,6 +729,14 @@ apis:
     url: https://developers.taboola.com/backstage-api/reference/dictionary
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference/get-allowed-accounts
+  - type: Overlay
+    url: overlays/taboola-video-items-api-overlay.yaml
+  - type: PostmanCollection
+    url: postman/taboola-video-items-api.postman_collection.json
+  - type: MCPServer
+    url: mcp/taboola-mcp.yml
+  - type: ToolCrosswalk
+    url: mcp/taboola-tool-crosswalk.yml
 name: Taboola
 tags:
   - Advertising
@@ -638,8 +782,8 @@ common:
     url: https://developers.taboola.com/
   - type: Documentation
     url: https://developers.taboola.com/backstage-api/reference
-  - url: https://developers.taboola.com/llms.txt
-    name: llms.txt index
+  - url: https://developers.taboola.com/backstage-api/llms.txt
+    name: Backstage API llms.txt index
     type: Documentation
   - url: https://developers.taboola.com/backstage-api/reference/authentication-basics
     name: Authentication Basics
@@ -692,7 +836,8 @@ common:
     type: TermsOfService
   - url: https://www.taboola.com/policies/privacy-policy
     type: PrivacyPolicy
-  - url: https://trust.taboola.com/
+  - url: https://www.taboola.com/trust-center
+    name: Taboola Trust Center
     type: TrustCenter
   - url: https://help.taboola.com/
     name: Help Center
@@ -746,6 +891,85 @@ common:
     type: RateLimits
   - url: finops/taboola-finops.yml
     type: FinOps
+  - url: llms/taboola-llms.txt
+    name: Backstage API llms.txt (saved verbatim)
+    type: LLMsTxt
+  - url: well-known/taboola-well-known.yml
+    name: Well-known probe (api-catalog hit)
+    type: WellKnown
+  - url: well-known/taboola-api-catalog.json
+    name: RFC 9727 API Catalog
+    type: APICatalog
+  - url: mcp/taboola-mcp.yml
+    name: Realize MCP Server
+    type: MCPServer
+  - url: mcp/taboola-tool-crosswalk.yml
+    name: MCP tool to Backstage operation crosswalk
+    type: ToolCrosswalk
+  - url: skills/_index.yml
+    name: Taboola-published Realize Agent Skills
+    type: AgentSkill
+  - url: packages/taboola-packages.yml
+    name: First-party client libraries
+    type: Packages
+  - url: packages/taboola-packages.yml
+    name: Official SDKs
+    type: SDKs
+  - url: conformance/taboola-conformance.yml
+    type: Conformance
+  - url: security/taboola-trust-center.yml
+    name: ISO/IEC 27001:2022 + ISO/IEC 27701:2019
+    type: Compliance
+  - url: security/taboola-vulnerability-disclosure.yml
+    name: Vulnerability Disclosure Policy
+    type: Security
+  - url: errors/taboola-problem-types.yml
+    type: ErrorCatalog
+  - url: lifecycle/taboola-lifecycle.yml
+    type: Lifecycle
+  - url: lifecycle/taboola-lifecycle.yml
+    name: Deprecated endpoints and deprecated OAuth grant
+    type: Deprecation
+  - url: conventions/taboola-conventions.yml
+    type: Conventions
+  - url: changelog/taboola-changelog.yml
+    type: ChangeLog
+  - url: scopes/taboola-scopes.yml
+    type: OAuthScopes
+  - url: data-model/taboola-data-model.yml
+    type: DataModel
+  - url: components/taboola-components.yml
+    type: Components
+  - url: https://developers.taboola.com/backstage-api/changelog
+    name: Backstage API Changelog
+    type: ChangeLog
+  - url: https://developers.taboola.com/backstage-api/reference/deprecated-endpoints
+    name: Deprecated Endpoints
+    type: Deprecation
+  - url: https://developers.taboola.com/backstage-api/reference
+    name: Backstage API Reference
+    type: APIReference
+  - url: https://developers.taboola.com/
+    name: Taboola Developer Portal
+    type: DeveloperPortal
+  - url: https://developers.taboola.com/backstage-api/docs/getting-account-details
+    name: Your Account ID
+    type: GettingStarted
+  - url: https://policies.taboola.com/vulnerability-disclosure-policy/
+    name: Vulnerability Disclosure Policy
+    type: Security
+  - url: https://github.com/taboola/realize-claude-plugin
+    name: Realize Claude/Codex plugin (Agent Skills)
+    type: AgentSkill
+  - url: https://mcp.realize.com/mcp
+    name: Realize MCP endpoint
+    type: MCPServer
+  - url: https://ads.realizeperformance.com/signup
+    name: Realize advertiser sign-up
+    type: SignUp
+  - url: https://www.taboola.com/advertise/
+    name: Advertise with Taboola (commercial terms are contact-driven)
+    type: Pricing
   - type: Features
     data:
       - Realize performance advertising platform with native, display, carousel, video, and app-promotion formats
@@ -773,11 +997,11 @@ common:
       - https://www.taboola.com/
       - https://developers.taboola.com/
       - https://developers.taboola.com/backstage-api/reference
-      - https://developers.taboola.com/llms.txt
+      - https://developers.taboola.com/backstage-api/llms.txt
       - https://github.com/taboola
     updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
-modified: '2026-05-25'
+modified: '2026-08-13'
 position: Producing
 description: >-
   Taboola (NASDAQ: TBLA) is a New-York-headquartered native and discovery advertising company founded in 2007 by Adam
@@ -792,3 +1016,8 @@ maintainers:
     X: apievangelist
     url: https://apievangelist.com
 specificationVersion: '0.16'
+x-enrichment:
+  date: '2026-08-13'
+  status: enriched
+  artifacts_added: 44
+  pass: local-v1
