@@ -1,0 +1,424 @@
+# Taboola Backstage API Documentation
+
+> Welcome to the Taboola Backstage API documentation. Using the API, you can integrate Taboola campaign management into your own solution, run reports, automate tasks and more.
+
+## Guides
+- [Your Account ID](https://developers.taboola.com/backstage-api/docs/getting-account-details.md)
+- [Network Accounts](https://developers.taboola.com/backstage-api/docs/network-accounts.md)
+- [Campaigns Overview](https://developers.taboola.com/backstage-api/docs/campaigns-overview.md)
+- [Creating native, display, and performance video campaigns](https://developers.taboola.com/backstage-api/docs/campaign-types.md)
+- [Duplicating Campaigns](https://developers.taboola.com/backstage-api/docs/duplicating-campaigns.md)
+- [Updating Campaigns](https://developers.taboola.com/backstage-api/docs/updating-campaigns.md)
+- [Patching Collections](https://developers.taboola.com/backstage-api/docs/patching-collections.md)
+- [Patching Bid Modifiers](https://developers.taboola.com/backstage-api/docs/patching-publisher-bid-modifiers.md)
+- [Pausing/unpausing Campaigns](https://developers.taboola.com/backstage-api/docs/pausing-campaigns.md)
+- [Deleting Campaigns](https://developers.taboola.com/backstage-api/docs/deleting-campaigns.md)
+- [Campaign Object](https://developers.taboola.com/backstage-api/docs/campaign-fields-overview.md)
+- [Campaign Fields](https://developers.taboola.com/backstage-api/docs/campaign-fields.md)
+- [id](https://developers.taboola.com/backstage-api/docs/campaign-id.md)
+- [advertiser_id](https://developers.taboola.com/backstage-api/docs/campaign-advertiser-id.md)
+- [campaign_group_id](https://developers.taboola.com/backstage-api/docs/campaign-group-id.md)
+- [name](https://developers.taboola.com/backstage-api/docs/campaign-name.md)
+- [branding_text](https://developers.taboola.com/backstage-api/docs/campaign-branding-text.md)
+- [tracking_code](https://developers.taboola.com/backstage-api/docs/campaign-tracking-code.md)
+- [pricing_model](https://developers.taboola.com/backstage-api/docs/campaign-pricing-model.md)
+- [cpc](https://developers.taboola.com/backstage-api/docs/campaign-cpc.md)
+- [daily_cap](https://developers.taboola.com/backstage-api/docs/campaign-daily-cap.md)
+- [daily_ad_delivery_model](https://developers.taboola.com/backstage-api/docs/campaign-daily-ad-delivery-model.md)
+- [spending_limit](https://developers.taboola.com/backstage-api/docs/campaign-spending-limit.md)
+- [spending_limit_model](https://developers.taboola.com/backstage-api/docs/campaign-spending-limit-model.md)
+- [cpa_goal](https://developers.taboola.com/backstage-api/docs/campaign-cpa-goal.md)
+- [country_targeting](https://developers.taboola.com/backstage-api/docs/campaign-country-targeting.md)
+- [sub_country_targeting](https://developers.taboola.com/backstage-api/docs/campaign-sub-country-targeting.md)
+- [dma_country_targeting](https://developers.taboola.com/backstage-api/docs/campaign-dma-country-targeting.md)
+- [region_country_targeting](https://developers.taboola.com/backstage-api/docs/campaign-region-country-targeting.md)
+- [city_targeting](https://developers.taboola.com/backstage-api/docs/campaign-city-targeting.md)
+- [postal_code_targeting](https://developers.taboola.com/backstage-api/docs/campaign-postal-code-targeting.md)
+- [platform_targeting](https://developers.taboola.com/backstage-api/docs/campaign-platform-targeting.md)
+- [publisher_targeting](https://developers.taboola.com/backstage-api/docs/campaign-publisher-targeting.md)
+- [os_targeting](https://developers.taboola.com/backstage-api/docs/campaign-os-targeting.md)
+- [connection_type_targeting](https://developers.taboola.com/backstage-api/docs/campaign-connection-type-targeting.md)
+- [auto_publisher_targeting](https://developers.taboola.com/backstage-api/docs/campaign-auto-publisher-targeting.md)
+- [publisher_bid_modifier](https://developers.taboola.com/backstage-api/docs/campaign-publisher-bid-modifier.md)
+- [publisher_bid_strategy_modifiers](https://developers.taboola.com/backstage-api/docs/campaign-publisher-bid-strategy-modifiers.md)
+- [comments](https://developers.taboola.com/backstage-api/docs/campaign-comments.md)
+- [spent](https://developers.taboola.com/backstage-api/docs/campaign-spent.md)
+- [bid_strategy](https://developers.taboola.com/backstage-api/docs/campaign-bid-strategy.md)
+- [bid_type](https://developers.taboola.com/backstage-api/docs/campaign-bid-type.md)
+- [traffic_allocation_mode](https://developers.taboola.com/backstage-api/docs/campaign-traffic-allocation-mode.md)
+- [external_brand_safety](https://developers.taboola.com/backstage-api/docs/campaign-external-brand-safety.md)
+- [start_date](https://developers.taboola.com/backstage-api/docs/campaign-start-date.md)
+- [end_date](https://developers.taboola.com/backstage-api/docs/campaign-end-date.md)
+- [approval_state](https://developers.taboola.com/backstage-api/docs/campaign-approval-state.md)
+- [is_active](https://developers.taboola.com/backstage-api/docs/campaign-is-active.md)
+- [status](https://developers.taboola.com/backstage-api/docs/campaign-status.md)
+- [audience_segments_multi_targeting](https://developers.taboola.com/backstage-api/docs/campaign-audience-segments-multi-targeting.md)
+- [custom_audience_targeting](https://developers.taboola.com/backstage-api/docs/campaign-custom-audience-targeting.md)
+- [marking_label_multi_targeting](https://developers.taboola.com/backstage-api/docs/marking_label_multi_targeting.md): *DEPRECATED*
+- [lookalike_audience_targeting](https://developers.taboola.com/backstage-api/docs/campaign-lookalike-audience-targeting.md)
+- [contextual_segments_targeting](https://developers.taboola.com/backstage-api/docs/campaign-contextual-segments-targeting.md)
+- [marketing_objective](https://developers.taboola.com/backstage-api/docs/campaign-marketing-objective.md)
+- [verification_pixel](https://developers.taboola.com/backstage-api/docs/campaign-verification-pixel.md)
+- [viewability_tag](https://developers.taboola.com/backstage-api/docs/campaign-viewability-tag.md)
+- [activity_schedule](https://developers.taboola.com/backstage-api/docs/campaign-activity-schedule.md)
+- [policy_review](https://developers.taboola.com/backstage-api/docs/policy-review.md)
+- [browser_targeting](https://developers.taboola.com/backstage-api/docs/campaign-browser-targeting.md)
+- [Bidding strategies](https://developers.taboola.com/backstage-api/docs/bid-strategy-overview.md): Bid Strategy > Overview & supported values
+- [Maximize conversions](https://developers.taboola.com/backstage-api/docs/maximize-conversions.md): Bid Strategy > Maximize conversions
+- [Target CPA](https://developers.taboola.com/backstage-api/docs/target-cpa.md): Bid Strategy > Target CPA
+- [Enhanced CPC (aka SmartBid)](https://developers.taboola.com/backstage-api/docs/enhanced-cpc.md): Bid Strategy > Enhanced CPC
+- [Fixed CPC](https://developers.taboola.com/backstage-api/docs/fixed-cpc.md): Bid Strategy > Fixed CPC
+- [Targeting](https://developers.taboola.com/backstage-api/docs/targeting-fields.md)
+- [Policy Review Object](https://developers.taboola.com/backstage-api/docs/policy-review-object.md)
+- [External Brand Safety](https://developers.taboola.com/backstage-api/docs/external-brand-safety.md)
+- [External Brand Safety Object](https://developers.taboola.com/backstage-api/docs/external-brand-safety-object.md)
+- [External Brand Safety Restriction Object](https://developers.taboola.com/backstage-api/docs/external-brand-safety-restriction-object.md)
+- [Verification Pixel](https://developers.taboola.com/backstage-api/docs/verification-pixel.md): The **`verification_pixel`** (*aka* **3rd Party Pixel**) can be set at the [campaign](doc:campaign-verification-pixel) *or* [item](doc:item-verification-pixel) level. For a description of the [object schema](doc:verification-pixel-object), see below.
+- [Verification Pixel Object](https://developers.taboola.com/backstage-api/docs/verification-pixel-object.md)
+- [Verification Pixel Item Object](https://developers.taboola.com/backstage-api/docs/verification-pixel-item-object.md)
+- [Viewability Tags](https://developers.taboola.com/backstage-api/docs/viewability-tags.md): The **`viewability_tag`** (*aka* **JavaScript tag**) can be set at the [campaign](doc:campaign-viewability-tag) *or* [item](doc:item-viewability-tag) level. For a description of the [object schema](doc:viewability-tag-object), see below.
+- [Viewability Tag Object](https://developers.taboola.com/backstage-api/docs/viewability-tag-object.md)
+- [Viewability Tag Item Object](https://developers.taboola.com/backstage-api/docs/viewability-tag-item-object.md)
+- [Publisher Bid Modifier Object](https://developers.taboola.com/backstage-api/docs/publisher-bid-modifier-object.md)
+- ['Bid Modifier Per Publisher' Object](https://developers.taboola.com/backstage-api/docs/bid-modifier-per-publisher-object.md): The [Publisher Bid Modifier Object](doc:publisher-bid-modifier-object) stores an *array* of these in its `values` property.
+- [Publisher Bid Strategy Modifier Object](https://developers.taboola.com/backstage-api/docs/publisher-bid-strategy-modifier-object.md): The Publisher *Bid Strategy* Modifier object and its fields.
+- ['Bid Strategy Per Publisher' Object](https://developers.taboola.com/backstage-api/docs/bid-strategy-per-publisher-object.md): An *array* of these make up the `values` field in a [Publisher Bid Strategy Modifier Object](doc:publisher-bid-strategy-modifier-object).
+- [Patch Object](https://developers.taboola.com/backstage-api/docs/campaign-patch-object.md): The JSON object submitted in the PATCH request *body*.
+- [patch_operation](https://developers.taboola.com/backstage-api/docs/patch-model-patch-operation.md)
+- [publisher_bid_modifier](https://developers.taboola.com/backstage-api/docs/patch-model-publisher-bid-modifier.md)
+- [publisher_bid_strategy_modifiers](https://developers.taboola.com/backstage-api/docs/patch-model-publisher-bid-strategy-modifiers.md)
+- [publisher_targeting](https://developers.taboola.com/backstage-api/docs/patch-model-publisher-targeting.md)
+- [Activity Schedule Object](https://developers.taboola.com/backstage-api/docs/activity-schedule.md)
+- [mode](https://developers.taboola.com/backstage-api/docs/activity-schedule-mode.md)
+- [rules](https://developers.taboola.com/backstage-api/docs/activity-schedule-rules.md)
+- [time_zone](https://developers.taboola.com/backstage-api/docs/activity-schedule-time-zone.md)
+- [type](https://developers.taboola.com/backstage-api/docs/activity-schedule-rule-type.md)
+- [day](https://developers.taboola.com/backstage-api/docs/activity-schedule-rule-day.md)
+- [from_hour](https://developers.taboola.com/backstage-api/docs/activity-schedule-rule-from-hour.md)
+- [until_hour](https://developers.taboola.com/backstage-api/docs/activity-schedule-rule-until-hour.md)
+- [Campaign Items Overview](https://developers.taboola.com/backstage-api/docs/campaign-items-overview.md)
+- [Campaign Item Fields](https://developers.taboola.com/backstage-api/docs/campaign-item-fields.md)
+- [id](https://developers.taboola.com/backstage-api/docs/item-id.md)
+- [campaign_id](https://developers.taboola.com/backstage-api/docs/item-campaign-id.md)
+- [type](https://developers.taboola.com/backstage-api/docs/item-type.md)
+- [url](https://developers.taboola.com/backstage-api/docs/item-url.md)
+- [thumbnail_url](https://developers.taboola.com/backstage-api/docs/item-thumbnail_url.md)
+- [title](https://developers.taboola.com/backstage-api/docs/item-title.md)
+- [description](https://developers.taboola.com/backstage-api/docs/item-description.md)
+- [approval_state](https://developers.taboola.com/backstage-api/docs/item-approval-state.md)
+- [is_active](https://developers.taboola.com/backstage-api/docs/item-is-active.md)
+- [status](https://developers.taboola.com/backstage-api/docs/item-status.md)
+- [policy_review](https://developers.taboola.com/backstage-api/docs/item-policy-review.md)
+- [cta](https://developers.taboola.com/backstage-api/docs/item-cta.md)
+- [creative_focus](https://developers.taboola.com/backstage-api/docs/item-creative-focus.md)
+- [verification_pixel](https://developers.taboola.com/backstage-api/docs/item-verification-pixel.md)
+- [viewability_tag](https://developers.taboola.com/backstage-api/docs/item-viewability-tag.md)
+- [custom_data](https://developers.taboola.com/backstage-api/docs/item-custom-data.md)
+- [ai_disclosure](https://developers.taboola.com/backstage-api/docs/item-ai-disclosure.md)
+- [CTA Object](https://developers.taboola.com/backstage-api/docs/cta-object.md)
+- [Creative Focus Object](https://developers.taboola.com/backstage-api/docs/creative-focus-object.md)
+- [Coordinates Object](https://developers.taboola.com/backstage-api/docs/coordinates-object.md)
+- [AI Disclosure Object](https://developers.taboola.com/backstage-api/docs/ai-disclosure-object.md)
+- [Item Status](https://developers.taboola.com/backstage-api/docs/item-statuses.md)
+- [Item Types](https://developers.taboola.com/backstage-api/docs/item-types.md)
+- [Creating a Campaign Item](https://developers.taboola.com/backstage-api/docs/creating-a-campaign-item.md)
+- [Updating Campaign Items](https://developers.taboola.com/backstage-api/docs/updating-campaign-items.md)
+- [Deleting Campaign Items](https://developers.taboola.com/backstage-api/docs/deleting-campaign-items.md)
+- [Creative Focus](https://developers.taboola.com/backstage-api/docs/creative-focus.md)
+- [Creative CTA](https://developers.taboola.com/backstage-api/docs/campaign-item-cta.md)
+- [Pausing/unpausing Campaign Items](https://developers.taboola.com/backstage-api/docs/pausing-campaign-items.md)
+- [RSS Items](https://developers.taboola.com/backstage-api/docs/rss-items.md)
+- [Bulk Operations](https://developers.taboola.com/backstage-api/docs/bulk-operations.md)
+- [MANAGING IMAGES](https://developers.taboola.com/backstage-api/docs/managing-images.md)
+- [Upload Image From Local Device](https://developers.taboola.com/backstage-api/docs/upload-a-local-image.md): Upload an image from *your local device* to the Taboola CDN.
+- [Upload display ads by URL](https://developers.taboola.com/backstage-api/docs/display-ad-url-based-upload.md)
+- [End-To-End Flow](https://developers.taboola.com/backstage-api/docs/item-image-flow.md)
+- [Overview & flow](https://developers.taboola.com/backstage-api/docs/video-items-overview.md)
+- [Submitting motion assets](https://developers.taboola.com/backstage-api/docs/video-item-assets-flow.md)
+- [Motion ad fields](https://developers.taboola.com/backstage-api/docs/performance-video-item-fields.md): Motion ads > Fields
+- [id](https://developers.taboola.com/backstage-api/docs/video-item-id.md)
+- [campaign_id](https://developers.taboola.com/backstage-api/docs/video-item-campaign-id.md)
+- [url](https://developers.taboola.com/backstage-api/docs/video-item-url.md)
+- [title](https://developers.taboola.com/backstage-api/docs/video-item-title.md)
+- [description](https://developers.taboola.com/backstage-api/docs/video-item-description.md)
+- [approval_state](https://developers.taboola.com/backstage-api/docs/video-item-approval-state.md)
+- [is_active](https://developers.taboola.com/backstage-api/docs/video-item-is-active.md)
+- [status](https://developers.taboola.com/backstage-api/docs/video-item-status.md)
+- [policy_review](https://developers.taboola.com/backstage-api/docs/video-item-policy-review.md)
+- [video_url](https://developers.taboola.com/backstage-api/docs/video-url.md)
+- [video_file](https://developers.taboola.com/backstage-api/docs/video-file.md)
+- [fallback_url](https://developers.taboola.com/backstage-api/docs/fallback-url.md)
+- [fallback_file](https://developers.taboola.com/backstage-api/docs/fallback-file.md)
+- [gif_url](https://developers.taboola.com/backstage-api/docs/gif-url.md)
+- [verification_pixel](https://developers.taboola.com/backstage-api/docs/video-item-verification-pixel.md)
+- [viewability_tag](https://developers.taboola.com/backstage-api/docs/video-item-viewability-tag.md)
+- [Taboola Pixel API Overview](https://developers.taboola.com/backstage-api/docs/taboola-pixel-overview.md): An overview of Taboola Pixel for **Backstage API**
+- [CONVERSION RULE QUICK REFERENCE](https://developers.taboola.com/backstage-api/docs/conversion-rule-quick-reference.md)
+- [Archiving/unarchiving a Conversion Rule](https://developers.taboola.com/backstage-api/docs/archiving-a-conversion-rule.md)
+- [Sample Conversion Rule](https://developers.taboola.com/backstage-api/docs/conversion-rule-object.md)
+- [Conversion Rule Fields](https://developers.taboola.com/backstage-api/docs/conversion-rule-fields.md)
+- [id](https://developers.taboola.com/backstage-api/docs/conversion-rule-id.md)
+- [display_name](https://developers.taboola.com/backstage-api/docs/conversion-rule-display-name.md)
+- [look_back_window](https://developers.taboola.com/backstage-api/docs/conversion-rule-look-back-window.md)
+- [view_through_look_back_window](https://developers.taboola.com/backstage-api/docs/conversion-rule-view-through-look-back-window.md)
+- [category](https://developers.taboola.com/backstage-api/docs/conversion-rule-category.md)
+- [status](https://developers.taboola.com/backstage-api/docs/conversion-rule-status.md)
+- [type](https://developers.taboola.com/backstage-api/docs/conversion-rule-type.md)
+- [event_name](https://developers.taboola.com/backstage-api/docs/conversion-rule-event-name-1.md)
+- [condition](https://developers.taboola.com/backstage-api/docs/conversion-rule-condition.md)
+- [effects](https://developers.taboola.com/backstage-api/docs/conversion-rule-effects.md)
+- [include_in_total_conversions](https://developers.taboola.com/backstage-api/docs/include-in-total-conversions.md)
+- [exclude_from_campaigns](https://developers.taboola.com/backstage-api/docs/conversion-rule-exclude-from-campaigns.md)
+- [description](https://developers.taboola.com/backstage-api/docs/conversion-rule-description.md)
+- [advertiser_id](https://developers.taboola.com/backstage-api/docs/conversion-rule-advertiser-id.md)
+- [last_modified_by](https://developers.taboola.com/backstage-api/docs/conversion-rule-last-modified-by.md)
+- [last_modified_at](https://developers.taboola.com/backstage-api/docs/conversion-rule-last-modified-at.md)
+- [Effect Object](https://developers.taboola.com/backstage-api/docs/effect-object.md)
+- [type](https://developers.taboola.com/backstage-api/docs/effect-object-type.md)
+- [data](https://developers.taboola.com/backstage-api/docs/effect-object-data.md)
+- [Condition Object](https://developers.taboola.com/backstage-api/docs/condition-object.md)
+- [property](https://developers.taboola.com/backstage-api/docs/condition-object-property.md)
+- [predicate](https://developers.taboola.com/backstage-api/docs/condition-object-predicate.md)
+- [value](https://developers.taboola.com/backstage-api/docs/condition-object-value.md)
+- [children](https://developers.taboola.com/backstage-api/docs/condition-object-children.md)
+- [CUSTOM AUDIENCE QUICK REFERENCE](https://developers.taboola.com/backstage-api/docs/custom-audience-quick-reference.md)
+- [Sample Custom Audience Rule](https://developers.taboola.com/backstage-api/docs/custom-audience-rule-object.md)
+- [Custom Audience Fields](https://developers.taboola.com/backstage-api/docs/custom-audience-fields.md)
+- [id](https://developers.taboola.com/backstage-api/docs/audience-rule-id.md)
+- [display_name](https://developers.taboola.com/backstage-api/docs/audience-rule-display-name.md)
+- [look_back_window](https://developers.taboola.com/backstage-api/docs/audience-rule-look-back-window.md)
+- [category](https://developers.taboola.com/backstage-api/docs/audience-rule-category.md)
+- [status](https://developers.taboola.com/backstage-api/docs/audience-rule-status.md)
+- [type](https://developers.taboola.com/backstage-api/docs/audience-rule-type.md)
+- [event_name](https://developers.taboola.com/backstage-api/docs/audience-rule-event-name.md)
+- [condition](https://developers.taboola.com/backstage-api/docs/audience-rule-condition.md)
+- [exclude_from_campaigns](https://developers.taboola.com/backstage-api/docs/audience-rule-exclude-from-campaigns.md)
+- [description](https://developers.taboola.com/backstage-api/docs/audience-rule-description.md)
+- [advertiser_id](https://developers.taboola.com/backstage-api/docs/audience-rule-advertiser-id.md)
+- [last_modified_by](https://developers.taboola.com/backstage-api/docs/audience-rule-last-modified-by.md)
+- [last_modified_at](https://developers.taboola.com/backstage-api/docs/audience-rule-last-modified-at.md)
+- [audience_size](https://developers.taboola.com/backstage-api/docs/audience-rule-audience-size.md)
+- [Targeting Overview](https://developers.taboola.com/backstage-api/docs/targeting-overview.md)
+- [Targeting Object](https://developers.taboola.com/backstage-api/docs/targeting-object.md)
+- [Targeting Flow](https://developers.taboola.com/backstage-api/docs/targeting-object-flow.md)
+- [Geo Targeting](https://developers.taboola.com/backstage-api/docs/geo-targeting.md)
+- [Country And Sub-Country Targeting](https://developers.taboola.com/backstage-api/docs/country-and-sub-country-targeting.md)
+- [Examples](https://developers.taboola.com/backstage-api/docs/sub-country-examples.md)
+- [Examples - INCORRECT Usage](https://developers.taboola.com/backstage-api/docs/country-and-sub-country-incorrect-usage.md)
+- [City Targeting](https://developers.taboola.com/backstage-api/docs/city-targeting.md)
+- [Examples and flow](https://developers.taboola.com/backstage-api/docs/city-examples.md)
+- [Postal Code Targeting](https://developers.taboola.com/backstage-api/docs/postal-code-targeting.md)
+- [Postal Codes Targeting Restrictions Object](https://developers.taboola.com/backstage-api/docs/postal-codes-targeting-restrictions-object.md)
+- [Platform Targeting](https://developers.taboola.com/backstage-api/docs/platform-targeting.md)
+- [OS Targeting](https://developers.taboola.com/backstage-api/docs/os-targeting.md)
+- [Browser Targeting](https://developers.taboola.com/backstage-api/docs/browser-targeting.md)
+- [Connection Type Targeting](https://developers.taboola.com/backstage-api/docs/connection-type-targeting.md)
+- [Publisher Targeting (Blocking)](https://developers.taboola.com/backstage-api/docs/publisher-targeting.md)
+- [List Of Publishers](https://developers.taboola.com/backstage-api/docs/list-of-publishers.md)
+- [Patching Targeted Publishers](https://developers.taboola.com/backstage-api/docs/patching-targeted-publishers.md)
+- [Auto-Targeted Publishers](https://developers.taboola.com/backstage-api/docs/patching-auto-targeted-publishers.md)
+- [Publisher Targeting Patch Object](https://developers.taboola.com/backstage-api/docs/publisher-targeting-patch-object.md)
+- [ACCOUNT LEVEL BLOCKING](https://developers.taboola.com/backstage-api/docs/block-publishers-at-the-account-level.md)
+- [Audience Targeting Overview](https://developers.taboola.com/backstage-api/docs/audience-targeting.md)
+- [Audience Targeting Flow](https://developers.taboola.com/backstage-api/docs/audience-targeting-flow.md)
+- [Multi-Targeting Object](https://developers.taboola.com/backstage-api/docs/multi-targeting-object.md)
+- [Audience Targeting Quick Reference](https://developers.taboola.com/backstage-api/docs/audience-targeting-quick-reference.md)
+- [Audience Targeting Object](https://developers.taboola.com/backstage-api/docs/audience-targeting-object.md)
+- [Audience Targeting Restrictions Object](https://developers.taboola.com/backstage-api/docs/audience-targeting-restrictions-object.md): The [Audience Targeting Object](doc:audience-targeting-object) (*above*) stores an *array* of these objects in its `collection` property.
+- [Lookalike Audience Object](https://developers.taboola.com/backstage-api/docs/lookalike-audience-object.md)
+- [Contextual Targeting](https://developers.taboola.com/backstage-api/docs/contextual-targeting.md)
+- [Overview](https://developers.taboola.com/backstage-api/docs/combined-audiences.md)
+- [First Party Audience Onboarding](https://developers.taboola.com/backstage-api/docs/onboarding-overview.md)
+- [Fields](https://developers.taboola.com/backstage-api/docs/create-a-first-party-audience-fields.md)
+- [Standard Reports](https://developers.taboola.com/backstage-api/docs/reporting-overview.md)
+- [Dimensions, Filters and Columns](https://developers.taboola.com/backstage-api/docs/dimensions-and-columns.md)
+- [Report overview](https://developers.taboola.com/backstage-api/docs/campaign-summary-report-overview.md)
+- [Dimensions Overview](https://developers.taboola.com/backstage-api/docs/campaign-summary-dimensions.md)
+- [Dimensions Cheat Sheet](https://developers.taboola.com/backstage-api/docs/dimensions-cheat-sheet.md)
+- [Filters](https://developers.taboola.com/backstage-api/docs/campaign-summary-filters.md)
+- [start_date](https://developers.taboola.com/backstage-api/docs/campaign-summary-report-start-date.md)
+- [end_date](https://developers.taboola.com/backstage-api/docs/campaign-summary-report-end-date.md)
+- [campaign](https://developers.taboola.com/backstage-api/docs/campaign-summary-report-campaign.md)
+- [platform](https://developers.taboola.com/backstage-api/docs/campaign-summary-report-platform.md)
+- [country](https://developers.taboola.com/backstage-api/docs/campaign-summary-report-country.md)
+- [site](https://developers.taboola.com/backstage-api/docs/campaign-summary-report-site.md)
+- [partner_name](https://developers.taboola.com/backstage-api/docs/campaign-summary-report-partner-name.md)
+- [Standard Columns](https://developers.taboola.com/backstage-api/docs/campaign-summary-standard-columns.md)
+- [Dimension Columns](https://developers.taboola.com/backstage-api/docs/dimension-specific-columns.md)
+- [Network-wide reports](https://developers.taboola.com/backstage-api/docs/running-network-wide-reports.md)
+- [Custom Conversion Columns](https://developers.taboola.com/backstage-api/docs/custom-conversion-columns-revisited.md)
+- [2 new properties (dynamic_fields)](https://developers.taboola.com/backstage-api/docs/a-new-property-dynamic_fields.md)
+- [The Metadata Section](https://developers.taboola.com/backstage-api/docs/the-metadata-section.md)
+- [An Example](https://developers.taboola.com/backstage-api/docs/an-example.md)
+- [Metadata Object Schema](https://developers.taboola.com/backstage-api/docs/metadata-object-schema.md)
+- [caption](https://developers.taboola.com/backstage-api/docs/metadata-object-schema-caption.md)
+- [id](https://developers.taboola.com/backstage-api/docs/metadata-object-schema-id.md)
+- [format](https://developers.taboola.com/backstage-api/docs/metadata-object-schema-format.md)
+- [data_type](https://developers.taboola.com/backstage-api/docs/metadata-object-schema-data-type.md)
+- [Row Object Schema](https://developers.taboola.com/backstage-api/docs/row-object-schema.md)
+- [id](https://developers.taboola.com/backstage-api/docs/row-object-schema-id.md)
+- [value](https://developers.taboola.com/backstage-api/docs/row-object-schema-value.md)
+- [Report overview](https://developers.taboola.com/backstage-api/docs/top-campaign-content-an-overview.md)
+- [Dimension Cheat Sheet](https://developers.taboola.com/backstage-api/docs/top-campaign-content-dimensions.md)
+- [Supported Filters](https://developers.taboola.com/backstage-api/docs/top-campaign-content-filters.md)
+- [start_date](https://developers.taboola.com/backstage-api/docs/top-campaign-content-start-date.md)
+- [end_date](https://developers.taboola.com/backstage-api/docs/top-campaign-content-end-date.md)
+- [campaign](https://developers.taboola.com/backstage-api/docs/top-campaign-content-campaign.md)
+- [Standard Columns](https://developers.taboola.com/backstage-api/docs/top-campaign-content-fixed-columns.md)
+- [Dimension Columns](https://developers.taboola.com/backstage-api/docs/top-campaign-content-dimension-specific-columns.md)
+- [Custom Conversion Columns](https://developers.taboola.com/backstage-api/docs/top-campaign-content-custom-conversion-columns.md)
+- [The response object](https://developers.taboola.com/backstage-api/docs/realtime-ads-the-response.md)
+- [Some examples](https://developers.taboola.com/backstage-api/docs/realtime-ads-examples.md)
+- [Dimensions Cheat Sheet](https://developers.taboola.com/backstage-api/docs/realtime-ads-dimensions-cheat-sheet.md)
+- [Filters](https://developers.taboola.com/backstage-api/docs/realtime-ads-filters.md)
+- [Dimension columns](https://developers.taboola.com/backstage-api/docs/realtime-ads-dimension-columns.md)
+- [Item columns](https://developers.taboola.com/backstage-api/docs/realtime-ads-item-properties.md)
+- [Standard columns](https://developers.taboola.com/backstage-api/docs/realtime-ads-standard-columns.md)
+- [The response object](https://developers.taboola.com/backstage-api/docs/realtime-campaign-summary-the-response.md)
+- [Some examples](https://developers.taboola.com/backstage-api/docs/realtime-campaign-summary-examples.md)
+- [Dimensions Cheat Sheet](https://developers.taboola.com/backstage-api/docs/realtime-campaign-summary-dimensions-cheat-sheet.md)
+- [Filters](https://developers.taboola.com/backstage-api/docs/realtime-campaign-summary-filters.md)
+- [Dimension columns](https://developers.taboola.com/backstage-api/docs/realtime-campaign-summary-dimension-columns.md)
+- [Campaign columns](https://developers.taboola.com/backstage-api/docs/realtime-campaign-summary-fetch-config.md)
+- [Standard columns](https://developers.taboola.com/backstage-api/docs/realtime-campaign-summary-standard-columns.md)
+- [DICTIONARY OVERVIEW](https://developers.taboola.com/backstage-api/docs/dictionary.md)
+- [Common Use Cases](https://developers.taboola.com/backstage-api/docs/common-use-cases.md)
+- [Request URL](https://developers.taboola.com/backstage-api/docs/url-patterns.md)
+- [Response](https://developers.taboola.com/backstage-api/docs/dictionary-request-and-response.md)
+- [Traversing the Tree](https://developers.taboola.com/backstage-api/docs/traversing-the-tree.md)
+- [ENUMS](https://developers.taboola.com/backstage-api/docs/available-enums.md)
+- [GENERAL LISTS](https://developers.taboola.com/backstage-api/docs/general-purpose-lists.md)
+- [POSSIBLE VALUES](https://developers.taboola.com/backstage-api/docs/possible-values.md)
+- [TARGETING](https://developers.taboola.com/backstage-api/docs/targeting.md)
+- [GEO TARGETING](https://developers.taboola.com/backstage-api/docs/use-case-geo-targeting.md)
+- [AUDIENCE TARGETING](https://developers.taboola.com/backstage-api/docs/marketplace-audience-targeting.md)
+- [Video campaign management](https://developers.taboola.com/backstage-api/docs/video-campaign-management.md)
+- [Video campaign creatives](https://developers.taboola.com/backstage-api/docs/video-campaign-creatives.md)
+- [Video campaign reports](https://developers.taboola.com/backstage-api/docs/video-campaign-reports.md)
+
+## API Reference
+- [Welcome](https://developers.taboola.com/backstage-api/reference/welcome.md)
+- [A Note for Publishers](https://developers.taboola.com/backstage-api/reference/a-note-for-publishers.md)
+- [Video Campaigns](https://developers.taboola.com/backstage-api/reference/video-campaigns.md): > Requires a _special_ **Taboola** account
+- [Java Client SDK](https://developers.taboola.com/backstage-api/reference/java-client-sdk.md)
+- [Realize MCP](https://developers.taboola.com/backstage-api/reference/realize-mcp.md)
+- [Authentication Basics](https://developers.taboola.com/backstage-api/reference/authentication-basics.md)
+- [Getting an Access Token](https://developers.taboola.com/backstage-api/reference/getting-an-access-token.md)
+- [Client Credentials Flow](https://developers.taboola.com/backstage-api/reference/client-credentials-flow.md): a. Client submits a `client_id` and `client_secret` to the `token` endpoint.  b. Server returns an *Access Token*.
+- [Making Requests](https://developers.taboola.com/backstage-api/reference/request-basics.md)
+- [Errors](https://developers.taboola.com/backstage-api/reference/error.md)
+- [Dictionary](https://developers.taboola.com/backstage-api/reference/dictionary-a-note.md)
+- [Get Account Details](https://developers.taboola.com/backstage-api/reference/get-account-details.md): Get your account details - including your `account_id`.
+- [Get Advertiser Accounts in Network](https://developers.taboola.com/backstage-api/reference/get-advertiser-accounts-in-network.md): Returns a list of *advertiser* accounts in your network. See also: [Get Allowed Accounts](ref:get-allowed-accounts) (below).
+- [Get Allowed Accounts](https://developers.taboola.com/backstage-api/reference/get-allowed-accounts.md): Returns all allowed accounts for your [user credentials](ref:authentication-basics). See also: [Get Advertiser Accounts in Network](ref:get-advertiser-accounts-in-network) (above).
+- [Get All Campaigns](https://developers.taboola.com/backstage-api/reference/get-all-campaigns.md): Get all campaigns for the specified account.
+- [Get a Campaign](https://developers.taboola.com/backstage-api/reference/get-a-campaign.md): Get the specified campaign, for the specified account.
+- [Get all campaigns across the network](https://developers.taboola.com/backstage-api/reference/get-all-campaigns-across-network.md): A convenience method for fetching all campaigns *across your network*. Returns *basic* campaign details *only*. (See the code samples on this page.)
+- [Create a Campaign](https://developers.taboola.com/backstage-api/reference/create-a-campaign.md): Submit a **JSON object** representing the new campaign in the *request* body.  (See examples below.)  Returns the newly created Campaign in the *response* body.
+- [Campaign Reach Estimator](https://developers.taboola.com/backstage-api/reference/campaign-reach-estimator.md): - Estimates the reach (total impressions) of a given campaign. - Estimates are based on historical data for similar campaign targeting.
+- [Examples](https://developers.taboola.com/backstage-api/reference/campaign-reach-examples.md)
+- [Additional fields](https://developers.taboola.com/backstage-api/reference/reach-estimator-additional-fields.md)
+- [Duplicate a Campaign](https://developers.taboola.com/backstage-api/reference/duplicate-a-campaign.md): Returns a JSON object with the newly created campaign.  You can *optionally*:  - Update (override) specific campaign field values. - Indicate *which* campaign sections should be duplicated (default = *all*). - Specify a target account for the new campaign (default = *current* account).
+- [Update a Campaign](https://developers.taboola.com/backstage-api/reference/update-a-campaign.md): Submit a JSON object in a PUT **or** POST request body.  Fields that are omitted or `null` will not be updated.
+- [Bulk Update Campaigns](https://developers.taboola.com/backstage-api/reference/bulk-update-campaigns.md): Bulk update *multiple* campaigns (using a single API request). You can also use a [network account](ref:network-accounts) to bulk update campaigns *across the network*.  See also:  - [Update a Campaign](ref:update-a-campaign) (above). - [Bulk update items across campaigns](ref:bulk-update-items-across-campaigns).
+- [Patch a Collection](https://developers.taboola.com/backstage-api/reference/patch-campaign-collection.md): Submit a PATCH request. The request body must contain a JSON object with:  A `patch_operation` ("ADD", "REMOVE" or "REPLACE") An *object* that supports the PATCH operation.<br> See [Patching Collections](ref:patching-collections) (above) for an *overview*. See below in this topic for *examples* and *restrictions*.
+- [Delete a Campaign](https://developers.taboola.com/backstage-api/reference/delete-a-campaign.md): Returns a campaign object with `status` = TERMINATED.  For all purposes, the campaign is 'deleted'. Any attempt to reference that Campaign ID will return **404 Not Found**.
+- [Get All Campaign Items](https://developers.taboola.com/backstage-api/reference/get-all-campaign-items.md): Get a list of items for the specified campaign.
+- [Get a Campaign Item](https://developers.taboola.com/backstage-api/reference/get-a-campaign-item.md): Get a specific campaign item, for the specified campaign.
+- [Create a Campaign Item](https://developers.taboola.com/backstage-api/reference/create-a-campaign-item.md): Submit a *JSON object* with the campaign item *URL* in the request *body*.  Returns the newly created Campaign Item as a JSON object in the response body.
+- [Update a Campaign Item](https://developers.taboola.com/backstage-api/reference/update-a-campaign-item.md): Submit a JSON object in a PUT **or** POST request body.  Fields that are omitted or `null` will not be updated.
+- [Delete a Campaign Item](https://developers.taboola.com/backstage-api/reference/delete-a-campaign-item.md): Returns an Item object with `status` = STOPPED.  For all purposes, the Item is 'deleted'. Any attempt to reference that Item ID will return **404 Not Found**.
+- [Get Children Items](https://developers.taboola.com/backstage-api/reference/get-chidren-items.md): Get a *list* of Children Items for the specified [RSS Item](ref:rss-items).
+- [Get a Child Item](https://developers.taboola.com/backstage-api/reference/get-a-child-item.md): Get a *specific* Child Item, for the specified [RSS Item](ref:rss-items).
+- [Update a Child Item](https://developers.taboola.com/backstage-api/reference/update-a-child-item.md): Updated the specified [Child Item](ref:rss-items). Submit a JSON object in a PUT **or** POST request body.  Fields that are omitted or `null` will not be updated.
+- [Mass create items for a given campaign](https://developers.taboola.com/backstage-api/reference/create-a-batch-of-campaign-items.md): Create a batch of items for a given campaign (using a single API request).  See also: [Bulk create items across campaigns](ref:bulk-create-items-across-campaigns)
+- [Bulk create items across campaigns](https://developers.taboola.com/backstage-api/reference/bulk-create-items-across-campaigns.md): Bulk *create* items *across* multiple campaigns. The same items will be created for each campaign. You can also use a [network account](ref:network-accounts) to bulk create new items *across the network*.  (This endpoint is applicable for regular [items](ref:campaign-items-overview) only - *not* [video items](ref:video-items-overview).)  See also:  - [Create a batch of items *for a given campaign*](ref:create-a-batch-of-campaign-items) (above). - [Bulk update items across campaigns](ref:bulk-update-items-across-campaigns) (below).
+- [Bulk update items across campaigns](https://developers.taboola.com/backstage-api/reference/bulk-update-items-across-campaigns.md): Bulk *update* items *across* multiple campaigns - e.g. pause all submitted items. You can also use a [network account](ref:network-accounts) to bulk update items *across the network*.  See also:   - [Bulk create items across campaigns](ref:bulk-create-items-across-campaigns) (above). - [Bulk update campaigns](ref:bulk-update-campaigns).
+- [Bulk delete items across campaigns](https://developers.taboola.com/backstage-api/reference/bulk-delete-items-across-campaigns.md): Bulk *delete* items *across* multiple campaigns. You can also use a [network account](ref:network-accounts) to bulk delete items *across the network*.  See also:   - [Bulk update items across campaigns](ref:bulk-update-items-across-campaigns) (above). - [Delete a Campaign Item](ref:delete-a-campaign-item).
+- [Get Taxonomies](https://developers.taboola.com/backstage-api/reference/get-taxonomies.md): Fetch taxonomies for a given URL.
+- [Get Images From Image Library](https://developers.taboola.com/backstage-api/reference/get-images-from-getty.md): Fetch third-party images for the specified taxonomies.
+- [Upload Image From an Image Library](https://developers.taboola.com/backstage-api/reference/upload-image-from-third-party.md): Upload a *third-party image* to the Taboola CDN.
+- [Deprecated endpoints](https://developers.taboola.com/backstage-api/reference/deprecated-endpoints.md)
+- [Create a Performance Video Item (Motion Ad)](https://developers.taboola.com/backstage-api/reference/create-a-video-item.md): Create a performance video item (*motion ad*).
+- [Update a Performance Video Item (Motion Ad)](https://developers.taboola.com/backstage-api/reference/update-a-video-item.md): Update the specified performance video item (*motion ad*).
+- [Get a Performance Video Item (Motion Ad)](https://developers.taboola.com/backstage-api/reference/get-a-video-item.md): Get the specified performance video item (*motion ad*), for the specified campaign.
+- [Get All Performance Video Items (Motion Ads)](https://developers.taboola.com/backstage-api/reference/get-all-video-items.md): Get a list of performance video items (*motion ads*) for the specified campaign.
+- [Delete a Performance Video Item (Motion Ad)](https://developers.taboola.com/backstage-api/reference/delete-a-video-item.md): Delete the specified performance video item (*motion ad*).
+- [Get All Conversion Rules](https://developers.taboola.com/backstage-api/reference/get-all-conversion-rules.md): Returns *all* conversion rules available to that *account* - *including* conversion rules created at the *network* level.
+- [Get a Conversion Rule](https://developers.taboola.com/backstage-api/reference/get-a-conversion-rule.md): Get a specific Conversion Rule, for the specified *account*.
+- [Get All Conversion Rules Plus Data](https://developers.taboola.com/backstage-api/reference/get-all-conversion-rules-plus-data.md): Get a list of all Conversion Rules - *plus* their data - for the specified *account*. Returns *all* conversion rules available to that account - *including* conversion rules created at the *network* level.
+- [Create a Conversion Rule](https://developers.taboola.com/backstage-api/reference/create-a-conversion-rule.md): Submit a **JSON object** representing the new Conversion Rule in the *request* body.  (See examples below.)  Returns the newly created Conversion Rule in the *response* body.
+- [Update a Conversion Rule](https://developers.taboola.com/backstage-api/reference/update-a-conversion-rule.md): Submit a JSON object in a PUT **or** POST request body.  Fields that are omitted or `null` will not be updated.
+- [Get All Custom Audiences](https://developers.taboola.com/backstage-api/reference/get-all-custom-audiences.md): Get a *list* of all Custom Audiences, for the specified *account*. Returns *all* audiences available to that account - *including* audiences created at the network level.
+- [Get a Custom Audience Rule](https://developers.taboola.com/backstage-api/reference/get-a-custom-audience-rule.md): Get a specific Custom Audience Rule, for the specified *account*.
+- [Create a Custom Audience Rule](https://developers.taboola.com/backstage-api/reference/create-a-custom-audience-rule.md)
+- [Update a Custom Audience Rule](https://developers.taboola.com/backstage-api/reference/update-a-custom-audience-rule.md): Submit a JSON object in a PUT **or** POST request body.  Fields that are omitted or `null` will not be updated.
+- [Get Postal Codes Targeting](https://developers.taboola.com/backstage-api/reference/get-targeted-postal-codes.md)
+- [Update Postal Codes Targeting](https://developers.taboola.com/backstage-api/reference/update-targeted-postal-codes.md)
+- [Postal Code Targeting Flow](https://developers.taboola.com/backstage-api/reference/postal-code-targeting-flow.md)
+- [Get list of available Publishers](https://developers.taboola.com/backstage-api/reference/get-all-publishers-for-account.md): Get a list of *all* publishers on which the specified account could be served. (Returns the *full* list of publishers, *regardless* of any [publisher blocking](ref:block-publishers-at-the-account-level).)
+- [Get Blocked Publishers At Account Level](https://developers.taboola.com/backstage-api/reference/get-blocked-publishers-for-account.md): Fetch a list of suppressed publishers at the *account* level.
+- [Block Publishers At Account Level](https://developers.taboola.com/backstage-api/reference/update-blocked-publishers-for-account.md): Suppress specific publishers at the *account* level.
+- [Get Marketplace Audience Targeting](https://developers.taboola.com/backstage-api/reference/get-audience-segment-targeting.md): Get *Marketplace Audience* Targeting (aka *Audience Segment* Targeting) for the specified campaign.
+- [Update Marketplace Audience Targeting](https://developers.taboola.com/backstage-api/reference/update-audience-segment-targeting.md): Update *Marketplace Audience* Targeting (aka *Audience Segment* Targeting) for the specified campaign.
+- [Get Custom Audience Targeting](https://developers.taboola.com/backstage-api/reference/get-custom-audience-targeting.md): Get *Custom Audience* Targeting details for the specified campaign.
+- [Update Custom Audience Targeting](https://developers.taboola.com/backstage-api/reference/update-custom-audience-targeting.md): Update *Custom Audience* Targeting for the specified campaign.
+- [Get Lookalike Audience Targeting](https://developers.taboola.com/backstage-api/reference/get-lookalike-audience-targeting.md): Get *Lookalike Audience* Targeting details for the specified campaign.
+- [Update Lookalike Audience Targeting](https://developers.taboola.com/backstage-api/reference/update-lookalike-audience-targeting.md): Update *Lookalike Audience* Targeting for the specified campaign.
+- [Get Contextual Targeting](https://developers.taboola.com/backstage-api/reference/get-contextual-targeting.md): Get *Contextual* Targeting for the specified campaign.
+- [Update Contextual Targeting](https://developers.taboola.com/backstage-api/reference/update-contextual-targeting.md): Update *Contextual* Targeting for the specified campaign.
+- [List available audiences](https://developers.taboola.com/backstage-api/reference/list-available-audiences.md)
+- [Available audience object schema](https://developers.taboola.com/backstage-api/reference/available-audience-schema.md)
+- [Get all combined audiences](https://developers.taboola.com/backstage-api/reference/get-all-combined-audiences.md)
+- [Get a combined audience](https://developers.taboola.com/backstage-api/reference/get-a-combined-audience.md)
+- [Create a combined audience](https://developers.taboola.com/backstage-api/reference/create-a-combined-audience.md)
+- [Update a combined audience](https://developers.taboola.com/backstage-api/reference/update-a-combined-audience.md)
+- [Create a First Party Audience](https://developers.taboola.com/backstage-api/reference/create-a-first-party-audience.md): See the [overview](ref:onboarding-overview) (above) for a list of supported countries.
+- [Add/remove users](https://developers.taboola.com/backstage-api/reference/add-or-remove-users.md): Add (/remove) users to (/from) a **First Party Audience**. See the overview (above) for supported countries and audience types.
+- [Fields](https://developers.taboola.com/backstage-api/reference/add-fields.md)
+- [User Object](https://developers.taboola.com/backstage-api/reference/user-object.md)
+- [User ID Object](https://developers.taboola.com/backstage-api/reference/user-id-object.md)
+- [Get My Audience](https://developers.taboola.com/backstage-api/reference/get-my-audience.md): Fetch a specific audience - e.g. a first-party audience that you created via the API.
+- [Get My Audience Targeting](https://developers.taboola.com/backstage-api/reference/get-my-audience-targeting.md): Returns **My Audience Targeting** for the specified campaign. **My Audience Targeting** includes both **First Party Audiences** *and* **Custom Audiences**.
+- [Update My Audience Targeting](https://developers.taboola.com/backstage-api/reference/update-my-audience-targeting.md): Update **My Audience Targeting** for the specified campaign. **My Audience Targeting** supports both **First Party Audiences** *and* **Custom Audiences**.
+- [Campaign Summary Report](https://developers.taboola.com/backstage-api/reference/campaign-summary-report.md): Returns *performance metrics* for your campaigns.  **Usage:**  1. Provide a [dimension](ref:dimensions-cheat-sheet) (as a *path* param). 2. Provide relevant [filters](campaign-summary-filters) (as *query* params).  **Guidelines:**  1. Your chosen *dimension* determines which *filters* you can use. See the topics that follow. 2. `platform`, `country`, `site` and `partner_name` are *mutually exclusive* filters - you can apply 1 *only*.
+- [Top Campaign Content Report](https://developers.taboola.com/backstage-api/reference/top-campaign-content-report.md): Lists the *top* 1,000 *items* - for *all* campaigns, *or* a *specified* campaign.  Supports a *single* dimension: `item_breakdown`
+- [Realtime Campaign Report](https://developers.taboola.com/backstage-api/reference/realtime-campaign-summary-report.md): Provides performance data for campaigns in (_near_) real time.
+- [Realtime Ads Report](https://developers.taboola.com/backstage-api/reference/realtime-ads-report.md): The Realtime **Ads** (_aka_ **Top Campaign Content**) report provides performance data for _ads_ in (_near_) real time.
+- [Get list of Dictionaries](https://developers.taboola.com/backstage-api/reference/get-list-of-dictionaries.md): Get a list of *top-level* Dictionaries
+- [Get list of Campaign Enums](https://developers.taboola.com/backstage-api/reference/get-list-of-campaign-enums.md): Get a list of *campaign-related* enums.
+- [Get list of Item Enums](https://developers.taboola.com/backstage-api/reference/get-list-of-item-enums.md): Get a list of *item-related* enums.
+- [Get Days of Week](https://developers.taboola.com/backstage-api/reference/get-days-of-week.md): Get possible values for 'day of week'.
+- [Get list of Languages](https://developers.taboola.com/backstage-api/reference/get-list-of-languages.md): Get a list of *languages*, as defined within Taboola.
+- [Get list of Minimum CPC values](https://developers.taboola.com/backstage-api/reference/get-list-of-minimum-cpc-values.md): Get a list of *Minimum CPC* values *per currency*.
+- [Get possible values for Campaign Category](https://developers.taboola.com/backstage-api/reference/get-possible-values-for-campaign-category.md): Get possible values for *Campaign Category*.
+- [Get possible values for Item Status](https://developers.taboola.com/backstage-api/reference/get-possible-values-for-item-status.md): Get possible values for *Item Status*.
+- [Get possible values for Item CTA](https://developers.taboola.com/backstage-api/reference/get-possible-values-for-item-cta.md)
+- [Get supported languages for Image Library](https://developers.taboola.com/backstage-api/reference/get-supported-languages-for-image-library.md): Get supported languages for [fetching third-party images](ref:get-images-from-getty).
+- [Get list of Platforms](https://developers.taboola.com/backstage-api/reference/get-list-of-platforms.md): Get a list of supported *platforms* (e.g. for [platform targeting](ref:platform-targeting)).
+- [Get list of Operating Systems](https://developers.taboola.com/backstage-api/reference/get-list-of-operating-systems.md): Get a list of supported *operating systems* (e.g. for [OS targeting](ref:os-targeting)).
+- [Get list of iOS Versions](https://developers.taboola.com/backstage-api/reference/get-list-of-ios-versions.md): Get a list of supported *iOS* versions (e.g. for [OS targeting](ref:os-targeting)).
+- [Get list of Android Versions](https://developers.taboola.com/backstage-api/reference/get-list-of-android-versions.md): Get a list of supported *Android* versions (e.g. for [OS targeting](ref:os-targeting)).
+- [Get list of Browsers](https://developers.taboola.com/backstage-api/reference/get-list-of-browsers.md): Get a list of supported *browsers* (e.g. for [browser targeting](ref:browser-targeting)).
+- [Get list of Countries](https://developers.taboola.com/backstage-api/reference/get-list-of-countries.md): Get a list of supported *countries* (e.g. for [country and sub-country targeting](ref:country-and-sub-country-targeting)).
+- [Get Regions in a Country](https://developers.taboola.com/backstage-api/reference/get-regions-in-a-country.md): Get a list of *regions* for the specified country (e.g. for [sub-country targeting](ref:country-and-sub-country-targeting)).
+- [Get DMAs in the US](https://developers.taboola.com/backstage-api/reference/get-dmas-in-the-us.md): Get a list of *DMAs* in the *US* (e.g. for [sub-country targeting](ref:country-and-sub-country-targeting)).  DMA’s represent major metropolitans in the US - they are used for more granular targeting than regions (*states*).
+- [Get Cities in a Country](https://developers.taboola.com/backstage-api/reference/get-cities-in-a-country.md): Get a list of *cities* for the specified country (e.g. for [city targeting](ref:city-targeting)).
+- [Get Postal Codes for a Country](https://developers.taboola.com/backstage-api/reference/get-postal-codes-for-a-country.md): Get a list of *postal codes* for the specified country (e.g. for [sub-country targeting](ref:country-and-sub-country-targeting)).
+- [Get Marketplace Audiences](https://developers.taboola.com/backstage-api/reference/get-marketplace-audiences.md): Get a list of available *Marketplace Audiences* (aka *Third Party Audience Segments*) for the specified *account* - e.g. in order to implement [Marketplace Audience Targeting](ref:update-audience-segment-targeting).
+- [Get Marketplace Audiences for a specific Country](https://developers.taboola.com/backstage-api/reference/get-marketplace-audiences-for-specified-country.md): Get a list of available *Marketplace Audiences* (aka *Third Party Audience Segments*) for the specified *account* and *country* - e.g. in order to implement [Marketplace Audience Targeting](ref:update-audience-segment-targeting).
+- [Get Lookalike Audiences](https://developers.taboola.com/backstage-api/reference/get-lookalike-audiences.md): Get a list of available *Lookalike Audiences* for the specified *account* - e.g. in order to implement [Lookalike Audience Targeting](ref:update-lookalike-audience-targeting).
+- [Get Lookalike Audiences for a specific Country](https://developers.taboola.com/backstage-api/reference/get-lookalike-audiences-for-specified-country.md): Get a list of available *Lookalike Audiences* for the specified *account* and *country* - e.g. in order to implement [Lookalike Audience Targeting](ref:update-lookalike-audience-targeting).
+- [Get Contextual Segments](https://developers.taboola.com/backstage-api/reference/get-contextual-segments.md): Get a list of available *Contextual Segments* for the specified *account* - e.g. in order to apply [Contextual Targeting](ref:update-contextual-targeting).
+
+## Changelog
+- [Campaign History Report](https://developers.taboola.com/backstage-api/changelog/campaign-history-report.md)
+- [Realtime Campaign Report - `by_site_by_campaign` dimension](https://developers.taboola.com/backstage-api/changelog/realtime-campaign-report-by_site_by_campaign-dimension.md)
+- [Paging and sorting with the campaigns endpoint](https://developers.taboola.com/backstage-api/changelog/paging-and-sorting-with-the-campaigns-endpoint.md)
+- [Fetch full campaign details across the network](https://developers.taboola.com/backstage-api/changelog/fetch-campaigns-with-a-network-account.md)
+- [View-through lookback window](https://developers.taboola.com/backstage-api/changelog/view-through-lookback-window.md)
+- [ROAS clicks and views](https://developers.taboola.com/backstage-api/changelog/roas-clicks-and-views.md)
+- [Password Credentials - Deprecation Notice](https://developers.taboola.com/backstage-api/changelog/password-credentials-deprecation-notice.md)
+- [Custom data for items (ads)](https://developers.taboola.com/backstage-api/changelog/custom-data-for-ads.md)
+- [Bidding strategies](https://developers.taboola.com/backstage-api/changelog/bidding-strategies.md)
+- [Realtime Reports](https://developers.taboola.com/backstage-api/changelog/realtime-reports-beta.md)

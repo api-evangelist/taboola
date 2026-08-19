@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taboola Backstage Accounts Bulk Operations API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulk Operations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get All Campaigns Across The Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/network",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              }
+            ]
+          },
+          "docs": "Convenience endpoint for fetching basic campaign details across the network."
+        },
+        {
+          "info": {
+            "name": "Bulk Update Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/bulk",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path",
+                "description": "Taboola account identifier."
+              }
+            ]
+          },
+          "docs": "Bulk update multiple campaigns in a single API call."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,196 @@
+generated: '2026-08-13'
+method: derived
+source: mcp/taboola-mcp.yml (tool list from https://github.com/taboola/realize-mcp) + openapi/*.yml operationIds
+provider: Taboola
+providerId: taboola
+description: |-
+  Binds each Realize MCP tool to the Backstage API operation(s) that back it. The live
+  MCP tools/list is OAuth-gated (401 + RFC 9728 challenge), so tools are mapped by name
+  and by the parameter lists the provider documents in the realize-mcp README, not by
+  live introspection. Where a tool has a clean 1:1 REST equivalent the confidence is
+  high; where the MCP name implies a composite or a surface the public Backstage
+  reference does not expose, it is marked mcp_only or given a lower confidence.
+
+surfaces:
+  openapi:
+    path: openapi/
+    files: 16
+    operations: 60
+    server: https://backstage.taboola.com/backstage/api/1.0
+    gated: false
+  mcp:
+    url: https://mcp.realize.com/mcp
+    transport: streamable-http
+    gated: true
+    gate: OAuth 2.1 bearer; tools/list returns 401 with WWW-Authenticate resource_metadata
+  graphql:
+    present: false
+
+coverage:
+  mcp_tools: 25
+  mapped_to_rest: 19
+  mcp_only: 6
+  rest_operations: 60
+  rest_only: 42
+
+crosswalk:
+  - tool: search_accounts
+    category: accounts
+    rest: [getAllowedAccounts, getAdvertiserAccountsInNetwork, getAccountDetails]
+    binding: composite
+    confidence: high
+    note: >-
+      One tool fronts the three account-discovery operations; numeric input maps to an ID
+      lookup, free text to a search across allowed/network accounts.
+  - tool: list_campaigns
+    category: campaigns
+    rest: [getAllCampaigns]
+    binding: direct
+    confidence: high
+  - tool: get_campaign
+    category: campaigns
+    rest: [getCampaign]
+    binding: direct
+    confidence: high
+  - tool: get_campaign_reach_estimate
+    category: campaigns
+    rest: [estimateCampaignReach]
+    binding: direct
+    confidence: high
+  - tool: create_campaign
+    category: campaigns
+    rest: [createCampaign]
+    binding: direct
+    confidence: high
+  - tool: update_campaign
+    category: campaigns
+    rest: [updateCampaign]
+    binding: direct
+    confidence: high
+  - tool: list_items
+    category: items
+    rest: [getAllCampaignItems]
+    binding: direct
+    confidence: high
+  - tool: get_item
+    category: items
+    rest: [getCampaignItem]
+    binding: direct
+    confidence: high
+  - tool: create_native_item
+    category: items
+    rest: [createCampaignItem]
+    binding: narrowed
+    confidence: medium
+    note: >-
+      The REST item endpoint is creative-type agnostic; the MCP splits native and display
+      into separate tools with type-specific required fields.
+  - tool: update_native_item
+    category: items
+    rest: [updateCampaignItem]
+    binding: narrowed
+    confidence: medium
+  - tool: create_display_item
+    category: items
+    rest: [createCampaignItem]
+    binding: narrowed
+    confidence: medium
+    note: Requires exactly one of ad_tag or asset_url — a constraint the REST spec does not encode.
+  - tool: update_display_item
+    category: items
+    rest: [updateCampaignItem]
+    binding: narrowed
+    confidence: medium
+  - tool: search_geos
+    category: discovery
+    rest: [getListOfCountries, getRegionsInCountry, getCitiesInCountry, getPostalCodes, getDMAs]
+    binding: composite
+    confidence: high
+  - tool: search_techno
+    category: discovery
+    rest: [getListOfBrowsers, getListOfOperatingSystems, getListOfIosVersions, getListOfAndroidVersions]
+    binding: composite
+    confidence: high
+  - tool: search_audiences
+    category: discovery
+    rest: [getAllCustomAudiences, getMarketplaceAudiences]
+    binding: composite
+    confidence: medium
+    note: README says "first-party and custom audiences"; first-party onboarding reads via getMyAudience.
+  - tool: search_lookalike_audiences
+    category: discovery
+    rest: [getLookalikeAudiences]
+    binding: direct
+    confidence: high
+  - tool: search_contextual_segments
+    category: discovery
+    rest: [getContextualSegments]
+    binding: direct
+    confidence: high
+  - tool: search_publishers
+    category: discovery
+    rest: [getAvailablePublishers]
+    binding: direct
+    confidence: high
+  - tool: search_conversion_rules
+    category: discovery
+    rest: [getAllConversionRules, getAllConversionRulesPlusData]
+    binding: composite
+    confidence: high
+  - tool: get_top_campaign_content_report
+    category: reporting
+    rest: [getTopCampaignContent]
+    binding: direct
+    confidence: high
+    note: MCP returns CSV; the REST operation returns JSON by default.
+  - tool: get_campaign_breakdown_report
+    category: reporting
+    rest: [getCampaignSummaryReport]
+    binding: direct
+    confidence: medium
+    note: >-
+      Backstage exposes breakdowns as a {dimension} path parameter on campaign-summary;
+      the MCP presents one tool with dimension as an argument.
+  - tool: get_campaign_site_day_breakdown_report
+    category: reporting
+    rest: [getCampaignSummaryReport]
+    binding: narrowed
+    confidence: medium
+    note: Pins dimension to the by_site_by_campaign / day grain.
+
+mcp_only:
+  - tool: list_time_zones
+    reason: >-
+      Static enum served by the MCP for activity_schedule.time_zone. No public Backstage
+      dictionary endpoint for IANA time zones is documented.
+  - tool: list_cta_types
+    reason: >-
+      Static enum for cta.cta_type. Backstage exposes item enums via getItemEnums but the
+      docs do not name a CTA-specific resource.
+  - tool: get_campaign_history_report
+    reason: >-
+      Change/audit log (change_type, old_value -> new_value, performer). Announced in the
+      Backstage changelog as "Campaign History Report" but not present as a documented
+      operation in the captured OpenAPI.
+
+rest_only:
+  - operations: [deleteCampaign, duplicateCampaign]
+    reason: The MCP exposes no delete or duplicate tool; the plugin routes these to the Realize UI.
+  - operations: [deleteCampaignItem]
+    reason: No item-delete tool in the MCP surface.
+  - operations: [bulkUpdateCampaigns, getAllCampaignsAcrossNetwork, massCreateItems, bulkCreateItemsAcrossCampaigns, bulkUpdateItemsAcrossCampaigns, bulkDeleteItemsAcrossCampaigns]
+    reason: Bulk and network-wide operations are REST-only; the plugin documents them as a UI/API fallback.
+  - operations: [getMyAudienceTargeting, updateMyAudienceTargeting]
+    reason: Campaign-level audience targeting writes are not exposed as MCP tools.
+  - operations: [getAllCombinedAudiences, getCombinedAudience, createCombinedAudience, updateCombinedAudience]
+    reason: Combined audiences have no MCP tool.
+  - operations: [createConversionRule, updateConversionRule, archiveConversionRule, getConversionRule]
+    reason: Conversion-rule writes are REST-only; the MCP reads them via search_conversion_rules.
+  - operations: [createFirstPartyAudience, addRemoveAudienceUsers, getMyAudience]
+    reason: First-party audience onboarding (PII upload) is deliberately not agent-exposed.
+  - operations: [getAllVideoItems, createVideoItem]
+    reason: Performance video (motion ad) items have no MCP tool.
+  - operations: [getListOfPlatforms, getListOfLanguages, getCampaignEnums, getItemEnums, getMinimumCpcValues]
+    reason: Dictionary lookups with no matching discovery tool.
+  - operations: [getRealTimeAdsReport]
+    reason: Real-time ads report is REST-only.

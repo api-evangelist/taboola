@@ -1,0 +1,223 @@
+generated: '2026-08-13'
+method: derived
+source: >-
+  openapi/*.yml (schemas + path parameters), json-schema/taboola-campaign-schema.json,
+  json-schema/taboola-item-schema.json, json-schema/taboola-conversion-rule-schema.json,
+  enriched from https://developers.taboola.com/backstage-api/llms.txt
+provider: Taboola
+providerId: taboola
+api: Taboola Backstage API
+description: |-
+  Entity-relationship graph for the Backstage advertising API, derived from the captured
+  OpenAPI schemas and the path hierarchy. Everything hangs off Account: the account_id is
+  a path parameter on nearly every operation, and a Network account sits above advertiser
+  accounts as a parent that can act across them. Campaign is the central entity, Item
+  (creative) is its child, and the audience/targeting entities attach to a campaign
+  through targeting blocks rather than through a foreign key on Campaign itself.
+
+  Identifiers are opaque strings, not prefixed. account_id is documented as an ALPHABETIC
+  string, which is a common integration trap because the other ids look numeric.
+
+entity_count: 11
+relationship_style: id-reference
+id_scheme:
+  prefixed: false
+  note: >-
+    No Stripe-style type prefixes. account_id is alphabetic; campaign_id, item_id, rule_id
+    and audience_id are opaque and only meaningful inside the owning account.
+
+entities:
+  - name: Account
+    schema: openapi/taboola-accounts-api-openapi.yml#/components/schemas/Account
+    key: account_id
+    fields: [id, account_id, name, type, currency, time_zone_name, partner_types]
+    operations: [getAccountDetails, getAllowedAccounts, getAdvertiserAccountsInNetwork]
+    note: >-
+      Root of the graph. `type` distinguishes advertiser, publisher and network accounts.
+      currency and time_zone_name govern how every budget and schedule field is
+      interpreted, which is why the MCP surfaces them on search_accounts.
+
+  - name: Network
+    key: network_id
+    operations: [getAdvertiserAccountsInNetwork, getAllCampaignsAcrossNetwork, bulkUpdateCampaigns]
+    note: >-
+      A network account is an Account whose type lets it act across the advertiser
+      accounts beneath it. Modelled as a distinct entity because it appears as its own
+      path parameter (/{network_id}/advertisers).
+
+  - name: Campaign
+    schema: openapi/taboola-campaigns-api-openapi.yml#/components/schemas/Campaign
+    key: id
+    fields:
+      - id
+      - advertiser_id
+      - name
+      - branding_text
+      - tracking_code
+      - cpc
+      - spending_limit
+      - spending_limit_model
+      - daily_cap
+      - daily_ad_delivery_model
+      - start_date
+      - end_date
+      - is_active
+      - status
+      - approval_state
+      - marketing_objective
+      - bid_strategy
+      - bid_type
+      - pricing_model
+      - cpa_goal
+      - spent
+    operations: [getAllCampaigns, getCampaign, createCampaign, updateCampaign, deleteCampaign, duplicateCampaign]
+    note: >-
+      Delete is soft — the campaign comes back with status TERMINATED and later reads
+      return 404.
+
+  - name: Item
+    aka: [creative, ad]
+    schema: openapi/taboola-campaign-items-api-openapi.yml#/components/schemas/Item
+    key: id
+    fields: [id, campaign_id, url, title, description, cta, thumbnail_url, creative_focus, status, approval_state, type]
+    operations: [getAllCampaignItems, getCampaignItem, createCampaignItem, updateCampaignItem, deleteCampaignItem]
+    note: >-
+      `type` carries the creative family (native / display / RSS / video). The MCP splits
+      this one REST entity into type-specific create/update tools. Soft delete sets status
+      STOPPED.
+
+  - name: ChildItem
+    parent: Item
+    note: >-
+      RSS items expand into child items with their own get/update operations
+      (/items/{item_id}/children). Documented in the reference; not modelled as a separate
+      schema in the captured OpenAPI.
+
+  - name: VideoItem
+    aka: motion ad
+    schema: openapi/taboola-video-items-api-openapi.yml
+    key: id
+    operations: [getAllVideoItems, createVideoItem]
+    note: >-
+      Performance video items. The dedicated /performance-video/items/ paths are
+      deprecated in favor of the unified item endpoints — see ../lifecycle/.
+
+  - name: ConversionRule
+    schema: openapi/taboola-conversion-rules-api-openapi.yml#/components/schemas/ConversionRule
+    key: id
+    fields: [id, advertiser_id, display_name, description, category, type, condition, event_name, look_back_window, view_through_look_back_window, include_in_total_conversions, status, last_modified_at, last_modified_by]
+    operations: [getAllConversionRules, getConversionRule, getAllConversionRulesPlusData, createConversionRule, updateConversionRule, archiveConversionRule]
+    note: Can be defined at network level and inherited by advertiser accounts.
+
+  - name: CustomAudience
+    operations: [getAllCustomAudiences, getCustomAudienceTargeting]
+  - name: CombinedAudience
+    operations: [getAllCombinedAudiences, getCombinedAudience, createCombinedAudience, updateCombinedAudience]
+  - name: LookalikeAudience
+    operations: [getLookalikeAudiences]
+  - name: MarketplaceAudience
+    aka: audience segment
+    operations: [getMarketplaceAudiences]
+  - name: FirstPartyAudience
+    schema: openapi/taboola-first-party-audiences-api-openapi.yml#/components/schemas/FirstPartyAudience
+    fields: [name, description, type, country, ttl]
+    operations: [createFirstPartyAudience, addRemoveAudienceUsers, getMyAudience]
+    note: >-
+      Carries hashed user identifiers (UserId schema). PII-adjacent — deliberately not
+      exposed as an MCP tool.
+
+  - name: Targeting
+    schema: openapi/taboola-campaigns-api-openapi.yml#/components/schemas/Targeting
+    fields: [type, value, href]
+    note: >-
+      A polymorphic include/exclude block, not a standalone resource. The same shape backs
+      country_targeting, platform_targeting, publisher_targeting, os_targeting,
+      browser_targeting, contextual_segments_targeting and the audience targeting blocks.
+      `href` is a hypermedia pointer to the sub-resource that edits the block.
+
+  - name: ReportRow
+    schema: openapi/taboola-reports-api-openapi.yml#/components/schemas/ReportRow
+    fields: [date, campaign, campaign_name, site, site_name, country, platform, impressions, visible_impressions, clicks, ctr, spent, cpc, cpm, conversions, conversions_value, cpa, cpa_actions_num, roas, currency]
+    operations: [getCampaignSummaryReport, getTopCampaignContent, getRealTimeAdsReport]
+    note: >-
+      Not a stored entity — a projection whose grain is set by the {dimension} path
+      parameter. `campaign` is a foreign key back to Campaign.id.
+
+relationships:
+  - from: Network
+    to: Account
+    type: has_many
+    via: network_id
+  - from: Account
+    to: Campaign
+    type: has_many
+    via: account_id (path) / advertiser_id (body)
+  - from: Campaign
+    to: Account
+    type: belongs_to
+    via: advertiser_id
+  - from: Campaign
+    to: Item
+    type: has_many
+    via: campaign_id
+  - from: Item
+    to: Campaign
+    type: belongs_to
+    via: campaign_id
+  - from: Item
+    to: ChildItem
+    type: has_many
+    via: item_id
+    condition: RSS items only
+  - from: Campaign
+    to: VideoItem
+    type: has_many
+    via: campaign_id
+  - from: Account
+    to: ConversionRule
+    type: has_many
+    via: account_id
+  - from: ConversionRule
+    to: Account
+    type: belongs_to
+    via: advertiser_id
+  - from: Campaign
+    to: Targeting
+    type: has_many
+    via: embedded targeting blocks (country, sub_country, platform, browser, os, publisher, contextual)
+  - from: Campaign
+    to: CustomAudience
+    type: has_many
+    via: custom_audience_targeting
+  - from: Campaign
+    to: LookalikeAudience
+    type: has_many
+    via: lookalike_audience_targeting
+  - from: Campaign
+    to: MarketplaceAudience
+    type: has_many
+    via: audience_segments_multi_targeting
+  - from: Account
+    to: CombinedAudience
+    type: has_many
+    via: account_id
+  - from: Account
+    to: FirstPartyAudience
+    type: has_many
+    via: account_id
+  - from: ReportRow
+    to: Campaign
+    type: belongs_to
+    via: campaign
+
+reference_data:
+  note: >-
+    The Dictionary API is a flat set of read-only lookup collections that targeting fields
+    draw their legal values from — not entities in the graph.
+  collections:
+    - countries, regions, cities, postal codes, DMAs
+    - browsers, operating systems (with iOS/Android version lists), platforms
+    - languages
+    - campaign enums, item enums
+    - minimum CPC values per currency
+    - contextual segments, available publishers (account-scoped)

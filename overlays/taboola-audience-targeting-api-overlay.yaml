@@ -1,0 +1,39 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enrichment overlay — Taboola Backstage Accounts Audience Targeting API
+  version: 1.0.0
+extends: ../openapi/taboola-audience-targeting-api-openapi.yml
+x-generated: '2026-08-13'
+x-method: generated
+x-source: apis.yml + repo artifacts (conventions, errors, lifecycle, mcp, skills). Does not mutate the
+  original OpenAPI.
+actions:
+- target: $.info
+  update:
+    x-api-evangelist:
+      provider: Taboola
+      providerId: taboola
+      profile: https://apis.io/provider/taboola/
+      source: https://developers.taboola.com/backstage-api/reference
+      llms: https://developers.taboola.com/backstage-api/llms.txt
+    x-conventions: conventions/taboola-conventions.yml
+    x-errors: errors/taboola-problem-types.yml
+    x-lifecycle: lifecycle/taboola-lifecycle.yml
+    x-authentication: authentication/taboola-authentication.yml
+    x-rate-limits: rate-limits/taboola-rate-limits.yml
+    x-data-model: data-model/taboola-data-model.yml
+- target: $
+  update:
+    x-agent-surface:
+      mcp: https://mcp.realize.com/mcp
+      mcp-manifest: mcp/taboola-mcp.yml
+      tool-crosswalk: mcp/taboola-tool-crosswalk.yml
+      skills: skills/_index.yml
+    x-idempotency:
+      supported: false
+      note: Taboola documents no Idempotency-Key header. Creates are not safe to retry.
+    x-error-envelope:
+      shape: '{"http_status": <int>, "message": "<string>"}'
+      rfc9457: false
+      note: Unauthenticated calls and the OAuth token endpoint return XML faults instead of this JSON
+        envelope.

@@ -1,0 +1,158 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://developers.taboola.com/backstage-api/reference/request-basics,
+  https://developers.taboola.com/backstage-api/reference/authentication-basics,
+  https://developers.taboola.com/backstage-api/reference/client-credentials-flow,
+  https://developers.taboola.com/backstage-api/reference/error,
+  https://developers.taboola.com/backstage-api/changelog/paging-and-sorting-with-the-campaigns-endpoint,
+  https://developers.taboola.com/backstage-api/reference/patch-campaign-collection,
+  openapi/*.yml
+provider: Taboola
+providerId: taboola
+api: Taboola Backstage API
+description: |-
+  Cross-cutting runtime semantics for the Taboola Backstage API. The API is a
+  conventional account-scoped JSON REST surface with a bearer token, a version pinned in
+  the path, and a distinctive PATCH-with-patch_operation collection idiom. Two gaps are
+  material for agents: there is NO idempotency mechanism and NO documented rate-limit
+  signaling, so retries of writes are unsafe by default.
+
+base_url: https://backstage.taboola.com/backstage/api/1.0
+transport:
+  tls_required: true
+  note: All requests must use HTTPS. Non-secure requests are ignored.
+
+authentication:
+  style: bearer
+  header: 'Authorization: Bearer {access_token}'
+  grant: OAuth 2.0 client credentials
+  token_endpoint: https://backstage.taboola.com/backstage/oauth/token
+  token_request_content_type: application/x-www-form-urlencoded
+  token_ttl_seconds: 43200
+  token_ttl_human: 12 hours
+  refresh_token: false
+  credential_issuance: manual — client_id and client_secret are issued by a Taboola account manager
+  deprecated_grants:
+    - grant: password
+      deprecated_on: '2024-06-30'
+      replacement: client_credentials
+  gotcha: >-
+    A trailing slash on the token endpoint returns a 403 HTML CSRF error, not a JSON fault.
+  detail: ../authentication/taboola-authentication.yml
+
+content_types:
+  request: application/json
+  response: application/json
+  note: >-
+    Content-Type is required on writes — omitting it returns 415. GET requests need no
+    Content-Type. The token endpoint uses application/x-www-form-urlencoded and answers in
+    XML.
+
+idempotency:
+  supported: false
+  header: null
+  note: >-
+    Taboola documents no Idempotency-Key header, no client-supplied request id, and no
+    replay window anywhere in the Backstage reference. Creates (createCampaign,
+    createCampaignItem, massCreateItems, bulkCreateItemsAcrossCampaigns) are therefore
+    NOT safe to retry blindly — a retried create makes a second campaign or a second item.
+    PUT/POST updates are naturally idempotent in effect because omitted or null fields are
+    not updated, but that is a property of the merge semantics, not a guarantee.
+
+pagination:
+  style: page-number
+  scope: partial — campaigns endpoint only
+  params:
+    - name: page
+    - name: page_size
+    - name: sort
+  added: '2026-02-04'
+  note: >-
+    Paging and sorting were added to GET /{account_id}/campaigns/ in February 2026 to
+    reduce response size; most other collection endpoints return the full list. The MCP
+    server hard-caps page_size at 10 on its own tools, which is a tighter bound than the
+    REST API imposes.
+
+filtering:
+  - endpoint: GET /{account_id}/campaigns/
+    param: campaign_ids
+    style: repeated query parameter
+    example: '?campaign_ids=123&campaign_ids=456'
+  - endpoint: reports
+    param: exclude_empty_campaigns
+    style: boolean flag
+
+partial_update:
+  style: omit-to-skip
+  note: >-
+    On POST/PUT updates, fields omitted or set to null are not updated. Scalars
+    partial-merge.
+  collections:
+    method: PATCH
+    body_field: patch_operation
+    operations: [ADD, REMOVE, REPLACE]
+    note: >-
+      Collection-valued fields (targeting lists, publisher bid modifiers) are edited with
+      a PATCH carrying a patch_operation discriminator plus the object being patched —
+      not JSON Patch (RFC 6902) and not JSON Merge Patch (RFC 7386). A Taboola-specific
+      idiom. Targeting blocks otherwise full-replace within the block.
+    source: https://developers.taboola.com/backstage-api/reference/patch-campaign-collection
+
+soft_delete:
+  note: >-
+    DELETE does not 404 immediately — it returns the object with status TERMINATED
+    (campaign) or STOPPED (item). Subsequent reads of that id return 404.
+
+versioning:
+  style: path
+  current: '1.0'
+  location: https://backstage.taboola.com/backstage/api/1.0
+  header: null
+  note: >-
+    No version header, no date-pinned version, no version negotiation. Changes ship
+    additively inside 1.0 — including behavior changes to existing calls (see the
+    2026-01-18 network-account change in ../changelog/taboola-changelog.yml).
+  detail: ../lifecycle/taboola-lifecycle.yml
+
+errors:
+  envelope: '{ "http_status": <int>, "message": "<string>" }'
+  rfc9457: false
+  media_type: application/json
+  exception: token endpoint and unauthenticated calls answer in XML
+  detail: ../errors/taboola-problem-types.yml
+
+rate_limiting:
+  documented: false
+  response_headers: none published
+  exhaustion_status: not documented
+  note: >-
+    No X-RateLimit-*, no RateLimit-*, no Retry-After documented. Limits are enforced per
+    OAuth client at the gateway; high-volume integrations are told to coordinate with an
+    account manager. Agents must treat throttling as unsignalled.
+  detail: ../rate-limits/taboola-rate-limits.yml
+
+tracing:
+  request_id_header: none published
+  note: No correlation or request-id header is documented on request or response.
+
+identifiers:
+  account_id:
+    type: string
+    note: >-
+      Alphabetic string, not numeric. It is a path parameter on most operations and is the
+      single most important value to resolve first — the MCP surface makes this explicit
+      by requiring search_accounts before any other tool.
+  network_id:
+    type: string
+    note: A network account can act across all advertiser accounts beneath it.
+  campaign_id, item_id, rule_id, audience_id:
+    type: string
+    note: Opaque, scoped to the owning account.
+
+agent_surface:
+  mcp: https://mcp.realize.com/mcp
+  note: >-
+    The Realize MCP server applies stricter conventions than the REST API — page_size
+    capped at 10, campaigns created paused unless is_active=true, no delete or duplicate
+    tools. See ../mcp/taboola-tool-crosswalk.yml.

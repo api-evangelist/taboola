@@ -1,0 +1,113 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  Maven Central (repo1.maven.org maven-metadata.xml), PyPI, CocoaPods Trunk, pub.dev,
+  GitHub api.github.com/repos/taboola/*, and
+  https://developers.taboola.com/backstage-api/reference/java-client-sdk
+provider: Taboola
+providerId: taboola
+description: |-
+  First-party Taboola client libraries. Two distinct families: the Backstage API Java
+  client (the only registry-published SDK for the advertising REST API) and the mobile
+  Taboola SDK family (iOS/Android/Flutter, for publishers embedding recommendation
+  widgets — a different product surface from the Backstage API). The Realize MCP server
+  is also pip-installable for self-hosting.
+
+  Currency finding: the Backstage API Java client last published 1.1.12 on 2025-05-02,
+  while the API it wraps has shipped changelog entries since. The Maven Android SDK
+  coordinate (com.taboola:android-sdk) last published 2.0.3 in 2021 and is superseded —
+  current Android distribution moved off Maven Central.
+
+package_count: 6
+official_count: 6
+
+packages:
+  - name: com.taboola:backstage-api-java-client
+    registry: maven
+    url: https://repo1.maven.org/maven2/com/taboola/backstage-api-java-client/
+    repository: https://github.com/taboola/backstage-api-java-client
+    language: java
+    official: true
+    api: Backstage API
+    version: 1.1.12
+    published: '2025-05-02'
+    license: Apache-2.0
+    note: >-
+      The documented Java SDK for the Backstage advertising API
+      (https://developers.taboola.com/backstage-api/reference/java-client-sdk). Version
+      and date read from Maven Central maven-metadata.xml (lastUpdated 20250502132420);
+      GitHub tag v1.1.12 matches.
+  - name: com.taboola:api-java-client-core
+    registry: maven
+    url: https://repo1.maven.org/maven2/com/taboola/api-java-client-core/
+    repository: https://github.com/taboola/api-java-client-core
+    language: java
+    official: true
+    api: Backstage API
+    version: 1.0.8
+    published: '2025-04-30'
+    license: Apache-2.0
+    note: Shared core transport/auth layer the Backstage Java client depends on.
+  - name: realize-mcp
+    registry: pypi
+    url: https://pypi.org/project/realize-mcp/
+    repository: https://github.com/taboola/realize-mcp
+    language: python
+    official: true
+    api: Realize MCP
+    version: 1.0.7
+    published: '2025-12-16'
+    license: Apache-2.0
+    note: >-
+      Self-hostable build of the Realize MCP server. Author email vladi.m@taboola.com and
+      project_urls all point at github.com/taboola — first-party. The hosted server at
+      https://mcp.realize.com/mcp is the recommended path and needs no install.
+  - name: TaboolaSDK
+    registry: cocoapods
+    url: https://cocoapods.org/pods/TaboolaSDK
+    repository: https://github.com/taboola/taboola-spm-ios-sdk
+    language: objective-c
+    official: true
+    api: Taboola Mobile SDK
+    version: 4.2.3
+    published: '2026-08-13'
+    note: >-
+      Owned by the [Taboola] trunk account; 231 published versions. Swift Package Manager
+      distribution of the same 4.2.3 release lives at taboola/taboola-spm-ios-sdk.
+      Publisher-side recommendation widgets, not the Backstage advertising API.
+  - name: taboola_sdk
+    registry: pub.dev
+    url: https://pub.dev/packages/taboola_sdk
+    language: dart
+    official: true
+    api: Taboola Mobile SDK
+    version: 1.0.14
+    published: '2026-08-11'
+    note: Taboola's Flutter core SDK for Widget and Feed integrations.
+  - name: com.taboola:android-sdk
+    registry: maven
+    url: https://repo1.maven.org/maven2/com/taboola/android-sdk/
+    language: java
+    official: true
+    api: Taboola Mobile SDK
+    version: 2.0.3
+    published: '2021-03-17'
+    stale: true
+    note: >-
+      Last published 2021-03-17 (maven-metadata lastUpdated 20210317142739) at 2.0.3,
+      while the iOS/Flutter line is on 4.x. The taboola/taboola-android GitHub repo says
+      "This documentation has moved". Recorded as an abandonment signal on this
+      coordinate; current Android distribution is not on Maven Central.
+
+not_published:
+  - registry: npm
+    checked: [taboola, taboola-react-native, '@taboola/mcp']
+    result: absent
+    note: >-
+      No first-party Taboola scope or package on npm. React Native support ships as
+      example repos (taboola/react-native-examples-4x), not a published package. The
+      Claude Desktop config in the realize-mcp README uses the third-party `mcp-remote`
+      bridge, which is not a Taboola package.
+  - registry: pypi
+    checked: [taboola]
+    result: absent

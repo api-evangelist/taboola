@@ -1,0 +1,79 @@
+generated: '2026-08-13'
+method: searched
+source: https://realize.com/help/en/articles/3878192-taboola-s-trust-center
+provider: Taboola
+providerId: taboola
+description: |-
+  Taboola publishes a Trust Center as a help-center article on the Realize advertiser
+  help site, reached from https://www.taboola.com/trust-center (302 -> realize.com). It
+  names two live certifications and a stack of advertising-industry self-regulatory
+  memberships, and covers GDPR and CCPA posture. Last updated 24 June 2026.
+
+  IMPORTANT correction from this run: apis.yml previously pointed TrustCenter at
+  https://trust.taboola.com/, which does not resolve (NXDOMAIN — "Could not resolve
+  host"). That pointer has been replaced with the URL that actually serves the document.
+
+url: https://www.taboola.com/trust-center
+canonical_url: https://realize.com/help/en/articles/3878192-taboola-s-trust-center
+last_updated: '2026-06-24'
+contact: support@taboola.com
+
+x-evidence:
+  - fetched: '2026-08-13'
+    url: https://www.taboola.com/trust-center
+    http_status: 200
+    resolved_to: https://realize.com/help/en/articles/3878192-taboola-s-trust-center
+  - fetched: '2026-08-13'
+    url: https://trust.taboola.com/
+    http_status: 0
+    note: DNS resolution failed — the host does not exist. Dead pointer, corrected in apis.yml.
+
+certifications:
+  - name: ISO/IEC 27001:2022
+    scope: Information security management
+    status: certified
+    quote: >-
+      "Taboola is ISO/IEC 27001:2022 and ISO/IEC 27701:2019 certified and uses these
+      industry-standard specifications to ensure data security."
+  - name: ISO/IEC 27701:2019
+    scope: Privacy information management
+    status: certified
+
+regulatory:
+  - name: GDPR
+    posture: dedicated section covering data collected, lawful basis and contacts
+  - name: CCPA
+    posture: dedicated section covering categories of California consumer data collected
+  - name: IAB Europe Transparency and Consent Framework
+    posture: participant
+
+industry_self_regulation:
+  - Digital Advertising Alliance (DAA) Self-Regulatory Principles
+  - IAB Self-Regulatory Principles for Online Behavioral Advertising (OBA Framework)
+  - Network Advertising Initiative (NAI) Code of Conduct
+  - IAB UK Gold Standard (re-awarded; announced at https://www.taboola.com/press-releases/iab-uk-recertification/)
+  - Trustworthy Accountability Group (TAG) independent verification
+
+security_posture:
+  statement: >-
+    "Our security posture is evaluated on an ongoing basis and when cyber intelligence
+    shows a change of risk levels, the security posture is updated accordingly."
+  controls_named:
+    - protection against unauthorized access, disclosure, alteration and destruction
+
+not_published:
+  certifications:
+    - SOC 2
+    - PCI DSS
+    - HIPAA
+    - FedRAMP
+  note: >-
+    None of these are named in the Trust Center. No downloadable audit report, no
+    self-service NDA-gated document portal, no sub-processor list linked from this page.
+sections:
+  - Interest Based Advertising
+  - Industry Participation & Compliance
+  - Privacy at Taboola
+  - Security / Data Security
+  - GDPR
+  - CCPA

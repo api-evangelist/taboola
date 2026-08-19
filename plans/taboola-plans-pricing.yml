@@ -1,3 +1,13 @@
+generated: '2026-08-13'
+method: searched
+source: https://www.taboola.com/products/realize + https://developers.taboola.com/backstage-api/reference/get-list-of-minimum-cpc-values
+plan_count: 1
+methodNote: >-
+  Taboola publishes no self-service rate card. Advertising is billed CPC/CPM/CPA per bid
+  strategy and Backstage API access is granted by an account manager, so there is exactly
+  one usage-based commercial tier and no published price. Re-verified 2026-08-13: the
+  pricing surface is still contact-driven, and the only machine-readable price signal is
+  the dictionary endpoint /resources/min_cpc.
 specification: API Commons Plans
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans

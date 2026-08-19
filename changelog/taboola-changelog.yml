@@ -1,0 +1,104 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.taboola.com/backstage-api/changelog
+provider: Taboola
+providerId: taboola
+api: Taboola Backstage API
+description: |-
+  Taboola runs a dated, typed changelog for the Backstage API on its ReadMe developer
+  portal. 68 entries total, machine-readable via the portal's own JSON endpoint
+  (/backstage-api/api-next/v2/changelogs?visibility=public), each carrying created_at,
+  an entry type (added / improved / deprecated / fixed) and a markdown body. Cadence is
+  irregular — a dense 2021 run, a quiet 2022-2025, and four entries in the first quarter
+  of 2026.
+docs: https://developers.taboola.com/backstage-api/changelog
+feed:
+  type: json
+  url: https://developers.taboola.com/backstage-api/api-next/v2/changelogs?page=1&per_page=10&visibility=public
+  status: 200
+  note: >-
+    Unauthenticated, paginated (7 pages at per_page=10). Not advertised as an API by
+    Taboola — it is the ReadMe platform's own content endpoint — but it is public and
+    stable enough to poll for change detection.
+scheme:
+  versioning: path
+  current_version: '1.0'
+  version_in_url: https://backstage.taboola.com/backstage/api/1.0
+  note: >-
+    The Backstage API has carried /1.0 in its base path since launch. No entry in the
+    68-item changelog announces a version bump — changes ship additively inside 1.0.
+entry_count: 68
+window: '2026-03-09 back to 2023-04-30 (the 10 most recent entries)'
+entries:
+  - title: Campaign History Report
+    slug: campaign-history-report
+    date: '2026-03-09'
+    type: added
+    breaking: false
+    highlight: >-
+      Audit log of changes made to campaigns and related entities (items, creatives,
+      targeting) — who changed what and when. Surfaced as the get_campaign_history_report
+      MCP tool.
+  - title: 'Realtime Campaign Report - by_site_by_campaign dimension'
+    slug: realtime-campaign-report-by_site_by_campaign-dimension
+    date: '2026-02-23'
+    type: added
+    breaking: false
+    highlight: >-
+      New dimension returning site-campaign combinations with campaign_id and
+      campaign_name fields.
+  - title: Paging and sorting with the campaigns endpoint
+    slug: paging-and-sorting-with-the-campaigns-endpoint
+    date: '2026-02-04'
+    type: improved
+    breaking: false
+    highlight: Paging and sorting added to GET /{account_id}/campaigns/ to reduce response size.
+  - title: Fetch full campaign details across the network
+    slug: fetch-campaigns-with-a-network-account
+    date: '2026-01-18'
+    type: improved
+    breaking: false
+    highlight: >-
+      Calling the campaigns endpoint with a network account now returns all campaigns
+      across the network (previously returned 0 results). Adds a campaign_ids filter.
+      A behavior change on an existing call, announced as an improvement.
+  - title: View-through lookback window
+    slug: view-through-lookback-window
+    date: '2024-07-09'
+    type: added
+    breaking: false
+    highlight: Conversion Rules gain a configurable view_through_look_back_window.
+  - title: ROAS clicks and views
+    slug: roas-clicks-and-views
+    date: '2024-07-09'
+    type: added
+    breaking: false
+    highlight: Campaign Summary Report breaks ROAS down by clicks and by views.
+  - title: 'Password Credentials - Deprecation Notice'
+    slug: password-credentials-deprecation-notice
+    date: '2024-06-30'
+    type: deprecated
+    breaking: false
+    highlight: >-
+      The OAuth2 password (resource owner) grant is deprecated for the Backstage API.
+      Customers directed to the client credentials flow. No sunset date published.
+  - title: Custom data for items (ads)
+    slug: custom-data-for-ads
+    date: '2024-05-07'
+    type: added
+    breaking: false
+    highlight: 'New custom_data property on items with creative_name and custom_id fields.'
+  - title: Bidding strategies
+    slug: bidding-strategies
+    date: '2023-09-27'
+    type: added
+    breaking: false
+    highlight: Backstage API supports four bidding strategies.
+  - title: Realtime Reports
+    slug: realtime-reports-beta
+    date: '2023-04-30'
+    type: added
+    breaking: false
+    highlight: >-
+      Realtime Campaign Report and Realtime Ads Report for near real-time data. Explicitly
+      not accurate for billing.

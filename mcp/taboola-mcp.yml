@@ -1,0 +1,198 @@
+generated: '2026-08-13'
+method: searched
+source: https://github.com/taboola/realize-mcp (README.md) + live probe of https://mcp.realize.com/mcp
+name: Realize MCP Server
+provider: Taboola
+providerId: taboola
+description: |-
+  Taboola ships a first-party, hosted Model Context Protocol server for the Realize
+  advertising platform (the product surface the Backstage API also serves). It is a
+  multi-user, stateless Streamable HTTP server guarded by OAuth 2.1 with PKCE and
+  dynamic client registration — an agent connects to the URL directly, no local install
+  is required. A pip-installable package of the same server also exists for self-hosting.
+status: published
+repository: https://github.com/taboola/realize-mcp
+license: Apache-2.0
+docs:
+  - https://github.com/taboola/realize-mcp#readme
+  - https://developers.taboola.com/backstage-api/reference/realize-mcp
+
+deployment:
+  mode: both
+  endpoint: https://mcp.realize.com/mcp
+  install: claude mcp add --transport http --callback-port 3000 realize-mcp https://mcp.realize.com/mcp
+  package: https://pypi.org/project/realize-mcp/
+  auth: oauth
+  verified: probed
+
+transport:
+  type: streamable-http
+  spec: https://modelcontextprotocol.io/specification/2025-03-26/basic/transports#streamable-http
+
+x-evidence:
+  - fetched: '2026-08-13'
+    url: https://mcp.realize.com/mcp
+    method: POST
+    body: '{"jsonrpc":"2.0","id":1,"method":"tools/list"}'
+    http_status: 401
+    www_authenticate: Bearer resource_metadata="https://mcp.realize.com/.well-known/oauth-protected-resource"
+    note: >-
+      Live tools/list is auth-gated. The server correctly returns an RFC 9728 challenge
+      pointing at its protected-resource metadata, which is the conformant MCP behavior.
+      Tool names, descriptions and parameter shapes below are transcribed from the
+      provider's own README, not from live introspection — inputSchemas need an
+      authenticated tools/list to confirm.
+  - fetched: '2026-08-13'
+    url: https://mcp.realize.com/.well-known/oauth-protected-resource
+    http_status: 200
+    content_type: application/json
+    file: ../well-known/taboola-mcp-oauth-protected-resource.json
+  - fetched: '2026-08-13'
+    url: https://mcp.realize.com/.well-known/oauth-authorization-server
+    http_status: 200
+    content_type: application/json
+    file: ../well-known/taboola-mcp-oauth-authorization-server.json
+
+authorization:
+  scheme: OAuth 2.1
+  issuer: https://mcp.realize.com
+  authorization_endpoint: https://authentication.taboola.com/authentication/oauth2.1/authorize
+  token_endpoint: https://authentication.taboola.com/authentication/oauth2.1/token
+  introspection_endpoint: https://authentication.taboola.com/authentication/oauth2.1/introspect
+  registration_endpoint: https://mcp.realize.com/register
+  grant_types:
+    - authorization_code
+    - refresh_token
+    - client_credentials
+  code_challenge_methods:
+    - S256
+  resource_indicators_supported: true
+  scopes:
+    - all
+  note: >-
+    Dynamic client registration (RFC 7591) is offered, so an MCP client can self-register
+    without a Taboola-issued client_id. Bearer token is carried in the Authorization header.
+
+clients:
+  - name: Claude Desktop
+    method: Custom Connector (Settings -> Connectors -> Add Custom Connector)
+    value: https://mcp.realize.com/mcp
+  - name: Claude Desktop (config file)
+    method: mcp-remote bridge
+    value: 'npx -y mcp-remote https://mcp.realize.com/mcp 3000'
+  - name: Claude Code
+    method: CLI
+    value: claude mcp add --transport http --callback-port 3000 realize-mcp https://mcp.realize.com/mcp
+
+tool_count: 25
+tools:
+  - name: search_accounts
+    category: accounts
+    description: >-
+      Search accounts by numeric ID or text query. Call first to obtain the account_id
+      every other tool requires. Returns currency, country and time_zone_name.
+    parameters: [query, page, page_size]
+  - name: list_campaigns
+    category: campaigns
+    description: List campaigns for an account, one page per call.
+    parameters: [account_id, page, page_size]
+  - name: get_campaign
+    category: campaigns
+    description: Get specific campaign details.
+    parameters: [account_id, campaign_id]
+  - name: get_campaign_reach_estimate
+    category: campaigns
+    description: >-
+      Forecast reach for a hypothetical campaign configuration before launch. Returns
+      lower/upper bounds for impressions and/or monthly unique users.
+    parameters: [account_id, campaign, estimation_types]
+  - name: create_campaign
+    category: campaigns
+    write: true
+    description: >-
+      Create a campaign. Required — account_id, name, marketing_objective, branding_text,
+      spending_limit_model, bid_strategy. New campaigns ship paused unless is_active=true.
+  - name: update_campaign
+    category: campaigns
+    write: true
+    description: >-
+      Update a campaign. Scalars partial-merge; targeting blocks full-replace within block.
+    parameters: [account_id, campaign_id]
+  - name: list_items
+    category: items
+    description: List items (creatives) for a campaign.
+  - name: get_item
+    category: items
+    description: Get a specific item.
+  - name: create_native_item
+    category: items
+    write: true
+    description: Create a native item on a campaign.
+  - name: update_native_item
+    category: items
+    write: true
+    description: >-
+      Update specific fields on a native item. Send [] for verification_pixel /
+      viewability_tag to clear.
+  - name: create_display_item
+    category: items
+    write: true
+    description: >-
+      Create a display item. Send exactly one of ad_tag (third-party tag) or asset_url
+      (Realize-hosted asset).
+  - name: update_display_item
+    category: items
+    write: true
+    description: Update fields on a display item.
+  - name: search_geos
+    category: discovery
+    description: >-
+      Countries, regions, DMAs, cities, postal codes. Returns {code, name} pairs; use code
+      for targeting.
+  - name: search_techno
+    category: discovery
+    description: OS versions and browsers.
+  - name: search_audiences
+    category: discovery
+    description: First-party and custom audiences for an account.
+  - name: search_lookalike_audiences
+    category: discovery
+    description: CRM / pixel / PBP lookalike audiences.
+  - name: search_contextual_segments
+    category: discovery
+    description: Contextual segments.
+  - name: search_publishers
+    category: discovery
+    description: Publishers an account may target.
+  - name: search_conversion_rules
+    category: discovery
+    description: Conversion rules attached to an account.
+  - name: list_time_zones
+    category: discovery
+    description: IANA time-zone names for activity_schedule.time_zone. No parameters.
+  - name: list_cta_types
+    category: discovery
+    description: cta.cta_type values for create_native_item / update_native_item. No parameters.
+  - name: get_top_campaign_content_report
+    category: reporting
+    description: Top performing campaign content. Returns CSV.
+  - name: get_campaign_breakdown_report
+    category: reporting
+    description: Campaign performance breakdown, sortable and filterable. Returns CSV.
+  - name: get_campaign_history_report
+    category: reporting
+    description: >-
+      Change/audit log, NOT a performance report — one row per change event
+      (change_type, old_value -> new_value, performer). Returns CSV.
+  - name: get_campaign_site_day_breakdown_report
+    category: reporting
+    description: Site/day performance breakdown. Returns CSV.
+
+packaged_agent_skills:
+  repository: https://github.com/taboola/realize-claude-plugin
+  version: 0.3.0
+  note: >-
+    Taboola publishes a companion Claude Code / Codex plugin carrying six first-party
+    Agent Skills that wrap these tools. Saved verbatim in ../skills/.
+
+crosswalk: taboola-tool-crosswalk.yml

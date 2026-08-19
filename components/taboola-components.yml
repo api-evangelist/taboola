@@ -1,0 +1,80 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://developers.taboola.com/dynamic-creative/llms.txt,
+  https://developers.taboola.com/dynamic-creative/docs/javascript-api,
+  https://developers.taboola.com/dynamic-creative/docs/google-tag-manager,
+  https://developers.taboola.com/taboolasdk/llms.txt,
+  https://developers.taboola.com/.well-known/api-catalog,
+  https://github.com/taboola/realize-pixel-gtm, https://github.com/taboola/realize-pixel-sgtm
+provider: Taboola
+providerId: taboola
+description: |-
+  Taboola's client-side surface is substantial and is a genuinely different product from
+  the Backstage REST API. Publishers embed recommendation widgets and feeds with a
+  JavaScript loader; advertisers embed conversion/DCO signal collection with a JS snippet
+  or a Google Tag Manager template. None of it is distributed through a package registry —
+  it is a CDN script tag plus a hosted tag template, which is why none of these appear in
+  ../packages/taboola-packages.yml.
+
+  Currency caveat recorded honestly: the loader script tags Taboola documents are
+  UNPINNED — they reference a per-publisher loader path with no version in the URL, so a
+  consumer cannot tell which build they are running and neither can we.
+
+component_count: 4
+families:
+  - name: Web recommendation widgets and feed
+    kind: embeddable-widget
+    distribution: cdn
+    loader: cdn.taboola.com loader script (per-publisher path)
+    version: null
+    note: >-
+      The publisher-side Taboola loader renders "Recommendations You May Like" widgets and
+      the Taboola Feed into a host page. Distribution is an unpinned script tag — no
+      version appears in the URL and there is no registry metadata endpoint to query, so
+      version is recorded as null rather than guessed. Documented under the
+      web-integrations section of the developer portal, which the site's own
+      /.well-known/api-catalog advertises but whose /reference page returns 404.
+    docs: https://developers.taboola.com/web-integrations
+    catalog_status: 404 on https://developers.taboola.com/web-integrations/reference
+
+  - name: Dynamic Creative (DCO) JavaScript API
+    kind: client-side-signal-library
+    distribution: inline snippet
+    version: null
+    docs: https://developers.taboola.com/dynamic-creative/docs/javascript-api
+    updated: '2026-05-24'
+    note: >-
+      A JavaScript snippet added to the host page <head>, keyed by an ACCOUNT_ID issued by
+      a Taboola account manager. Fires page-view and downstream signals; unified_id carries
+      a SHA-256 hashed user email and the docs mark sending it mandatory where available.
+      Three documented flows exist for the same job — Google Tag Manager, this JavaScript
+      API, and Server-to-Server.
+    flows: [Google Tag Manager, JavaScript API, Server-to-Server]
+
+  - name: Realize Pixel GTM template
+    kind: tag-manager-template
+    distribution: Google Tag Manager template gallery / repo
+    repository: https://github.com/taboola/realize-pixel-gtm
+    version: null
+    note: >-
+      "Unified GTM template for SC and ecommerce pixels." A server-side companion exists at
+      taboola/realize-pixel-sgtm. Templates are distributed through GTM, not a package
+      registry, and neither repo publishes tagged releases — version null, checked.
+    updated: '2026-07-24'
+
+  - name: Mobile SDK widgets (iOS / Android / Flutter / React Native)
+    kind: native-embeddable-widget
+    distribution: registry
+    note: >-
+      The publisher-side recommendation widget and Feed as native views. This family DOES
+      have registry distribution and is versioned in ../packages/taboola-packages.yml
+      (TaboolaSDK 4.2.3 on CocoaPods, taboola_sdk 1.0.14 on pub.dev). Listed here because
+      it is the same embeddable-surface product as the web widgets, not an API client.
+    docs: https://developers.taboola.com/taboolasdk/docs/overview
+
+not_components:
+  - name: Backstage API Java client
+    reason: Server-side API client library — see ../packages/.
+  - name: Realize MCP
+    reason: Agent surface, not a UI component — see ../mcp/.

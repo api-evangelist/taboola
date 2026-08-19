@@ -1,0 +1,101 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taboola Backstage Accounts Bulk Items API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bulk Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Mass Create Items For A Campaign",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/campaigns/:campaign_id/items/mass-create",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "campaign_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Create a batch of items for a given campaign in a single request."
+        },
+        {
+          "info": {
+            "name": "Bulk Create Items Across Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/items/bulk",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Bulk create the same items across multiple campaigns."
+        },
+        {
+          "info": {
+            "name": "Bulk Update Items Across Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/items/bulk",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Bulk update items across multiple campaigns."
+        },
+        {
+          "info": {
+            "name": "Bulk Delete Items Across Campaigns",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/items/bulk",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Bulk delete items across multiple campaigns."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

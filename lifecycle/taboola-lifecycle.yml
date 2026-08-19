@@ -1,0 +1,132 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://developers.taboola.com/backstage-api/reference/deprecated-endpoints,
+  https://developers.taboola.com/backstage-api/changelog,
+  https://developers.taboola.com/backstage-api/changelog/password-credentials-deprecation-notice,
+  openapi/*.yml
+provider: Taboola
+providerId: taboola
+api: Taboola Backstage API
+description: |-
+  Taboola runs a light but real lifecycle practice on the Backstage API: a path-pinned
+  version that has never bumped, a dated public changelog with a `deprecated` entry type,
+  and a standing "Deprecated endpoints" reference page that names each retired path and
+  its replacement. What is missing is the machine-readable half — no Sunset or Deprecation
+  response headers (RFC 8594), no dates attached to any deprecation, and no public status
+  page. A consumer cannot learn a path is deprecated from the API itself, only from the
+  docs.
+
+versioning:
+  scheme: path
+  current: '1.0'
+  base: https://backstage.taboola.com/backstage/api/1.0
+  first_seen: '1.0 — no prior or successor version is published'
+  bumps_recorded: 0
+  policy_published: false
+  note: >-
+    68 changelog entries and no version bump. Additive change inside 1.0 is the de facto
+    policy, including at least one behavior change on an existing call (2026-01-18:
+    calling /campaigns with a network account now returns all network campaigns where it
+    previously returned zero results).
+
+deprecation:
+  policy_published: true
+  policy_url: https://developers.taboola.com/backstage-api/reference/deprecated-endpoints
+  changelog_type: deprecated
+  headers:
+    sunset: false
+    deprecation: false
+    link: false
+    rfc8594: false
+  dates_published: false
+  notice_period: not stated
+  note: >-
+    Deprecations are announced in prose with a named replacement, which is more than most
+    of this cohort does — but with no sunset date and no runtime header, an integration
+    keeps working until it does not.
+
+deprecated:
+  - item: OAuth2 password (resource-owner) grant
+    kind: auth-flow
+    announced: '2024-06-30'
+    sunset: null
+    replacement: OAuth2 client credentials flow
+    source: https://developers.taboola.com/backstage-api/changelog/password-credentials-deprecation-notice
+  - item: 'POST /{account_id}/campaigns/{campaign_id}/performance-video/items/'
+    kind: endpoint
+    name: Create a Motion Ad
+    sunset: null
+    replacement: bulkCreateItemsAcrossCampaigns or massCreateItems (unified item endpoints)
+    source: https://developers.taboola.com/backstage-api/reference/deprecated-endpoints
+  - item: 'GET /{account_id}/campaigns/{campaign_id}/performance-video/items/'
+    kind: endpoint
+    name: Get all Motion Ads
+    sunset: null
+    replacement: getAllCampaignItems
+  - item: 'GET /{account_id}/campaigns/{campaign_id}/performance-video/items/{item_id}'
+    kind: endpoint
+    name: Get a Motion Ad
+    sunset: null
+    replacement: getCampaignItem
+  - item: 'PUT /{account_id}/campaigns/{campaign_id}/performance-video/items/{item_id}'
+    kind: endpoint
+    name: Update a Motion Ad
+    sunset: null
+    replacement: updateCampaignItem or bulkUpdateItemsAcrossCampaigns
+  - item: 'DELETE /{account_id}/campaigns/{campaign_id}/performance-video/items/{item_id}'
+    kind: endpoint
+    name: Delete a Motion Ad
+    sunset: null
+    replacement: deleteCampaignItem or bulkDeleteItemsAcrossCampaigns
+  - item: marking_label_multi_targeting
+    kind: field
+    scope: campaign object
+    sunset: null
+    replacement: not stated
+    source: https://developers.taboola.com/backstage-api/llms.txt
+    note: Marked *DEPRECATED* inline in the campaign-fields index.
+
+deprecated_in_openapi:
+  count: 0
+  note: >-
+    No operation in openapi/ carries `deprecated: true`, including the five motion-ad
+    operations the docs list as deprecated. The captured video-items spec
+    (openapi/taboola-video-items-api-openapi.yml) describes the unified replacement paths
+    (/video/items/), not the deprecated /performance-video/items/ paths.
+
+status_page:
+  published: false
+  probed:
+    - url: https://status.taboola.com
+      status: 0
+      note: DNS/connection failure — no host.
+    - url: https://taboola.statuspage.io
+      status: 200
+      resolved_to: https://www.atlassian.com/software/statuspage
+      note: >-
+        Redirects to Atlassian's own marketing page, i.e. the subdomain is unclaimed. Not
+        a Taboola status page.
+  note: >-
+    Taboola publishes no uptime or incident page for the Backstage API. Support routes
+    through help.taboola.com and named account managers.
+
+sla:
+  published: false
+  note: No public availability or latency commitment for the Backstage API.
+
+support:
+  help_center: https://help.taboola.com/
+  developer_docs: https://developers.taboola.com/backstage-api/reference
+  channel: >-
+    Credentials, quota increases and high-volume coordination all route through a named
+    Taboola account manager rather than a self-service console.
+
+agent_surface_lifecycle:
+  mcp_server: https://mcp.realize.com/mcp
+  plugin_version: 0.3.0
+  note: >-
+    The Realize MCP server and the realize-claude-plugin are versioned independently of
+    the Backstage API — the plugin carries its own CHANGELOG.md in
+    github.com/taboola/realize-claude-plugin. Neither is covered by the Backstage
+    changelog.

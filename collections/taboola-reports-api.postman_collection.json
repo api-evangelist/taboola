@@ -1,0 +1,390 @@
+{
+  "item": [
+    {
+      "id": "c9f7c766-06d1-47b1-9aaa-85d9c929d425",
+      "name": "Reports",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "487ca647-76af-46b3-b935-9a941d69016a",
+          "name": "Get Campaign Summary Report",
+          "request": {
+            "name": "Get Campaign Summary Report",
+            "description": {
+              "content": "Get aggregated campaign performance by dimension (day, campaign, site, country, etc).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "reports",
+                "campaign-summary",
+                "dimensions",
+                ":dimension"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "campaign",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "dimension",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53e9dd50-7006-474d-a441-c74aa23337e6",
+              "name": "Report rows with metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "reports",
+                    "campaign-summary",
+                    "dimensions",
+                    ":dimension"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "campaign",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "dimension",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timezone\": \"string\",\n  \"last_used_rawdata_update_time\": \"string\",\n  \"results\": [\n    {\n      \"date\": \"string\",\n      \"campaign\": \"string\",\n      \"campaign_name\": \"string\",\n      \"site\": \"string\",\n      \"site_name\": \"string\",\n      \"country\": \"string\",\n      \"platform\": \"string\",\n      \"impressions\": 8429,\n      \"visible_impressions\": 4840,\n      \"clicks\": 1042,\n      \"ctr\": 107.29890336944491,\n      \"spent\": 3141.2019253735057,\n      \"cpc\": 3514.676620826582,\n      \"cpm\": 1437.348884061379,\n      \"conversions\": 8885,\n      \"conversions_value\": 7643.655827111013,\n      \"cpa\": 7528.394862407215,\n      \"cpa_actions_num\": 2379,\n      \"roas\": 4485.880335554611,\n      \"currency\": \"string\"\n    },\n    {\n      \"date\": \"string\",\n      \"campaign\": \"string\",\n      \"campaign_name\": \"string\",\n      \"site\": \"string\",\n      \"site_name\": \"string\",\n      \"country\": \"string\",\n      \"platform\": \"string\",\n      \"impressions\": 9227,\n      \"visible_impressions\": 2644,\n      \"clicks\": 3147,\n      \"ctr\": 9244.163687418186,\n      \"spent\": 8738.418970519708,\n      \"cpc\": 3898.6966611688836,\n      \"cpm\": 5358.26125520796,\n      \"conversions\": 3215,\n      \"conversions_value\": 8530.107599906272,\n      \"cpa\": 4331.4220614372,\n      \"cpa_actions_num\": 9596,\n      \"roas\": 7603.9205033375465,\n      \"currency\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "073cfae1-3ed4-44d4-aefe-4562b1342e4b",
+          "name": "Get Top Campaign Content Report",
+          "request": {
+            "name": "Get Top Campaign Content Report",
+            "description": {
+              "content": "Get top performing creative items for the specified date range.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "reports",
+                "top-campaign-content",
+                "dimensions",
+                "item_breakdown"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "start_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "end_date",
+                  "value": "<date>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "17b104ab-0898-4c77-afda-57620fa955f9",
+              "name": "Top content report.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "reports",
+                    "top-campaign-content",
+                    "dimensions",
+                    "item_breakdown"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "start_date",
+                      "value": "<date>"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "<date>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a493896f-1779-4b33-b753-27f839e363ca",
+          "name": "Get Real-Time Ads Report",
+          "request": {
+            "name": "Get Real-Time Ads Report",
+            "description": {
+              "content": "Near real-time performance snapshot for ads.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ":account_id",
+                "reports",
+                "realtime-ads"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "account_id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "93c677ae-5e82-4770-80e4-21a257b27af7",
+              "name": "Real-time metrics.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ":account_id",
+                    "reports",
+                    "realtime-ads"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "account_id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://backstage.taboola.com/backstage/api/1.0",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97111c60-aaaa-4899-8294-3e94f74088d9",
+    "name": "Taboola Backstage Accounts Reports API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and\nagencies managing multiple advertiser accounts under a Taboola network account.\n\nContact Support:\n Name: Taboola Developer Relations",
+      "type": "text/plain"
+    }
+  }
+}

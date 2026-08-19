@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Taboola Backstage Accounts API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Allowed Accounts",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/users/current/allowed-accounts"
+          },
+          "docs": "Returns all accounts allowed for the authenticated user credentials."
+        },
+        {
+          "info": {
+            "name": "Get Advertiser Accounts In Network",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:network_id/advertisers",
+            "params": [
+              {
+                "name": "network_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns advertiser accounts in the specified network."
+        },
+        {
+          "info": {
+            "name": "Get Account Details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://backstage.taboola.com/backstage/api/1.0/:account_id/account-details",
+            "params": [
+              {
+                "name": "account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve details for the specified account."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

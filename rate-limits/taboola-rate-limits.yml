@@ -1,3 +1,15 @@
+generated: '2026-08-13'
+method: searched
+source: https://developers.taboola.com/backstage-api/reference (full reference + llms.txt index searched for limit/quota/429/Retry-After)
+limit_count: 0
+response_headers: none published
+exhaustion_status: not documented
+methodNote: >-
+  Re-searched 2026-08-13 across the 415-link Backstage documentation index: no published
+  rate-limit table, no X-RateLimit-*/RateLimit-* headers, no Retry-After and no documented
+  429 contract. Limits exist and are enforced per OAuth client at the gateway, but they are
+  unsignalled to the client. The one hard published cap found anywhere is on the Realize MCP
+  server, whose tools cap page_size at 10. An honest zero.
 specification: API Commons Rate Limits
 specificationVersion: '0.1'
 schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits

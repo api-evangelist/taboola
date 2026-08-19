@@ -1,0 +1,79 @@
+generated: '2026-08-13'
+method: probed
+source: >-
+  https://mcp.realize.com/.well-known/oauth-authorization-server,
+  https://mcp.realize.com/.well-known/oauth-protected-resource,
+  https://developers.taboola.com/backstage-api/reference/authentication-basics,
+  https://developers.taboola.com/backstage-api/reference/client-credentials-flow
+provider: Taboola
+providerId: taboola
+description: |-
+  Taboola runs OAuth on both of its API surfaces but publishes almost no scope vocabulary.
+  derive-oauth-scopes.py found zero oauth2 securitySchemes in openapi/ (the captured specs
+  model auth as an http bearer scheme, which is what the Backstage docs describe at the
+  request level), so nothing could be derived. Everything below was probed or read from
+  the provider's own documentation.
+
+  The finding: authorization on both surfaces is coarse. The Backstage API issues a token
+  whose permissions are those of the account behind the client_id — there are no scopes at
+  all in the token request. The Realize MCP server advertises exactly one scope, `all`.
+  An agent cannot be granted read-only access to Realize; the same token that lists
+  campaigns can create and update them.
+
+docs:
+  - https://developers.taboola.com/backstage-api/reference/authentication-basics
+  - https://developers.taboola.com/backstage-api/reference/client-credentials-flow
+
+surfaces:
+  - name: Backstage API
+    base: https://backstage.taboola.com/backstage/api/1.0
+    token_endpoint: https://backstage.taboola.com/backstage/oauth/token
+    grant: client_credentials
+    scope_parameter: not used
+    scopes_published: 0
+    note: >-
+      The documented token request body carries only client_id, client_secret and
+      grant_type. The embedded OpenAPI fragment on the client-credentials-flow docs page
+      declares the oauth2 scheme with an EMPTY scopes object ("scopes": {}) for both the
+      clientCredentials and password flows — the provider's own machine-readable statement
+      that there is no scope vocabulary. Permissions are attached to the account the
+      credentials identify ("The Access Token identifies who you are - and your set of
+      permissions").
+
+  - name: Realize MCP
+    base: https://mcp.realize.com/mcp
+    issuer: https://mcp.realize.com
+    authorization_endpoint: https://authentication.taboola.com/authentication/oauth2.1/authorize
+    token_endpoint: https://authentication.taboola.com/authentication/oauth2.1/token
+    grant: [authorization_code, refresh_token, client_credentials]
+    pkce: S256
+    scopes_published: 1
+    scopes:
+      - name: all
+        description: >-
+          The only scope the Realize authorization server advertises. Declared in both
+          RFC 8414 authorization-server metadata (scopes_supported) and RFC 9728
+          protected-resource metadata (scopes_supported). No description is published by
+          the provider; the name is self-describing and there is no narrower alternative.
+        source: https://mcp.realize.com/.well-known/oauth-authorization-server
+        http_status: 200
+        read_only_alternative: none
+    note: >-
+      Coarse-grained by construction. The MCP server exposes 25 tools including six write
+      tools (create_campaign, update_campaign, create/update native and display items) and
+      they are all reachable under the same single scope. Least-privilege for an agent has
+      to be enforced client-side — which is exactly what Taboola's own realize-claude-plugin
+      does, splitting reads and writes across separate skills and gating every write behind
+      a preview-and-confirm step (see ../skills/taboola-manage-campaigns.md).
+
+x-evidence:
+  - fetched: '2026-08-13'
+    url: https://mcp.realize.com/.well-known/oauth-authorization-server
+    http_status: 200
+    file: ../well-known/taboola-mcp-oauth-authorization-server.json
+  - fetched: '2026-08-13'
+    url: https://mcp.realize.com/.well-known/oauth-protected-resource
+    http_status: 200
+    file: ../well-known/taboola-mcp-oauth-protected-resource.json
+
+scope_count: 1

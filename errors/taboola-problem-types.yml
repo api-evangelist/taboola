@@ -1,0 +1,109 @@
+generated: '2026-08-13'
+method: searched
+source: >-
+  https://developers.taboola.com/backstage-api/reference/error,
+  https://developers.taboola.com/backstage-api/reference/request-basics,
+  https://developers.taboola.com/backstage-api/reference/authentication-basics,
+  https://developers.taboola.com/backstage-api/reference/client-credentials-flow,
+  https://developers.taboola.com/backstage-api/reference/delete-a-campaign
+provider: Taboola
+providerId: taboola
+api: Taboola Backstage API
+description: |-
+  Taboola publishes a short, explicit error contract for the Backstage API: on failure the
+  server returns the HTTP status code and a JSON body with an http_status integer and a
+  human message. It is NOT RFC 9457 — there is no type URI, no title/detail split, no
+  application/problem+json media type, and no machine-readable error code beyond the HTTP
+  status itself. The token endpoint is the exception and returns XML, not JSON.
+
+  Derived nothing from the OpenAPI: the captured specs declare no 4xx/5xx responses, so
+  every entry below comes from the documentation.
+format: custom
+rfc9457: false
+media_type: application/json
+envelope:
+  shape: object
+  fields:
+    - name: http_status
+      type: integer
+      description: The HTTP status code, repeated in the body.
+    - name: message
+      type: string
+      description: Brief human-readable description of the error.
+  example: |-
+    {
+        "http_status": 404,
+        "message": "Resource not found"
+    }
+  note: >-
+    No error code enum, no field-level validation array, and no request/trace id is
+    documented in the envelope.
+
+exceptions:
+  - surface: POST https://backstage.taboola.com/backstage/oauth/token
+    format: xml
+    note: >-
+      The OAuth token endpoint returns an XML fault, not the JSON envelope — e.g.
+      <BadClientCredentialsException><error>invalid_client</error>
+      <error_description>Bad client credentials</error_description></BadClientCredentialsException>.
+      A trailing slash on the token URL produces a 403 HTML page from Jetty
+      ("Could not verify the provided CSRF token because your session was not found"),
+      which the docs call out as a known trap.
+  - surface: any path under /backstage/api/1.0 called without a bearer token
+    format: xml
+    observed: '2026-08-13'
+    note: >-
+      Probed live: GET /backstage/api/1.0/openapi.json returned 401 with
+      Content-Type application/xml and body
+      <UnauthorizedException><error>unauthorized</error><error_description>Full
+      authentication is required to access this resource</error_description>...
+      So unauthenticated failures are XML even on the JSON API.
+
+problem_types:
+  - status: 401
+    name: Unauthorized
+    meaning: Missing Authorization header, or an invalid or expired access token.
+    remediation: >-
+      Obtain a fresh access token from the client credentials flow. Tokens are valid for
+      12 hours (expires_in 43200) and there is no refresh token — re-authenticate.
+    source: https://developers.taboola.com/backstage-api/reference/authentication-basics
+  - status: 400
+    name: invalid_client
+    meaning: Bad client credentials submitted to the token endpoint.
+    envelope: xml
+    remediation: Verify client_id and client_secret with your Taboola account manager.
+    source: https://developers.taboola.com/backstage-api/reference/client-credentials-flow
+  - status: 403
+    name: CSRF/session error on the token endpoint
+    meaning: >-
+      Trailing slash on the token endpoint URL. Documented as returning an HTML Jetty
+      error page rather than a JSON or XML fault.
+    remediation: 'Call https://backstage.taboola.com/backstage/oauth/token with no trailing slash.'
+    source: https://developers.taboola.com/backstage-api/reference/client-credentials-flow
+  - status: 404
+    name: Resource not found
+    meaning: >-
+      The referenced entity does not exist. Also the documented response after a delete —
+      a deleted campaign returns status TERMINATED and any later reference to that
+      campaign_id returns 404; a deleted item returns status STOPPED and then 404.
+    remediation: Re-list the parent collection to confirm the id is still live.
+    source: https://developers.taboola.com/backstage-api/reference/delete-a-campaign
+  - status: 415
+    name: Unsupported Media Type
+    meaning: >-
+      A write request (POST/PUT/PATCH) sent without a Content-Type header. The server
+      reports the inferred type, e.g. "application/octet-stream content type is not
+      supported by the requested resource".
+    remediation: Always send Content-Type application/json on writes.
+    source: https://developers.taboola.com/backstage-api/reference/request-basics
+
+not_documented:
+  statuses:
+    - 429
+    - 500
+    - 502
+    - 503
+  note: >-
+    Taboola publishes no throttling or server-error contract for the Backstage API. See
+    ../rate-limits/taboola-rate-limits.yml — limits are enforced per OAuth client but not
+    documented, so 429 handling has to be written defensively.
