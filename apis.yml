@@ -791,6 +791,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/taboola.png
 access: 3rd-Party
 common:
+  - type: Website
+    url: https://www.taboola.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/taboola/overview
   - type: AgenticAccess
