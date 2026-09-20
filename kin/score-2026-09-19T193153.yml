@@ -1,31 +1,29 @@
-# Kin Score artifact — taboola — 2026-08-19T114122
+# Kin Score artifact — taboola — 2026-09-19T193153
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: taboola
-  schema_version: 0.12.0
-  scored_at: '2026-08-19'
-  run_ts: 2026-08-19T114122
-  composite: 70.1
+  schema_version: 0.22.0
+  scored_at: '2026-09-19'
+  run_ts: 2026-09-19T193153
+  composite: 67.4
   band: exemplar
   facets:
     discoverability: 75.9
-    contract_quality: 68.2
-    governance: 40.2
+    contract_quality: 69.0
+    contract_governance: 28.0
     operational_transparency: 57.9
-    developer_ergonomics: 76.2
-    commercial_clarity: 89.5
-    contract_governance: 40.2
+    developer_ergonomics: 72.6
     access_clarity: 89.5
   agent_readiness:
-    score: 42.4
+    score: 31.0
     band: agent-ready
     dimensions:
       spec_presence: true
       agentic_access: derived
       reversibility_documented: false
       mcp_server: documented
-      auth_clarity: true
+      auth_clarity: bearer
       idempotency: false
       error_semantics: documented
       openapi_examples: documented
@@ -36,6 +34,10 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   provenance:
     mcp: first-party
     skills: first-party
