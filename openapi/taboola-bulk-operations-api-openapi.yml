@@ -1,15 +1,23 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Taboola Backstage Accounts Bulk Operations API
+  title: Taboola Backstage Campaigns Bulk Operations API
   version: '1.0'
-  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+  description: 'Programmatic interface for managing Taboola Realize advertising campaigns. The Backstage Campaigns
 
-    agencies managing multiple advertiser accounts under a Taboola network account.'
+    surface provides CRUD operations for campaigns at the account level, plus bulk and network-wide
+
+    convenience endpoints. Used by advertisers and ad operations platforms to integrate Taboola native
+
+    and discovery campaign management.'
   contact:
     name: Taboola Developer Relations
     url: https://developers.taboola.com/backstage-api/reference
+  license:
+    name: Proprietary
+    url: https://www.taboola.com/legal-policies
 servers:
 - url: https://backstage.taboola.com/backstage/api/1.0
+  description: Production
 security:
 - bearerAuth: []
 tags:
@@ -54,3 +62,8 @@ components:
       type: http
       scheme: bearer
       bearerFormat: JWT
+      description: 'OAuth 2.0 client credentials access token. Obtain via POST to
+
+        https://backstage.taboola.com/backstage/oauth/token with `grant_type=client_credentials`,
+
+        `client_id`, and `client_secret`.'

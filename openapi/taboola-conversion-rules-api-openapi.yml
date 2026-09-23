@@ -1,13 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Taboola Backstage Accounts Conversion Rules API
+  title: Taboola Backstage Conversions Conversion Rules API
   version: '1.0'
-  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+  description: 'Manage Taboola conversion rules and report conversion events. Supports creating, listing,
 
-    agencies managing multiple advertiser accounts under a Taboola network account.'
+    updating, and archiving conversion rules used to track campaign outcomes (purchases, leads,
+
+    page views) and to optimize bid strategies.'
   contact:
     name: Taboola Developer Relations
-    url: https://developers.taboola.com/backstage-api/reference
+    url: https://developers.taboola.com/conversion-tracking
 servers:
 - url: https://backstage.taboola.com/backstage/api/1.0
 security:
@@ -123,6 +125,13 @@ paths:
         '200':
           description: Archived.
 components:
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     ConversionRule:
       type: object
@@ -172,13 +181,6 @@ components:
           format: date-time
         last_modified_by:
           type: string
-  parameters:
-    accountId:
-      name: account_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

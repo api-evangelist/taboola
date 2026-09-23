@@ -1,13 +1,15 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Taboola Backstage Accounts Combined Audiences API
+  title: Taboola Backstage Audiences Combined Audiences API
   version: '1.0'
-  description: 'Access and search advertiser accounts within a Taboola network. Used by ad ops platforms and
+  description: 'Manage first-party audiences, custom audiences, lookalike audiences, marketplace (third-party)
 
-    agencies managing multiple advertiser accounts under a Taboola network account.'
+    audience segments, combined audiences, and contextual segments. Apply audience targeting to
+
+    Taboola Realize campaigns.'
   contact:
     name: Taboola Developer Relations
-    url: https://developers.taboola.com/backstage-api/reference
+    url: https://developers.taboola.com/backstage-api/reference/audience-targeting
 servers:
 - url: https://backstage.taboola.com/backstage/api/1.0
 security:
