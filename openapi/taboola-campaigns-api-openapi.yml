@@ -132,21 +132,6 @@ paths:
           description: Newly created campaign.
 components:
   schemas:
-    Targeting:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - INCLUDE
-          - EXCLUDE
-          - ALL
-        value:
-          type: array
-          items:
-            type: string
-        href:
-          type: string
     Campaign:
       type: object
       properties:
@@ -250,6 +235,21 @@ components:
         spent:
           type: number
           format: float
+    Targeting:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - INCLUDE
+          - EXCLUDE
+          - ALL
+        value:
+          type: array
+          items:
+            type: string
+        href:
+          type: string
   parameters:
     accountId:
       name: account_id

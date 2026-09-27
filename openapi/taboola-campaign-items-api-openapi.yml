@@ -114,12 +114,6 @@ paths:
           description: Deletion confirmation.
 components:
   parameters:
-    itemId:
-      name: item_id
-      in: path
-      required: true
-      schema:
-        type: string
     accountId:
       name: account_id
       in: path
@@ -128,6 +122,12 @@ components:
         type: string
     campaignId:
       name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+    itemId:
+      name: item_id
       in: path
       required: true
       schema:

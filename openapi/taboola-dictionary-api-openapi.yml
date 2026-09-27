@@ -173,12 +173,6 @@ paths:
           description: Publishers list.
 components:
   parameters:
-    accountId:
-      name: account_id
-      in: path
-      required: true
-      schema:
-        type: string
     countryCode:
       name: country_code
       in: path
@@ -187,6 +181,12 @@ components:
         type: string
         minLength: 2
         maxLength: 2
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
