@@ -131,7 +131,37 @@ paths:
         '200':
           description: Newly created campaign.
 components:
+  parameters:
+    campaignId:
+      name: campaign_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Campaign identifier.
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
+      description: Taboola account identifier.
   schemas:
+    Targeting:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - INCLUDE
+          - EXCLUDE
+          - ALL
+        value:
+          type: array
+          items:
+            type: string
+        href:
+          type: string
     Campaign:
       type: object
       properties:
@@ -235,36 +265,6 @@ components:
         spent:
           type: number
           format: float
-    Targeting:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - INCLUDE
-          - EXCLUDE
-          - ALL
-        value:
-          type: array
-          items:
-            type: string
-        href:
-          type: string
-  parameters:
-    accountId:
-      name: account_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Taboola account identifier.
-    campaignId:
-      name: campaign_id
-      in: path
-      required: true
-      schema:
-        type: string
-      description: Campaign identifier.
   securitySchemes:
     bearerAuth:
       type: http

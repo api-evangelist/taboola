@@ -51,14 +51,14 @@ paths:
           description: Created video item.
 components:
   parameters:
-    accountId:
-      name: account_id
+    campaignId:
+      name: campaign_id
       in: path
       required: true
       schema:
         type: string
-    campaignId:
-      name: campaign_id
+    accountId:
+      name: account_id
       in: path
       required: true
       schema:

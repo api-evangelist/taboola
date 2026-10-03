@@ -116,13 +116,6 @@ paths:
         '200':
           description: Real-time metrics.
 components:
-  parameters:
-    accountId:
-      name: account_id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     ReportRow:
       type: object
@@ -174,6 +167,13 @@ components:
           format: float
         currency:
           type: string
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http
