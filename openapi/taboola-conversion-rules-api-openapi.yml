@@ -125,13 +125,6 @@ paths:
         '200':
           description: Archived.
 components:
-  parameters:
-    accountId:
-      name: account_id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     ConversionRule:
       type: object
@@ -181,6 +174,13 @@ components:
           format: date-time
         last_modified_by:
           type: string
+  parameters:
+    accountId:
+      name: account_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

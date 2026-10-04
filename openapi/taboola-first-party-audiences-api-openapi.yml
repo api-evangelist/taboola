@@ -87,20 +87,6 @@ paths:
           description: Audience.
 components:
   schemas:
-    UserId:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-          - EMAIL
-          - DEVICE_ID
-          - IDFA
-          - AAID
-          - MAID
-        value:
-          type: string
-          description: Hashed identifier (SHA-256 recommended).
     FirstPartyAudience:
       type: object
       properties:
@@ -118,6 +104,20 @@ components:
         ttl:
           type: integer
           description: Time-to-live in days.
+    UserId:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - EMAIL
+          - DEVICE_ID
+          - IDFA
+          - AAID
+          - MAID
+        value:
+          type: string
+          description: Hashed identifier (SHA-256 recommended).
   parameters:
     accountId:
       name: account_id
