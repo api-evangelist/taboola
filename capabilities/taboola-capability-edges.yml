@@ -1,0 +1,75 @@
+slug: taboola
+provider: Taboola
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 6
+edges:
+- tag: Campaigns
+  spec_file: taboola-campaigns-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.85
+  evidence: POST /{account_id}/campaigns/ createCampaign Create A Campaign; schemas Targeting, Campaign;
+    "managing Taboola Realize advertising campaigns"
+  reason: Full lifecycle management of native/discovery advertising campaigns is paid-media management
+    within Digital Marketing.
+- tag: Campaign Items
+  spec_file: taboola-campaign-items-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.8
+  evidence: GET/POST /{account_id}/campaigns/{campaign_id}/items/ createCampaignItem Create A Campaign
+    Item; schema Item; "campaign creatives (items)"
+  reason: CRUD over native-ad creatives within advertising campaigns is squarely paid-media/digital marketing
+    execution.
+- tag: Audience Targeting
+  spec_file: taboola-audience-targeting-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.75
+  evidence: POST /{account_id}/campaigns/{campaign_id}/targeting/my_audience updateMyAudienceTargeting;
+    "Apply audience targeting to Taboola Realize campaigns"
+  reason: Applying first-party/lookalike audience targeting to paid native advertising campaigns is paid-media/digital
+    marketing execution.
+- tag: Bulk Items
+  spec_file: taboola-bulk-items-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.72
+  evidence: '"Manage individual campaign creatives (items) and performance video items (motion ads) for
+    Taboola Realize campaigns"; bulkCreateItemsAcrossCampaigns'
+  reason: Bulk management of ad creatives across campaigns is paid-media/digital advertising execution;
+    the 'bulk' framing is just an operational variant of the same capability.
+- tag: Bulk Operations
+  spec_file: taboola-bulk-operations-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.72
+  evidence: POST /{account_id}/campaigns/bulk bulkUpdateCampaigns; "managing Taboola Realize advertising
+    campaigns"
+  reason: Network-wide and bulk advertising campaign updates are paid-media campaign management, i.e.
+    digital marketing execution.
+- tag: Conversion Rules
+  spec_file: taboola-conversion-rules-api-openapi.yml
+  capability_id: BC-400.60
+  capability_id_l1: BC-400
+  capability_name: Digital Marketing Management
+  confidence: 0.7
+  evidence: '"Manage Taboola conversion rules and report conversion events ... used to track campaign
+    outcomes (purchases, leads, page views) and to optimize bid strategies"'
+  reason: Conversion tracking rules for paid native advertising campaigns are a digital/paid-media marketing
+    measurement function, not financial or sales order processing.
