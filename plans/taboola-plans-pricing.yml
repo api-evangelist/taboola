@@ -100,3 +100,28 @@ plans:
       - Network-wide campaign list endpoint
       - Multi-advertiser account discovery
       - Dedicated account management
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  - negotiated
+  units:
+  - negotiated
+  plans:
+  - name: Realize Advertiser
+    access: other
+    model: metered
+    model_how: stated
+    units:
+    - other
+    periods:
+    - per-use
+  - name: Managed / Network Account
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units:
+    - negotiated
+    periods:
+    - term
