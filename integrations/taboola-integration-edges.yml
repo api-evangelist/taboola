@@ -4,6 +4,7 @@ checked:
 - https://hightouch.com/docs/destinations/taboola
 - https://vendor-list.consensu.org/v3/vendor-list.json
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-taboola-actions
+- wordpress/integrations/wordpress-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: Twilio Segment
@@ -94,6 +95,23 @@ edges:
     detected: '2026-10-14'
   detected_by: sweep-adtech.py
   detected: '2026-10-14'
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/taboola/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Taboola
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
 source:
 - https://hightouch.com/docs/destinations/taboola
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-taboola-actions
