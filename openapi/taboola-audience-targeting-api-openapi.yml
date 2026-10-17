@@ -42,14 +42,14 @@ paths:
           description: Updated.
 components:
   parameters:
-    campaignId:
-      name: campaign_id
+    accountId:
+      name: account_id
       in: path
       required: true
       schema:
         type: string
-    accountId:
-      name: account_id
+    campaignId:
+      name: campaign_id
       in: path
       required: true
       schema:
