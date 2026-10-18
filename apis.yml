@@ -423,6 +423,8 @@ apis:
   humanURL: https://developers.taboola.com/backstage-api/reference/campaigns-overview
   baseURL: https://backstage.taboola.com/backstage/api/1.0
   tags:
+  - Dictionaries
+  tags_raw:
   - Dictionary
   properties:
   - type: OpenAPI
