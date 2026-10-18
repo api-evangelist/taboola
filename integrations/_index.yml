@@ -108,7 +108,7 @@
     - alpha
     in_cloud: true
     builder: unknown (community connector; contributor not in the record)
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: taboola-fivetran
   label: Fivetran
@@ -134,7 +134,7 @@
     - connectors/applications/taboola
     vendor_link: https://www.taboola.com/advertisers
     builder: Fivetran
-  status: pending-generation
+  status: not-a-workflow
   arazzo: null
 - slug: taboola-meltano
   label: Meltano
@@ -165,5 +165,5 @@
     - bronze
     - unknown
     builder: 'community (Meltano Hub variant maintainers: dbt-labs, singer-io)'
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
