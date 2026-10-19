@@ -1,12 +1,19 @@
 generated: '2026-10-14'
 method: searched
 checked:
+- https://api.nuget.org/v3
 - https://connectors.airbyte.com/files/registries/v0/cloud_registry.json
 - https://connectors.airbyte.com/files/registries/v0/oss_registry.json
+- https://crates.io/api/v1
 - https://fivetran.com/docs-sitemap.xml
 - https://fivetran.com/docs/connectors/partner-built-program
 - https://github.com/meltano/hub
 - https://hightouch.com/docs/destinations/taboola
+- https://proxy.golang.org
+- https://pypi.org/pypi
+- https://registry.npmjs.org
+- https://repo1.maven.org/maven2
+- https://rubygems.org/api/v1
 - https://vendor-list.consensu.org/v3/vendor-list.json
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-taboola-actions
 - wordpress/integrations/wordpress-integration-edges.yml
@@ -203,6 +210,54 @@ edges:
     - unknown
     builder: 'community (Meltano Hub variant maintainers: dbt-labs, singer-io)'
   detected_by: sweep-data-integration.py
+  first_seen: '2026-10-18'
+- partner_name: Maven Central
+  partner: maven-central
+  partner_match: register
+  type: register
+  direction: provider-built
+  category: official SDK (Java/JVM)
+  evidence: https://central.sonatype.com/artifact/com.taboola/android-sdk
+  channel: package-registry
+  relationship: distribution-channel
+  contract_reference:
+    register: Maven Central (public registry JSON)
+    spec_file: null
+    language: Java/JVM
+    packages:
+    - name: com.taboola:android-sdk
+      version: 2.0.3
+      released: '2021-03-17'
+      released_field: lastUpdated
+      lapsed: true
+      page: https://central.sonatype.com/artifact/com.taboola/android-sdk
+      repo_leg: domain:taboola.com
+      publisher_leg: groupId:taboola.com
+      matched_by: domain
+    - name: com.taboola:api-java-client-core
+      version: 1.0.8
+      released: '2025-04-30'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.taboola/api-java-client-core
+      repo_leg: github-org:taboola
+      publisher_leg: groupId:taboola.com
+      matched_by: domain
+    - name: com.taboola:backstage-api-java-client
+      version: 1.1.12
+      released: '2025-05-02'
+      released_field: lastUpdated
+      lapsed: false
+      page: https://central.sonatype.com/artifact/com.taboola/backstage-api-java-client
+      repo_leg: github-org:taboola
+      publisher_leg: groupId:taboola.com
+      matched_by: domain
+    current: true
+    signal_note: 'an official package on the registry: distribution, not an integration; lapsed = no release in
+      24 months'
+    detected_by: sweep-official-sdks.py
+    detected: '2026-10-18'
+  detected_by: sweep-official-sdks.py
   first_seen: '2026-10-18'
 source:
 - https://hightouch.com/docs/destinations/taboola
