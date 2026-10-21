@@ -23,6 +23,11 @@ checked:
 - https://officialskills.sh/sitemap.xml
 - https://skillsmp.com/sitemap.xml
 - https://www.skills.sh/sitemap.xml
+- https://cdn.cocoapods.org/all_pods.txt
+- https://cert.appdefensealliance.org/certifications
+- https://play.google.com/sdks
+- https://search.maven.org/solrsearch/select
+- google-play/integrations/google-play-integration-edges.yml
 marketplace_apps: []
 edges:
 - partner_name: IAB Europe TCF Global Vendor List
@@ -65,23 +70,6 @@ edges:
     detected: '2026-10-14'
   detected_by: sweep-adtech.py
   detected: '2026-10-14'
-- partner_name: WordPress (own)
-  partner: wordpress
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://wordpress.org/plugins/taboola/
-  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
-  apps:
-  - Taboola
-  listing_count: 1
-  detected: '2026-10-15'
-  detected_by: mirror-platform-listings.py
-  category: WordPress plugin
 - partner_name: Maven Central
   partner: maven-central
   partner_match: register
@@ -297,6 +285,88 @@ edges:
     detected: '2026-10-20'
   detected_by: sweep-agent-skills.py
   first_seen: '2026-10-20'
+- partner_name: CocoaPods trunk
+  partner: null
+  partner_match: register
+  type: register
+  channel: package-registry
+  relationship: distribution-channel
+  direction: provider-built
+  evidence: https://cocoapods.org/pods/TaboolaPodTester
+  category: iOS SDK (CocoaPods)
+  contract_reference:
+    register: CocoaPods trunk (cdn.cocoapods.org Specs; github.com/CocoaPods/Specs)
+    spec_file: null
+    role: cocoapods-publisher
+    registered_name: Taboola
+    matched_domain: taboola.com
+    matched_by: domain
+    pods:
+    - pod: TaboolaPodTester
+      version: 1.0.6
+      homepage: https://www.taboola.com
+      deprecated: false
+    - pod: TaboolaPush
+      version: 1.0.3
+      homepage: https://www.taboola.com/
+      deprecated: false
+    - pod: TaboolaSDK
+      version: 4.2.9
+      homepage: https://www.taboola.com
+      deprecated: false
+    - pod: TaboolaSDK-AdX
+      version: '1.3'
+      homepage: https://www.taboola.com
+      deprecated: false
+    - pod: TaboolaSDK2
+      version: 2.0.0
+      homepage: https://www.taboola.com
+      deprecated: false
+    - pod: TaboolaSDK_AdX_Adapter
+      version: 1.0.1
+      homepage: https://www.taboola.com
+      deprecated: true
+    signal_note: latest podspec homepage (domain) + authors (name); pods, versions and counts are context
+    detected_by: sweep-mobile-sdk-index.py
+    detected: '2026-10-21'
+  detected_by: sweep-mobile-sdk-index.py
+  first_seen: '2026-10-21'
+- partner_name: WordPress (own)
+  partner: wordpress
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://wordpress.org/plugins/taboola/
+  mirror_of: wordpress/integrations/wordpress-integration-edges.yml
+  apps:
+  - Taboola
+  listing_count: 1
+  detected: '2026-10-15'
+  detected_by: mirror-platform-listings.py
+  category: WordPress plugin
+- partner_name: Google Play Developer (Google Play SDK Index)
+  partner: google-play
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: Google Play SDK Index
+  evidence: https://play.google.com/sdks/details/com-taboola-android-sdk
+  mirror_of: google-play/integrations/google-play-integration-edges.yml
+  apps:
+  - Taboola SDK
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: mobile SDK (ads)
+  publisher_verified:
+  - Registered in Google Play SDK Console
 source:
 - https://hightouch.com/docs/destinations/taboola
 - https://www.twilio.com/docs/segment/connections/destinations/catalog/actions-taboola-actions

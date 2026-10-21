@@ -43,19 +43,6 @@
     detected: '2026-10-14'
   status: not-a-workflow
   arazzo: null
-- slug: taboola-wordpress-own
-  label: WordPress (own)
-  partner: wordpress
-  partner_name: WordPress (own)
-  category: WordPress plugin
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://wordpress.org/plugins/taboola/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: taboola-maven-central
   label: Maven Central
   partner: maven-central
@@ -234,5 +221,77 @@
     matched_by: org-profile-domain:taboola.com
     detected_by: sweep-agent-skills.py
     detected: '2026-10-20'
+  status: not-a-workflow
+  arazzo: null
+- slug: taboola-cocoapods-trunk
+  label: CocoaPods trunk
+  partner_name: CocoaPods trunk
+  category: iOS SDK (CocoaPods)
+  type: register
+  channel: package-registry
+  evidence: https://cocoapods.org/pods/TaboolaPodTester
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: CocoaPods trunk (cdn.cocoapods.org Specs; github.com/CocoaPods/Specs)
+    spec_file: null
+    role: cocoapods-publisher
+    registered_name: Taboola
+    matched_domain: taboola.com
+    matched_by: domain
+    pods:
+    - pod: TaboolaPodTester
+      version: 1.0.6
+      homepage: https://www.taboola.com
+      deprecated: false
+    - pod: TaboolaPush
+      version: 1.0.3
+      homepage: https://www.taboola.com/
+      deprecated: false
+    - pod: TaboolaSDK
+      version: 4.2.9
+      homepage: https://www.taboola.com
+      deprecated: false
+    - pod: TaboolaSDK-AdX
+      version: '1.3'
+      homepage: https://www.taboola.com
+      deprecated: false
+    - pod: TaboolaSDK2
+      version: 2.0.0
+      homepage: https://www.taboola.com
+      deprecated: false
+    - pod: TaboolaSDK_AdX_Adapter
+      version: 1.0.1
+      homepage: https://www.taboola.com
+      deprecated: true
+    signal_note: latest podspec homepage (domain) + authors (name); pods, versions and counts are context
+    detected_by: sweep-mobile-sdk-index.py
+    detected: '2026-10-21'
+  status: not-a-workflow
+  arazzo: null
+- slug: taboola-wordpress-own
+  label: WordPress (own)
+  partner: wordpress
+  partner_name: WordPress (own)
+  category: WordPress plugin
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://wordpress.org/plugins/taboola/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: taboola-google-play-developer-google-play-sdk-index
+  label: Google Play Developer (Google Play SDK Index)
+  partner: google-play
+  partner_name: Google Play Developer (Google Play SDK Index)
+  category: mobile SDK (ads)
+  type: marketplace
+  marketplace: Google Play SDK Index
+  channel: partner-built
+  evidence: https://play.google.com/sdks/details/com-taboola-android-sdk
+  source: edge
+  relationship: platform-app
   status: not-a-workflow
   arazzo: null
